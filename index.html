@@ -93,6 +93,8 @@ a{color:inherit;text-decoration:none}
 .meta-value{font-size:14px}
 .hero-banner{margin:0 2rem 2.5rem;aspect-ratio:21/9;border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);max-width:1080px;margin-left:auto;margin-right:auto}
 .hero-banner img{width:100%;height:100%;object-fit:cover}
+.case-video{margin-top:1.5rem;aspect-ratio:16/9;border-radius:var(--radius-lg);overflow:hidden;border:0.5px solid var(--border-tertiary)}
+.case-video iframe{width:100%;height:100%;border:none}
 .csection{padding:0 2rem 2.5rem;max-width:680px;margin:0 auto}
 .sec-label{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:0.75rem}
 .sec-title{font-size:20px;font-weight:500;margin-bottom:1rem}
@@ -408,7 +410,7 @@ function renderCase(c){
   </div>
   <div class="hero-banner">${d.banner}</div>
   <div class="csection"><p class="sec-label">Kontekst</p><h2 class="sec-title">Problemet</h2>${context}</div>
-  <div class="csection"><p class="sec-label">Proces</p><h2 class="sec-title">Sådan greb jeg det an</h2><p class="sec-text">${d.processIntro}</p><div class="process-grid">${process}</div></div>
+  <div class="csection"><p class="sec-label">Proces</p><h2 class="sec-title">Sådan greb jeg det an</h2><p class="sec-text">${d.processIntro}</p><div class="process-grid">${process}</div>${video}</div>
   <div class="csection"><p class="sec-label">Mit ansvar</p><h2 class="sec-title">Det stod jeg for</h2><ul class="responsibility-list">${resp}</ul></div>
   <div class="csection"><p class="sec-label">Resultat</p><h2 class="sec-title">Hvad det førte til</h2><div class="result-card"><div class="result-stats">${stats}</div><p class="result-text">${d.resultText}</p></div>${conf}</div>`;
 }
