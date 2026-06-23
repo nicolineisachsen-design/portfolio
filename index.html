@@ -334,15 +334,16 @@ const cases = [
     detail:{
       eyebrow:'DTU · Interaktionsdesign', eyebrowStyle:'background:#e8f0e8;color:#3a6633',
       h1:'Brugercentreret design af digital rejsekortsløsning',
-      lead:'Hvordan gør man rejsekortet enklere og mere intuitivt? I faget Interaction Design designede vi en digital løsning fra grunden, baseret på rigtige brugeres behov.',
-      meta:[['Rolle','UX Designer'],['Type','Kursusprojekt'],['Metoder','Wireframes, usabilitytest'],['Værktøj','Figma']],
-      banner:`<svg width="100%" height="100%" viewBox="0 0 680 290"><rect width="680" height="290" fill="#dff0e8"/><rect x="120" y="50" width="110" height="190" rx="14" fill="#a8d4bc" opacity="0.55"/><rect x="132" y="66" width="86" height="128" rx="6" fill="#eef8f2"/><circle cx="175" cy="218" r="10" fill="#7db89a"/><rect x="285" y="50" width="110" height="190" rx="14" fill="#7db89a" opacity="0.45"/><rect x="297" y="66" width="86" height="128" rx="6" fill="#eef8f2"/><circle cx="340" cy="218" r="10" fill="#5a9e7a"/><rect x="450" y="90" width="100" height="110" rx="10" fill="#a8d4bc" opacity="0.4"/><text x="340" y="270" font-size="13" fill="#3d7a55" text-anchor="middle" opacity="0.7">Banner — fx wireframes eller task flow</text></svg>`,
-      context:['Vi tog udgangspunkt i udviklingen af en digital rejsekortsløsning og undersøgte brugernes reelle behov og udfordringer.','Gennem brugerinterviews og observationer på tog- og busstationer fik vi indsigt i, hvor den eksisterende oplevelse skabte friktion.'],
-      processIntro:'Vi arbejdede med centrale UX- og designmetoder gennem hele forløbet.',
-      process:[['Research','Brugerinterviews og observationer på stationer.'],['Wireframes','Task flows og storyboards til at visualisere brugerrejsen.'],['Prototype','Interaktiv prototype i Figma med fokus på enkelhed.'],['Test','Usability-tests på forskellige brugergrupper og iteration.']],
-      responsibilities:['Brugerinterviews og feltobservationer','Udarbejdelse af wireframes, task flows og storyboards','Prototyping i Figma','Gennemførelse af usability-tests','Iteration på baggrund af indsamlet feedback'],
-      resultStats:[['1','interaktiv prototype'],['∞','iterationer'],['100%','brugercentreret']],
-      resultText:'Projektet resulterede i en testet og itereret prototype med fokus på en enkel og intuitiv brugeroplevelse — og gav mig praktisk erfaring med hele den brugercentrerede designproces.',
+      lead:'Rejsekortet er ofte det eneste fysiske kort tilbage i pungen — og fyldt med friktion. I faget Interaction Design designede vi en digital løsning fra grunden, drevet af research og fire runder usability-test.',
+      meta:[['Rolle','UX Designer'],['Type','Kursusprojekt'],['Metoder','Workshop, usabilitytest'],['Team','4 personer']],
+      bannerImg:'rejsekort-wireflow.png',
+      banner:`<svg width="100%" height="100%" viewBox="0 0 680 290"><rect width="680" height="290" fill="#dff0e8"/><rect x="120" y="50" width="110" height="190" rx="14" fill="#a8d4bc" opacity="0.55"/><rect x="132" y="66" width="86" height="128" rx="6" fill="#eef8f2"/><circle cx="175" cy="218" r="10" fill="#7db89a"/><rect x="285" y="50" width="110" height="190" rx="14" fill="#7db89a" opacity="0.45"/><rect x="297" y="66" width="86" height="128" rx="6" fill="#eef8f2"/><circle cx="340" cy="218" r="10" fill="#5a9e7a"/><rect x="450" y="90" width="100" height="110" rx="10" fill="#a8d4bc" opacity="0.4"/><text x="340" y="270" font-size="13" fill="#3d7a55" text-anchor="middle" opacity="0.7">Banner — wire flow (upload rejsekort-wireflow.png)</text></svg>`,
+      context:['Rejsekortet er fyldt med små friktioner: standere ude af drift, check-in-standere placeret uhensigtsmæssigt, besvær med at checke flere personer ind — og ikke mindst, at mange glemmer at checke ud og må kæmpe med en kompliceret hjemmeside bagefter.','Systemet er heller ikke intuitivt for nye brugere: skal man swipe kortet forbi eller holde det stille? Og check-in og check-ud-standere har samme blå farve, så de er svære at skelne på afstand.'],
+      processIntro:'Vi byggede løsningen op gennem en bred researchproces og itererede den i fire runder usability-test.',
+      process:[['Etnoraids','Hurtige feltobservationer på stationer og i busser for at validere problemerne.'],['Generativ workshop','8 brugere, spil som "draw a toast" og Impact & Effort Matrix for at få idéer indefra.'],['Wire flow','Value proposition canvas, blueprint, storyboard og task flow til at forme brugerrejsen.'],['4 usability-tests','Papirprototype testet og itereret fire gange på både hyppige og nye brugere.']],
+      responsibilities:['Feltobservationer (etnoraids) på tog- og busstationer','Planlægning og facilitering af generativ workshop med 8 deltagere','Udarbejdelse af storyboard, task flow og wire flow','Gennemførelse af fire usability-tests','Iteration af prototypen efter hver testrunde'],
+      resultStats:[['4','runder usability-test'],['8','workshop-deltagere'],['1','itereret prototype']],
+      resultText:'Hver testrunde flyttede designet: efter test 1 tilføjede vi en check-in-funktion og pris for rejsen. Da en bruger forvekslede appens blå cirkel med check-in-standerne, ændrede vi den. Vi droppede CPR-nummer til fordel for MitID, gjorde knapper til flere rejsende større, og gav check-ud-knappen samme gule farve som de fysiske standere — så det digitale matchede det fysiske.',
       confidential:''
     }
   },
@@ -398,7 +399,7 @@ function renderCase(c){
     <p class="case-lead">${d.lead}</p>
     <div class="meta-row">${meta}</div>
   </div>
-  <div class="hero-banner">${d.video?`<iframe src="${d.video}" title="Figma-prototype" allowfullscreen></iframe>`:d.banner}</div>
+  <div class="hero-banner">${d.video?`<iframe src="${d.video}" title="Figma-prototype" allowfullscreen></iframe>`:d.bannerImg?`<img src="${d.bannerImg}" alt="${d.h1}">`:d.banner}</div>
   <div class="csection"><p class="sec-label">Kontekst</p><h2 class="sec-title">Problemet</h2>${context}</div>
   <div class="csection"><p class="sec-label">Proces</p><h2 class="sec-title">Sådan greb jeg det an</h2><p class="sec-text">${d.processIntro}</p><div class="process-grid">${process}</div></div>
   <div class="csection"><p class="sec-label">Mit ansvar</p><h2 class="sec-title">Det stod jeg for</h2><ul class="responsibility-list">${resp}</ul></div>
