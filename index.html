@@ -48,7 +48,7 @@ a{color:inherit;text-decoration:none}
 .hero-btns{display:flex;gap:12px}
 .btn-primary{font-size:13px;padding:9px 18px;border-radius:var(--radius-md);border:none;background:var(--accent);color:#fff;cursor:pointer;font-family:inherit}
 .btn-secondary{font-size:13px;padding:9px 18px;border-radius:var(--radius-md);border:0.5px solid var(--border-secondary);background:transparent;color:var(--text-primary);cursor:pointer;font-family:inherit}
-.hero-img{width:100%;max-width:260px;margin-left:auto;aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--text-secondary);font-size:13px;transform:translateX(-70px);}
+.hero-img{width:100%;max-width:260px;margin-left:auto;aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--text-secondary);font-size:13px}
 .hero-img img{width:100%;height:100%;object-fit:cover}
 
 .divider{height:0.5px;background:var(--border-tertiary);margin:0 2rem;max-width:1080px;margin-left:auto;margin-right:auto}
@@ -93,8 +93,7 @@ a{color:inherit;text-decoration:none}
 .meta-value{font-size:14px}
 .hero-banner{margin:0 2rem 2.5rem;aspect-ratio:21/9;border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);max-width:1080px;margin-left:auto;margin-right:auto}
 .hero-banner img{width:100%;height:100%;object-fit:cover}
-.case-video{margin-top:1.5rem;aspect-ratio:16/9;border-radius:var(--radius-lg);overflow:hidden;border:0.5px solid var(--border-tertiary)}
-.case-video iframe{width:100%;height:100%;border:none}
+.hero-banner iframe{width:100%;height:100%;border:none}
 .csection{padding:0 2rem 2.5rem;max-width:680px;margin:0 auto}
 .sec-label{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:0.75rem}
 .sec-title{font-size:20px;font-weight:500;margin-bottom:1rem}
@@ -177,13 +176,11 @@ svg text{font-family:var(--font-sans)}
           <button class="btn-secondary" onclick="nav('contact')">Kontakt mig</button>
         </div>
       </div>
-  <div class="hero-img">
-  <img src="./Profilbillede.png"
-    alt="Portrætbillede af Nicoline Lodahl Isachsen"
-  >
- </div>
-</div>
-    
+      <div class="hero-img">
+        <img src="./Profilbillede.png" alt="Portrætbillede af Nicoline Lodahl Isachsen">
+      </div>
+    </div>
+
     <div class="divider"></div>
 
     <div class="section">
@@ -287,10 +284,10 @@ svg text{font-family:var(--font-sans)}
 const cases = [
   {
     id:'demant', tagClass:'tag-demant', tag:'Demant · Praktik',
-    title:'Explorativt brugerstudie',
+    title:'Explorativt brugerstudie: AirPods vs. Oticon Intent',
     desc:'Selvstændigt studie med 8 deltagere — rekruttering, testdesign, analyse og præsentation for 25+ stakeholders.',
     skills:['UX Research','Brugerrekruttering','Kvalitativ analyse'],
-    img:`<img src="airpods-vs-oticon.png" alt="AirPods Pro 2 og Oticon Intent">`,
+    img:`<svg width="100%" height="100%" viewBox="0 0 340 190"><rect width="340" height="190" fill="#dde8f0"/><rect x="60" y="40" width="90" height="110" rx="8" fill="#b8cfe0" opacity="0.7"/><rect x="68" y="50" width="74" height="70" rx="4" fill="#e8f2f8"/><circle cx="105" cy="130" r="8" fill="#8aaecc"/><ellipse cx="220" cy="90" rx="32" ry="20" fill="#8aaecc" opacity="0.5"/><ellipse cx="255" cy="80" rx="20" ry="12" fill="#5a8db0" opacity="0.6"/></svg>`,
     detail:{
       eyebrow:'Demant · Praktik', eyebrowStyle:'background:#e6edf5;color:#2a4d7a',
       h1:'Explorativt brugerstudie: AirPods Pro 2 vs. Oticon Intent',
@@ -317,7 +314,8 @@ const cases = [
       h1:'Tap-kontrol: fra kompleks funktion til intuitiv oplevelse',
       lead:'Hvordan hjælper man brugere med at forstå og anvende en ny funktion i deres høreapparat? Det undersøgte vi i samarbejde med Demant i vores bachelorprojekt.',
       meta:[['Rolle','UX & Research'],['Type','Bachelorprojekt'],['Samarbejde','Demant'],['År','2026']],
-      banner:`<svg width="100%" height="100%" viewBox="0 0 680 290"><rect width="680" height="290" fill="#e0dced"/><rect x="270" y="40" width="140" height="210" rx="16" fill="#c8c0e0" opacity="0.6"/><rect x="284" y="58" width="112" height="150" rx="8" fill="#f0eef8"/><rect x="298" y="78" width="84" height="10" rx="4" fill="#9b8fc8" opacity="0.7"/><rect x="298" y="98" width="64" height="8" rx="3" fill="#bbb4d8" opacity="0.6"/><circle cx="150" cy="120" r="34" fill="#b0a4d4" opacity="0.4"/><circle cx="540" cy="160" r="26" fill="#b0a4d4" opacity="0.35"/><text x="340" y="270" font-size="13" fill="#6a5d99" text-anchor="middle" opacity="0.7">Banner — fx Figma-prototype eller workshopfoto</text></svg>`,video:'https://www.youtube.com/embed/uJw6iG9zyrc',
+      banner:`<svg width="100%" height="100%" viewBox="0 0 680 290"><rect width="680" height="290" fill="#e0dced"/><rect x="270" y="40" width="140" height="210" rx="16" fill="#c8c0e0" opacity="0.6"/><rect x="284" y="58" width="112" height="150" rx="8" fill="#f0eef8"/><rect x="298" y="78" width="84" height="10" rx="4" fill="#9b8fc8" opacity="0.7"/><rect x="298" y="98" width="64" height="8" rx="3" fill="#bbb4d8" opacity="0.6"/><circle cx="150" cy="120" r="34" fill="#b0a4d4" opacity="0.4"/><circle cx="540" cy="160" r="26" fill="#b0a4d4" opacity="0.35"/><text x="340" y="270" font-size="13" fill="#6a5d99" text-anchor="middle" opacity="0.7">Banner — fx Figma-prototype eller workshopfoto</text></svg>`,
+      video:'https://www.youtube.com/embed/uJw6iG9zyrc',
       context:['Demant havde introduceret en ny tap-kontrolfunktion, men mange brugere havde svært ved at forstå funktionens muligheder og bruge den korrekt i hverdagen.','Det skabte en barriere mellem teknologien og den værdi, den var designet til at skabe. Vores opgave var at bygge bro over den barriere.'],
       processIntro:'Vi gennemførte omfattende research for at forstå problemstillingen fra både bruger- og ekspertperspektiv.',
       process:[['20 interviews','Dybdegående brugerinterviews med høreapparatbrugere.'],['3 workshops','Co-creation workshops med brugere og interessenter.'],['7 eksperter','Ekspertinterviews med audiologer.'],['Egen test','Afprøvning af høreapparater for at opbygge empati og forståelse.']],
@@ -394,23 +392,15 @@ function renderCase(c){
   const resp=d.responsibilities.map(r=>`<li><i class="ti ti-check" aria-hidden="true"></i> ${r}</li>`).join('');
   const stats=d.resultStats.map(s=>`<div><div class="result-stat-num">${s[0]}</div><div class="result-stat-lbl">${s[1]}</div></div>`).join('');
   const conf=d.confidential?`<p class="confidential-note">${d.confidential}</p>`:'';
-  const video=d.video?`
-  <div class="case-video">
-    <iframe
-      src="${d.video}"
-      title="Figma-prototype"
-      allowfullscreen>
-    </iframe>
-  </div>`:'';
   return `<div class="case-header">
     <span class="case-eyebrow" style="${d.eyebrowStyle}">${d.eyebrow}</span>
     <h1 class="case-h1">${d.h1}</h1>
     <p class="case-lead">${d.lead}</p>
     <div class="meta-row">${meta}</div>
   </div>
-  <div class="hero-banner">${d.banner}</div>
+  <div class="hero-banner">${d.video?`<iframe src="${d.video}" title="Figma-prototype" allowfullscreen></iframe>`:d.banner}</div>
   <div class="csection"><p class="sec-label">Kontekst</p><h2 class="sec-title">Problemet</h2>${context}</div>
-  <div class="csection"><p class="sec-label">Proces</p><h2 class="sec-title">Sådan greb jeg det an</h2><p class="sec-text">${d.processIntro}</p><div class="process-grid">${process}</div>${video}</div>
+  <div class="csection"><p class="sec-label">Proces</p><h2 class="sec-title">Sådan greb jeg det an</h2><p class="sec-text">${d.processIntro}</p><div class="process-grid">${process}</div></div>
   <div class="csection"><p class="sec-label">Mit ansvar</p><h2 class="sec-title">Det stod jeg for</h2><ul class="responsibility-list">${resp}</ul></div>
   <div class="csection"><p class="sec-label">Resultat</p><h2 class="sec-title">Hvad det førte til</h2><div class="result-card"><div class="result-stats">${stats}</div><p class="result-text">${d.resultText}</p></div>${conf}</div>`;
 }
