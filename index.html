@@ -315,7 +315,7 @@ const cases = [
       h1:'Tap-kontrol: fra kompleks funktion til intuitiv oplevelse',
       lead:'Hvordan hjælper man brugere med at forstå og anvende en ny funktion i deres høreapparat? Det undersøgte vi i samarbejde med Demant i vores bachelorprojekt.',
       meta:[['Rolle','UX & Research'],['Type','Bachelorprojekt'],['Samarbejde','Demant'],['År','2026']],
-      banner:`<svg width="100%" height="100%" viewBox="0 0 680 290"><rect width="680" height="290" fill="#e0dced"/><rect x="270" y="40" width="140" height="210" rx="16" fill="#c8c0e0" opacity="0.6"/><rect x="284" y="58" width="112" height="150" rx="8" fill="#f0eef8"/><rect x="298" y="78" width="84" height="10" rx="4" fill="#9b8fc8" opacity="0.7"/><rect x="298" y="98" width="64" height="8" rx="3" fill="#bbb4d8" opacity="0.6"/><circle cx="150" cy="120" r="34" fill="#b0a4d4" opacity="0.4"/><circle cx="540" cy="160" r="26" fill="#b0a4d4" opacity="0.35"/><text x="340" y="270" font-size="13" fill="#6a5d99" text-anchor="middle" opacity="0.7">Banner — fx Figma-prototype eller workshopfoto</text></svg>`,
+      banner:`<svg width="100%" height="100%" viewBox="0 0 680 290"><rect width="680" height="290" fill="#e0dced"/><rect x="270" y="40" width="140" height="210" rx="16" fill="#c8c0e0" opacity="0.6"/><rect x="284" y="58" width="112" height="150" rx="8" fill="#f0eef8"/><rect x="298" y="78" width="84" height="10" rx="4" fill="#9b8fc8" opacity="0.7"/><rect x="298" y="98" width="64" height="8" rx="3" fill="#bbb4d8" opacity="0.6"/><circle cx="150" cy="120" r="34" fill="#b0a4d4" opacity="0.4"/><circle cx="540" cy="160" r="26" fill="#b0a4d4" opacity="0.35"/><text x="340" y="270" font-size="13" fill="#6a5d99" text-anchor="middle" opacity="0.7">Banner — fx Figma-prototype eller workshopfoto</text></svg>`,video:'https://www.youtube.com/embed/uJw6iG9zyrc',
       context:['Demant havde introduceret en ny tap-kontrolfunktion, men mange brugere havde svært ved at forstå funktionens muligheder og bruge den korrekt i hverdagen.','Det skabte en barriere mellem teknologien og den værdi, den var designet til at skabe. Vores opgave var at bygge bro over den barriere.'],
       processIntro:'Vi gennemførte omfattende research for at forstå problemstillingen fra både bruger- og ekspertperspektiv.',
       process:[['20 interviews','Dybdegående brugerinterviews med høreapparatbrugere.'],['3 workshops','Co-creation workshops med brugere og interessenter.'],['7 eksperter','Ekspertinterviews med audiologer.'],['Egen test','Afprøvning af høreapparater for at opbygge empati og forståelse.']],
@@ -392,6 +392,14 @@ function renderCase(c){
   const resp=d.responsibilities.map(r=>`<li><i class="ti ti-check" aria-hidden="true"></i> ${r}</li>`).join('');
   const stats=d.resultStats.map(s=>`<div><div class="result-stat-num">${s[0]}</div><div class="result-stat-lbl">${s[1]}</div></div>`).join('');
   const conf=d.confidential?`<p class="confidential-note">${d.confidential}</p>`:'';
+  const video=d.video?`
+  <div class="case-video">
+    <iframe
+      src="${d.video}"
+      title="Figma-prototype"
+      allowfullscreen>
+    </iframe>
+  </div>`:'';
   return `<div class="case-header">
     <span class="case-eyebrow" style="${d.eyebrowStyle}">${d.eyebrow}</span>
     <h1 class="case-h1">${d.h1}</h1>
