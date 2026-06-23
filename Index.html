@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nicoline Lodahl Isachsen – Portfolio</title>
+<meta name="description" content="UX-portfolio for Nicoline Lodahl Isachsen, diplomingeniør med speciale i brugercentreret design.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.0.0/dist/tabler-icons.min.css">
+<style>
+:root{
+  --bg-primary:#ffffff;
+  --bg-secondary:#f5f2ec;
+  --bg-tertiary:#faf8f4;
+  --text-primary:#211f1b;
+  --text-secondary:#6c685f;
+  --text-tertiary:#9d978c;
+  --border-tertiary:rgba(33,31,27,0.12);
+  --border-secondary:rgba(33,31,27,0.24);
+  --accent:#b07b5c;
+  --radius-md:8px;
+  --radius-lg:12px;
+  --font-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);color:var(--text-primary);background:var(--bg-primary);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.accent{color:var(--accent)}
+.wrap{max-width:1080px;margin:0 auto}
+
+.nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;border-bottom:0.5px solid var(--border-tertiary);background:var(--bg-primary);position:sticky;top:0;z-index:10}
+.nav-inner{max-width:1080px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:15px;font-weight:500;cursor:pointer}
+.nav-links{display:flex;gap:1.75rem}
+.nav-links button{background:none;border:none;font-family:inherit;font-size:13px;color:var(--text-secondary);cursor:pointer;padding:0}
+.nav-links button.active{color:var(--text-primary);font-weight:500}
+.nav-cta{font-size:13px;padding:6px 14px;border:0.5px solid var(--border-secondary);border-radius:var(--radius-md);cursor:pointer;background:transparent;color:var(--text-primary);font-family:inherit}
+
+.page{display:none}
+.page.show{display:block}
+
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:3rem;padding:4rem 2rem 3rem;align-items:center;max-width:1080px;margin:0 auto}
+.hero-eyebrow{font-size:12px;letter-spacing:0.08em;color:var(--text-secondary);text-transform:uppercase;margin-bottom:1rem}
+.hero-name{font-size:38px;font-weight:500;line-height:1.15;margin-bottom:1rem}
+.hero-desc{font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:1.5rem}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2rem}
+.tag{font-size:12px;padding:4px 10px;border-radius:var(--radius-md);border:0.5px solid var(--border-tertiary);color:var(--text-secondary)}
+.hero-btns{display:flex;gap:12px}
+.btn-primary{font-size:13px;padding:9px 18px;border-radius:var(--radius-md);border:none;background:var(--accent);color:#fff;cursor:pointer;font-family:inherit}
+.btn-secondary{font-size:13px;padding:9px 18px;border-radius:var(--radius-md);border:0.5px solid var(--border-secondary);background:transparent;color:var(--text-primary);cursor:pointer;font-family:inherit}
+.hero-img{width:100%;aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--text-secondary);font-size:13px}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+
+.divider{height:0.5px;background:var(--border-tertiary);margin:0 2rem;max-width:1080px;margin-left:auto;margin-right:auto}
+
+.section{padding:2.5rem 2rem;max-width:1080px;margin:0 auto}
+.section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.5rem}
+.section-label{font-size:12px;letter-spacing:0.08em;color:var(--text-secondary);text-transform:uppercase}
+.section-link{font-size:13px;color:var(--text-secondary);cursor:pointer}
+
+.cases-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+.case-card{border:0.5px solid var(--border-tertiary);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-primary);cursor:pointer;transition:border-color 0.15s}
+.case-card:hover{border-color:var(--border-secondary)}
+.case-img{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.case-img img{width:100%;height:100%;object-fit:cover}
+.case-body{padding:1rem 1.1rem 1.1rem}
+.case-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.case-tag{font-size:11px;padding:3px 8px;border-radius:var(--radius-md);font-weight:500}
+.tag-ux{background:#e8f0e8;color:#3a6633}
+.tag-innovation{background:#f5ece6;color:#8c5033}
+.tag-demant{background:#e6edf5;color:#2a4d7a}
+.case-arrow{font-size:15px;color:var(--text-secondary)}
+.case-title{font-size:14px;font-weight:500;margin-bottom:6px;line-height:1.4}
+.case-desc{font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px}
+.case-skills{display:flex;gap:6px;flex-wrap:wrap}
+.skill-pill{font-size:10px;padding:2px 7px;border-radius:var(--radius-md);border:0.5px solid var(--border-tertiary);color:var(--text-secondary)}
+
+.about-strip{display:grid;grid-template-columns:2fr 1fr;gap:2rem;align-items:start}
+.about-text{font-size:14px;color:var(--text-secondary);line-height:1.8;margin-bottom:0.75rem}
+.stats{display:flex;flex-direction:column;gap:0.75rem}
+.stat{background:var(--bg-secondary);border-radius:var(--radius-md);padding:0.75rem 1rem}
+.stat-num{font-size:22px;font-weight:500;color:var(--accent)}
+.stat-lbl{font-size:11px;color:var(--text-secondary);margin-top:2px}
+
+.back{padding:1.25rem 2rem 0;font-size:13px;color:var(--text-secondary);cursor:pointer;display:inline-flex;align-items:center;gap:6px;max-width:1080px;margin:0 auto;width:100%}
+.case-header{padding:1.25rem 2rem 2rem;max-width:1080px;margin:0 auto}
+.case-eyebrow{display:inline-block;font-size:11px;padding:3px 9px;border-radius:var(--radius-md);font-weight:500;margin-bottom:1rem}
+.case-h1{font-size:30px;font-weight:500;line-height:1.2;margin-bottom:1rem;max-width:600px}
+.case-lead{font-size:16px;color:var(--text-secondary);line-height:1.7;max-width:620px}
+.meta-row{display:flex;gap:2.5rem;margin-top:1.75rem;flex-wrap:wrap}
+.meta-item{display:flex;flex-direction:column;gap:3px}
+.meta-label{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary)}
+.meta-value{font-size:14px}
+.hero-banner{margin:0 2rem 2.5rem;aspect-ratio:21/9;border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);max-width:1080px;margin-left:auto;margin-right:auto}
+.hero-banner img{width:100%;height:100%;object-fit:cover}
+.csection{padding:0 2rem 2.5rem;max-width:680px;margin:0 auto}
+.sec-label{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:0.75rem}
+.sec-title{font-size:20px;font-weight:500;margin-bottom:1rem}
+.sec-text{font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:1rem}
+.process-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem;margin-top:1.25rem}
+.process-card{border:0.5px solid var(--border-tertiary);border-radius:var(--radius-md);padding:0.9rem 1rem}
+.process-num{font-size:13px;color:var(--accent);font-weight:500;margin-bottom:4px}
+.process-card-text{font-size:13px;color:var(--text-secondary);line-height:1.5}
+.responsibility-list{list-style:none;margin-top:0.5rem}
+.responsibility-list li{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--text-secondary);line-height:1.6;padding:7px 0}
+.responsibility-list i{color:#3a6633;font-size:17px;margin-top:1px;flex-shrink:0}
+.result-card{background:var(--bg-secondary);border-radius:var(--radius-lg);padding:1.5rem;margin-top:0.5rem}
+.result-stats{display:flex;gap:2rem;margin-bottom:1rem;flex-wrap:wrap}
+.result-stat-num{font-size:26px;font-weight:500;color:var(--accent)}
+.result-stat-lbl{font-size:12px;color:var(--text-secondary);margin-top:2px}
+.confidential-note{font-size:13px;color:var(--text-tertiary);font-style:italic;margin-top:1rem;padding-left:12px;border-left:2px solid var(--border-tertiary)}
+
+.about-page{padding:3rem 2rem;max-width:720px;margin:0 auto}
+.about-page h1{font-size:30px;font-weight:500;margin-bottom:1.5rem}
+.about-page p{font-size:16px;color:var(--text-secondary);line-height:1.85;margin-bottom:1.1rem}
+.skill-section{margin-top:2rem}
+.skill-section h3{font-size:14px;font-weight:500;margin-bottom:0.75rem}
+.skill-row{display:flex;flex-wrap:wrap;gap:8px}
+
+.contact-page{padding:3rem 2rem;max-width:560px;margin:0 auto}
+.contact-page h1{font-size:30px;font-weight:500;margin-bottom:1rem}
+.contact-page p{font-size:16px;color:var(--text-secondary);line-height:1.7;margin-bottom:2rem}
+.contact-links{display:flex;flex-direction:column;gap:0.75rem}
+.contact-link{display:flex;align-items:center;gap:12px;padding:1rem 1.25rem;border:0.5px solid var(--border-tertiary);border-radius:var(--radius-lg);cursor:pointer}
+.contact-link:hover{border-color:var(--border-secondary)}
+.contact-link i{font-size:20px;color:var(--accent)}
+.contact-link-text{font-size:14px}
+.contact-link-sub{font-size:12px;color:var(--text-secondary)}
+
+.footer-bar{padding:1.25rem 2rem;border-top:0.5px solid var(--border-tertiary);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;max-width:1080px;margin:0 auto}
+.footer-bar span,.footer-bar a{font-size:12px;color:var(--text-secondary)}
+svg text{font-family:var(--font-sans)}
+
+@media(max-width:720px){
+  .hero{grid-template-columns:1fr;gap:2rem;padding:2.5rem 1.5rem}
+  .hero-name{font-size:30px}
+  .cases-grid{grid-template-columns:1fr}
+  .about-strip{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr}
+  .nav{padding:1rem 1.5rem}
+  .nav-links{gap:1rem}
+  .section,.about-page,.contact-page{padding-left:1.5rem;padding-right:1.5rem}
+}
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-logo" onclick="nav('home')">Nicoline Lodahl Isachsen</div>
+      <div class="nav-links">
+        <button data-nav="home" class="active" onclick="nav('home')">Hjem</button>
+        <button data-nav="about" onclick="nav('about')">Om mig</button>
+        <button data-nav="cases" onclick="nav('cases')">Cases</button>
+        <button data-nav="contact" onclick="nav('contact')">Kontakt</button>
+      </div>
+      <button class="nav-cta"><i class="ti ti-download" aria-hidden="true"></i> CV</button>
+    </div>
+  </nav>
+
+  <!-- HOME -->
+  <div class="page show" data-page="home">
+    <div class="hero">
+      <div>
+        <p class="hero-eyebrow">Diplomingeniør · UX · Aarhus</p>
+        <h1 class="hero-name">Ingeniør med<br>øje for <span class="accent">mennesker</span></h1>
+        <p class="hero-desc">Jeg kombinerer en teknisk ingeniørbaggrund med brugercentreret design — og skaber løsninger der faktisk fungerer for dem, der bruger dem.</p>
+        <div class="hero-tags">
+          <span class="tag">UX Research</span>
+          <span class="tag">Prototyping</span>
+          <span class="tag">Stakeholder management</span>
+          <span class="tag">Figma</span>
+        </div>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="nav('cases')">Se mine cases</button>
+          <button class="btn-secondary" onclick="nav('contact')">Kontakt mig</button>
+        </div>
+      </div>
+      <div class="hero-img">
+        <!-- Erstat dette med dit profilbillede: <img src="profil.jpg" alt="Nicoline"> -->
+        <i class="ti ti-user" style="font-size:48px;opacity:0.2" aria-hidden="true"></i>
+        <span>Profilbillede</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-label">Udvalgte cases</span>
+        <span class="section-link" onclick="nav('cases')">Se alle <i class="ti ti-arrow-right" aria-hidden="true"></i></span>
+      </div>
+      <div class="cases-grid" id="home-cases"></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-label">Om mig</span>
+        <span class="section-link" onclick="nav('about')">Læs mere <i class="ti ti-arrow-right" aria-hidden="true"></i></span>
+      </div>
+      <div class="about-strip">
+        <div>
+          <p class="about-text">Jeg er nyuddannet diplomingeniør i Proces og Innovation fra DTU med ca. 2 års erfaring med UX inden for hearingteknologi hos Demant. Jeg trives i krydsfeltet mellem teknisk kompleksitet og menneskelige behov.</p>
+          <p class="about-text">Min baggrund giver mig en dobbeltkompetence: jeg kan tale med ingeniørerne og forstå systemerne — og samtidig holde brugerens perspektiv i fokus.</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="stat-num">20+</div><div class="stat-lbl">Brugerinterviews</div></div>
+          <div class="stat"><div class="stat-num">25+</div><div class="stat-lbl">Stakeholders præsenteret for</div></div>
+          <div class="stat"><div class="stat-num">2 år</div><div class="stat-lbl">UX-erfaring fra Demant</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASES OVERVIEW -->
+  <div class="page" data-page="cases">
+    <div class="section">
+      <div class="section-header">
+        <span class="section-label">Alle cases</span>
+      </div>
+      <div class="cases-grid" id="all-cases"></div>
+    </div>
+  </div>
+
+  <!-- CASE DETAIL -->
+  <div class="page" data-page="case">
+    <span class="back" onclick="nav('cases')"><i class="ti ti-arrow-left" aria-hidden="true"></i> Tilbage til cases</span>
+    <div id="case-detail"></div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="page" data-page="about">
+    <div class="about-page">
+      <h1>Om mig</h1>
+      <p>Jeg er nyuddannet diplomingeniør i Proces og Innovation fra DTU. Gennem mit studie og særligt min tid hos Demant har jeg specialiseret mig i UX — fra brugerresearch og workshopfacilitering til prototyping og formidling af indsigter til beslutningstagere.</p>
+      <p>Det, der driver mig, er krydsfeltet mellem det tekniske og det menneskelige. Min ingeniørbaggrund betyder, at jeg forstår systemerne og kan tale med udviklere og specialister — og samtidig holder jeg altid fast i, at teknologi kun skaber værdi, når den faktisk fungerer for de mennesker, der bruger den.</p>
+      <p>Tidligere har jeg arbejdet hos LiqTech og Grundfos, og jeg er bosat i Aarhus. Når jeg ikke arbejder, finder du mig ofte til floorball, på løbeturen eller fordybet i et strikkeprojekt.</p>
+      <div class="skill-section">
+        <h3>Metoder &amp; værktøjer</h3>
+        <div class="skill-row">
+          <span class="tag">UX Research</span>
+          <span class="tag">Brugerinterviews</span>
+          <span class="tag">Co-creation workshops</span>
+          <span class="tag">Usability testing</span>
+          <span class="tag">Prototyping</span>
+          <span class="tag">Figma</span>
+          <span class="tag">Design Thinking</span>
+          <span class="tag">Human-Centered Design</span>
+          <span class="tag">Stakeholder management</span>
+          <span class="tag">Kvalitativ analyse</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="page" data-page="contact">
+    <div class="contact-page">
+      <h1>Lad os tale sammen</h1>
+      <p>Er du på udkig efter en UX'er med ingeniørblik? Så hører jeg gerne fra dig — uanset om det er en konkret rolle eller bare en god snak.</p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:din@email.dk">
+          <i class="ti ti-mail" aria-hidden="true"></i>
+          <div><div class="contact-link-text">Email</div><div class="contact-link-sub">din@email.dk</div></div>
+        </a>
+        <a class="contact-link" href="https://linkedin.com/in/nicoline-lodahl" target="_blank" rel="noopener">
+          <i class="ti ti-brand-linkedin" aria-hidden="true"></i>
+          <div><div class="contact-link-text">LinkedIn</div><div class="contact-link-sub">linkedin.com/in/nicoline-lodahl</div></div>
+        </a>
+        <a class="contact-link" href="cv.pdf">
+          <i class="ti ti-file-cv" aria-hidden="true"></i>
+          <div><div class="contact-link-text">Download CV</div><div class="contact-link-sub">PDF</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <span>© 2026 Nicoline Lodahl Isachsen</span>
+    <a href="https://linkedin.com/in/nicoline-lodahl" target="_blank" rel="noopener">linkedin.com/in/nicoline-lodahl <i class="ti ti-external-link" aria-hidden="true" style="font-size:11px"></i></a>
+  </div>
+
+<script>
+const cases = [
+  {
+    id:'demant', tagClass:'tag-demant', tag:'Demant · Praktik',
+    title:'Explorativt brugerstudie: AirPods vs. Oticon Intent',
+    desc:'Selvstændigt studie med 8 deltagere — rekruttering, testdesign, analyse og præsentation for 25+ stakeholders.',
+    skills:['UX Research','Brugerrekruttering','Kvalitativ analyse'],
+    img:`<svg width="100%" height="100%" viewBox="0 0 340 190"><rect width="340" height="190" fill="#dde8f0"/><rect x="60" y="40" width="90" height="110" rx="8" fill="#b8cfe0" opacity="0.7"/><rect x="68" y="50" width="74" height="70" rx="4" fill="#e8f2f8"/><circle cx="105" cy="130" r="8" fill="#8aaecc"/><ellipse cx="220" cy="90" rx="32" ry="20" fill="#8aaecc" opacity="0.5"/><ellipse cx="255" cy="80" rx="20" ry="12" fill="#5a8db0" opacity="0.6"/></svg>`,
+    detail:{
+      eyebrow:'Demant · Praktik', eyebrowStyle:'background:#e6edf5;color:#2a4d7a',
+      h1:'Explorativt brugerstudie: AirPods Pro 2 vs. Oticon Intent',
+      lead:'Hvad kan en af verdens største høreapparatsvirksomheder lære af Apples nye Hearing Aid-funktion? Det undersøgte jeg gennem et selvstændigt brugerstudie under min praktik hos Demant.',
+      meta:[['Rolle','UX Researcher'],['Varighed','20 ugers praktik'],['Metoder','Felttest, interviews'],['År','2025']],
+      banner:`<svg width="100%" height="100%" viewBox="0 0 680 290"><rect width="680" height="290" fill="#dde8f0"/><rect x="120" y="65" width="130" height="160" rx="14" fill="#b8cfe0" opacity="0.7"/><rect x="132" y="80" width="106" height="100" rx="6" fill="#eef4f9"/><circle cx="185" cy="205" r="11" fill="#8aaecc"/><ellipse cx="430" cy="140" rx="55" ry="35" fill="#8aaecc" opacity="0.5"/><ellipse cx="490" cy="120" rx="34" ry="22" fill="#5a8db0" opacity="0.6"/><text x="340" y="255" font-size="13" fill="#5a7d99" text-anchor="middle" opacity="0.7">Banner — fx fra dine præsentationsslides</text></svg>`,
+      context:['Apple lancerede en Hearing Aid-funktion i AirPods Pro 2 til en brøkdel af prisen på et traditionelt høreapparat. Det rejste et vigtigt spørgsmål for Demant: hvad værdsætter brugerne reelt, og hvor ligger forskellen i oplevelsen?','Formålet var at skabe indsigt i brugeroplevelsen af begge løsninger og sammenligne dem på komfort, lyd, streaming, batterilevetid samt synlighed og diskretion.'],
+      processIntro:'Studiet bestod af felttests med begge produkter efterfulgt af tre besøg, hvor deltagerne testede, blev tilpasset og sammenlignede oplevelserne.',
+      process:[['Besøg 1',"Test af AirPods' hearing aid-funktion og gennemførelse af høretest."],['Besøg 2','Audiolog tilpassede Oticon Intent og koblede til Companion-appen.'],['Besøg 3','Sammenligning af de to oplevelser på tværs af fokusområderne.'],['Deltagere','8 nye brugere med let til moderat høretab, 43–68 år.']],
+      responsibilities:['Rekruttering af en vanskelig målgruppe — personer med let høretab uden tidligere erfaring','Planlægning og facilitering af hele testforløbet','Koordinering med stakeholders på tværs af organisationen','Gennemførelse af brugerinterviews og produkttests','Analyse og syntese af indsamlet data','Præsentation af resultater og anbefalinger'],
+      resultStats:[['25+','stakeholders præsenteret for'],['8','deltagere i dybdestudie'],['6','sammenligningsparametre']],
+      resultText:'Resultaterne blev omsat til konkrete indsigter og anbefalinger, der blev præsenteret for mere end 25 stakeholders på tværs af organisationen.',
+      confidential:'På grund af fortrolighed kan de specifikke resultater og anbefalinger ikke deles. Denne case giver et indblik i undersøgelsens fokusområder og processen bag.'
+    }
+  },
+  {
+    id:'bachelor', tagClass:'tag-demant', tag:'Demant · Bachelorprojekt',
+    title:'Tap-kontrol: fra kompleks funktion til intuitiv oplevelse',
+    desc:'20 brugerinterviews, 3 co-creation workshops og 7 ekspertinterviews. Prototype taget videre af Demant.',
+    skills:['Co-creation','Prototyping','Human-Centered Design'],
+    img:`<svg width="100%" height="100%" viewBox="0 0 340 190"><rect width="340" height="190" fill="#e0dced"/><rect x="125" y="25" width="90" height="155" rx="12" fill="#c8c0e0" opacity="0.6"/><rect x="133" y="38" width="74" height="110" rx="6" fill="#f0eef8"/><rect x="141" y="50" width="58" height="8" rx="3" fill="#9b8fc8" opacity="0.7"/><rect x="141" y="64" width="45" height="6" rx="3" fill="#bbb4d8" opacity="0.6"/><rect x="141" y="76" width="50" height="6" rx="3" fill="#bbb4d8" opacity="0.6"/><circle cx="105" cy="75" r="22" fill="#b0a4d4" opacity="0.4"/></svg>`,
+    detail:{
+      eyebrow:'Demant · Bachelorprojekt', eyebrowStyle:'background:#e6edf5;color:#2a4d7a',
+      h1:'Tap-kontrol: fra kompleks funktion til intuitiv oplevelse',
+      lead:'Hvordan hjælper man brugere med at forstå og anvende en ny funktion i deres høreapparat? Det undersøgte vi i samarbejde med Demant i vores bachelorprojekt.',
+      meta:[['Rolle','UX & Research'],['Type','Bachelorprojekt'],['Samarbejde','Demant'],['År','2026']],
+      banner:`<svg width="100%" height="100%" viewBox="0 0 680 290"><rect width="680" height="290" fill="#e0dced"/><rect x="270" y="40" width="140" height="210" rx="16" fill="#c8c0e0" opacity="0.6"/><rect x="284" y="58" width="112" height="150" rx="8" fill="#f0eef8"/><rect x="298" y="78" width="84" height="10" rx="4" fill="#9b8fc8" opacity="0.7"/><rect x="298" y="98" width="64" height="8" rx="3" fill="#bbb4d8" opacity="0.6"/><circle cx="150" cy="120" r="34" fill="#b0a4d4" opacity="0.4"/><circle cx="540" cy="160" r="26" fill="#b0a4d4" opacity="0.35"/><text x="340" y="270" font-size="13" fill="#6a5d99" text-anchor="middle" opacity="0.7">Banner — fx Figma-prototype eller workshopfoto</text></svg>`,
+      context:['Demant havde introduceret en ny tap-kontrolfunktion, men mange brugere havde svært ved at forstå funktionens muligheder og bruge den korrekt i hverdagen.','Det skabte en barriere mellem teknologien og den værdi, den var designet til at skabe. Vores opgave var at bygge bro over den barriere.'],
+      processIntro:'Vi gennemførte omfattende research for at forstå problemstillingen fra både bruger- og ekspertperspektiv.',
+      process:[['20 interviews','Dybdegående brugerinterviews med høreapparatbrugere.'],['3 workshops','Co-creation workshops med brugere og interessenter.'],['7 eksperter','Ekspertinterviews med audiologer.'],['Egen test','Afprøvning af høreapparater for at opbygge empati og forståelse.']],
+      responsibilities:['Planlægning og facilitering af co-creation workshops','Gennemførelse af 20 dybdegående brugerinterviews','Koordinering og interviews med audiologer','Analyse og syntese af brugerindsigter','Konceptudvikling og prototyping i Figma','Brugertest og validering af løsningen'],
+      resultStats:[['20','brugerinterviews'],['3','co-creation workshops'],['1','prototype taget videre']],
+      resultText:'Vi udviklede en prototype med en ny introduktions- og træningsfunktion i Demants eksisterende app. Konceptet blev modtaget positivt, og flere af projektets anbefalinger blev taget videre i virksomhedens videre arbejde.',
+      confidential:''
+    }
+  },
+  {
+    id:'rejsekort', tagClass:'tag-ux', tag:'DTU · Interaktionsdesign',
+    title:'Brugercentreret design af digital rejsekortsløsning',
+    desc:'Fra feltobservationer på stationer til Figma-prototype — wireframes, task flows og usability-tests.',
+    skills:['Figma','Usability test','Wireframes'],
+    img:`<svg width="100%" height="100%" viewBox="0 0 340 190"><rect width="340" height="190" fill="#dff0e8"/><rect x="50" y="30" width="75" height="130" rx="10" fill="#a8d4bc" opacity="0.55"/><rect x="58" y="42" width="59" height="88" rx="5" fill="#eef8f2"/><circle cx="87" cy="148" r="7" fill="#7db89a"/><rect x="145" y="30" width="75" height="130" rx="10" fill="#7db89a" opacity="0.45"/><rect x="153" y="42" width="59" height="88" rx="5" fill="#eef8f2"/><circle cx="182" cy="148" r="7" fill="#5a9e7a"/></svg>`,
+    detail:{
+      eyebrow:'DTU · Interaktionsdesign', eyebrowStyle:'background:#e8f0e8;color:#3a6633',
+      h1:'Brugercentreret design af digital rejsekortsløsning',
+      lead:'Hvordan gør man rejsekortet enklere og mere intuitivt? I faget Interaction Design designede vi en digital løsning fra grunden, baseret på rigtige brugeres behov.',
+      meta:[['Rolle','UX Designer'],['Type','Kursusprojekt'],['Metoder','Wireframes, usabilitytest'],['Værktøj','Figma']],
+      banner:`<svg width="100%" height="100%" viewBox="0 0 680 290"><rect width="680" height="290" fill="#dff0e8"/><rect x="120" y="50" width="110" height="190" rx="14" fill="#a8d4bc" opacity="0.55"/><rect x="132" y="66" width="86" height="128" rx="6" fill="#eef8f2"/><circle cx="175" cy="218" r="10" fill="#7db89a"/><rect x="285" y="50" width="110" height="190" rx="14" fill="#7db89a" opacity="0.45"/><rect x="297" y="66" width="86" height="128" rx="6" fill="#eef8f2"/><circle cx="340" cy="218" r="10" fill="#5a9e7a"/><rect x="450" y="90" width="100" height="110" rx="10" fill="#a8d4bc" opacity="0.4"/><text x="340" y="270" font-size="13" fill="#3d7a55" text-anchor="middle" opacity="0.7">Banner — fx wireframes eller task flow</text></svg>`,
+      context:['Vi tog udgangspunkt i udviklingen af en digital rejsekortsløsning og undersøgte brugernes reelle behov og udfordringer.','Gennem brugerinterviews og observationer på tog- og busstationer fik vi indsigt i, hvor den eksisterende oplevelse skabte friktion.'],
+      processIntro:'Vi arbejdede med centrale UX- og designmetoder gennem hele forløbet.',
+      process:[['Research','Brugerinterviews og observationer på stationer.'],['Wireframes','Task flows og storyboards til at visualisere brugerrejsen.'],['Prototype','Interaktiv prototype i Figma med fokus på enkelhed.'],['Test','Usability-tests på forskellige brugergrupper og iteration.']],
+      responsibilities:['Brugerinterviews og feltobservationer','Udarbejdelse af wireframes, task flows og storyboards','Prototyping i Figma','Gennemførelse af usability-tests','Iteration på baggrund af indsamlet feedback'],
+      resultStats:[['1','interaktiv prototype'],['∞','iterationer'],['100%','brugercentreret']],
+      resultText:'Projektet resulterede i en testet og itereret prototype med fokus på en enkel og intuitiv brugeroplevelse — og gav mig praktisk erfaring med hele den brugercentrerede designproces.',
+      confidential:''
+    }
+  },
+  {
+    id:'napz', tagClass:'tag-innovation', tag:'DTU · Innovation',
+    title:'NapZ: Fra idé til BabySam Letter of Intent',
+    desc:'Design Thinking + Lean Startup. Vandt pitch-konkurrence i Løvens Hule-format og modtog Letter of Intent.',
+    skills:['Design Thinking','MVP','Pitch'],
+    img:`<svg width="100%" height="100%" viewBox="0 0 340 190"><rect width="340" height="190" fill="#f5ede6"/><ellipse cx="170" cy="130" rx="100" ry="30" fill="#e8c9b0" opacity="0.5"/><ellipse cx="155" cy="108" rx="52" ry="38" fill="#d4a882" opacity="0.45"/><ellipse cx="175" cy="100" rx="38" ry="28" fill="#c49070" opacity="0.4"/><circle cx="170" cy="72" r="18" fill="#e8c9b0" opacity="0.7"/></svg>`,
+    detail:{
+      eyebrow:'DTU · Innovation', eyebrowStyle:'background:#f5ece6;color:#8c5033',
+      h1:'NapZ: Fra idé til BabySam Letter of Intent',
+      lead:'Kan man bygge en stærk følelsesmæssig forbindelse ind i et produkt? Vi udviklede en bamse, der afspiller moderens hjertelyd — og tog den hele vejen fra idé til valideret koncept.',
+      meta:[['Rolle','Innovation & UX'],['Metode','Design Thinking, Lean'],['Resultat','Vandt pitch + LOI'],['År','2024']],
+      banner:`<svg width="100%" height="100%" viewBox="0 0 680 290"><rect width="680" height="290" fill="#f5ede6"/><ellipse cx="280" cy="200" rx="150" ry="45" fill="#e8c9b0" opacity="0.5"/><ellipse cx="255" cy="165" rx="78" ry="56" fill="#d4a882" opacity="0.45"/><ellipse cx="285" cy="150" rx="56" ry="42" fill="#c49070" opacity="0.4"/><circle cx="275" cy="105" r="26" fill="#e8c9b0" opacity="0.7"/><rect x="470" y="70" width="110" height="140" rx="10" fill="#e8c9b0" opacity="0.45"/><rect x="482" y="82" width="86" height="92" rx="4" fill="#fff" opacity="0.55"/><text x="525" y="200" font-size="12" fill="#8c5033" text-anchor="middle" opacity="0.8">Letter of Intent</text><text x="340" y="272" font-size="13" fill="#8c5033" text-anchor="middle" opacity="0.7">Banner — fx produktfoto eller pitch-billede</text></svg>`,
+      context:['Vi arbejdede med hele innovationsprocessen fra idéudvikling til validering af et færdigt koncept, drevet af Design Thinking og Lean Startup-principper.','Gennem markedsresearch identificerede vi en stigende efterspørgsel efter personlige produkter — det inspirerede til en bamse, hvor mødre kan optage og afspille deres egen hjertelyd.'],
+      processIntro:'Vi udviklede en MVP, som løbende blev testet og forbedret på baggrund af feedback.',
+      process:[['Research','Interviews og markedsresearch for at finde problemområdet.'],['Idé','Bamse med moderens hjertelyd som unikt salgspunkt.'],['MVP','Minimum Viable Product testet og itereret med brugere.'],['Pitch','Præsentation i et Løvens Hule-lignende format.']],
+      responsibilities:['Brugerinterviews og research efter Design Thinking','Idéudvikling og konceptualisering','Udvikling og test af MVP efter Lean Startup','Markedsresearch og validering','Udarbejdelse og levering af pitch'],
+      resultStats:[['1.','vinder af pitch'],['LOI','fra BabySam'],['MVP','testet & valideret']],
+      resultText:'Vores team vandt pitch-konkurrencen, og vi modtog et Letter of Intent fra BabySam, som vurderede, at konceptet havde et betydeligt markedspotentiale.',
+      confidential:''
+    }
+  }
+];
+
+function caseCard(c){
+  return `<div class="case-card" onclick="openCase('${c.id}')">
+    <div class="case-img">${c.img}</div>
+    <div class="case-body">
+      <div class="case-top"><span class="case-tag ${c.tagClass}">${c.tag}</span><i class="ti ti-arrow-right case-arrow" aria-hidden="true"></i></div>
+      <p class="case-title">${c.title}</p>
+      <p class="case-desc">${c.desc}</p>
+      <div class="case-skills">${c.skills.map(s=>`<span class="skill-pill">${s}</span>`).join('')}</div>
+    </div>
+  </div>`;
+}
+
+document.getElementById('home-cases').innerHTML = cases.map(caseCard).join('');
+document.getElementById('all-cases').innerHTML = cases.map(caseCard).join('');
+
+function renderCase(c){
+  const d=c.detail;
+  const meta=d.meta.map(m=>`<div class="meta-item"><span class="meta-label">${m[0]}</span><span class="meta-value">${m[1]}</span></div>`).join('');
+  const context=d.context.map(p=>`<p class="sec-text">${p}</p>`).join('');
+  const process=d.process.map(p=>`<div class="process-card"><div class="process-num">${p[0]}</div><div class="process-card-text">${p[1]}</div></div>`).join('');
+  const resp=d.responsibilities.map(r=>`<li><i class="ti ti-check" aria-hidden="true"></i> ${r}</li>`).join('');
+  const stats=d.resultStats.map(s=>`<div><div class="result-stat-num">${s[0]}</div><div class="result-stat-lbl">${s[1]}</div></div>`).join('');
+  const conf=d.confidential?`<p class="confidential-note">${d.confidential}</p>`:'';
+  return `<div class="case-header">
+    <span class="case-eyebrow" style="${d.eyebrowStyle}">${d.eyebrow}</span>
+    <h1 class="case-h1">${d.h1}</h1>
+    <p class="case-lead">${d.lead}</p>
+    <div class="meta-row">${meta}</div>
+  </div>
+  <div class="hero-banner">${d.banner}</div>
+  <div class="csection"><p class="sec-label">Kontekst</p><h2 class="sec-title">Problemet</h2>${context}</div>
+  <div class="csection"><p class="sec-label">Proces</p><h2 class="sec-title">Sådan greb jeg det an</h2><p class="sec-text">${d.processIntro}</p><div class="process-grid">${process}</div></div>
+  <div class="csection"><p class="sec-label">Mit ansvar</p><h2 class="sec-title">Det stod jeg for</h2><ul class="responsibility-list">${resp}</ul></div>
+  <div class="csection"><p class="sec-label">Resultat</p><h2 class="sec-title">Hvad det førte til</h2><div class="result-card"><div class="result-stats">${stats}</div><p class="result-text">${d.resultText}</p></div>${conf}</div>`;
+}
+
+function openCase(id){
+  const c=cases.find(x=>x.id===id);
+  document.getElementById('case-detail').innerHTML=renderCase(c);
+  showPage('case');
+  document.querySelectorAll('.nav-links button').forEach(b=>b.classList.toggle('active',b.dataset.nav==='cases'));
+  window.scrollTo(0,0);
+}
+
+function showPage(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('show',p.dataset.page===name));
+}
+
+function nav(name){
+  showPage(name);
+  document.querySelectorAll('.nav-links button').forEach(b=>b.classList.toggle('active',b.dataset.nav===name));
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
