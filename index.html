@@ -142,6 +142,24 @@ a{color:inherit;text-decoration:none}
 
 .footer-bar{padding:1.25rem 2rem;border-top:0.5px solid var(--border-tertiary);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;max-width:1080px;margin:0 auto}
 .footer-bar span,.footer-bar a{font-size:12px;color:var(--text-secondary)}
+.references-page{padding:3rem 2rem;max-width:720px;margin:0 auto}
+.references-page h1{font-size:30px;font-weight:500;margin-bottom:1rem}
+.references-intro{font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:2rem}
+.references-grid{display:flex;flex-direction:column;gap:1.25rem}
+.reference-card{border:0.5px solid var(--border-tertiary);border-radius:var(--radius-lg);padding:1.5rem;background:var(--bg-primary)}
+.reference-quote{font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:0.75rem;font-style:italic;border-left:2px solid var(--border-secondary);padding-left:12px;border-radius:0}
+.ref-more{display:none}
+.ref-more.open{display:inline}
+.ref-toggle{font-size:12px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-bottom:1rem;font-family:inherit}
+.reference-person{display:flex;align-items:center;gap:10px}
+.reference-initials{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex-shrink:0}
+.reference-name{font-size:14px;font-weight:500;margin-bottom:2px}
+.reference-title{font-size:12px;color:var(--text-secondary);margin-bottom:4px}
+.reference-linkedin{font-size:12px;color:var(--accent);display:inline-flex;align-items:center;gap:4px}
+.letter-placeholder{display:flex;align-items:center;gap:12px;margin-top:2rem;padding:1rem 1.25rem;border:0.5px dashed var(--border-secondary);border-radius:var(--radius-lg);color:var(--text-tertiary)}
+.letter-placeholder i{font-size:24px}
+.letter-title{font-size:14px;font-weight:500;color:var(--text-secondary)}
+.letter-sub{font-size:12px}
 svg text{font-family:var(--font-sans)}
 
 @media(max-width:720px){
@@ -164,6 +182,7 @@ svg text{font-family:var(--font-sans)}
         <button data-nav="home" class="active" onclick="nav('home')">Hjem</button>
         <button data-nav="about" onclick="nav('about')">Om mig</button>
         <button data-nav="cases" onclick="nav('cases')">Cases</button>
+        <button data-nav="references" onclick="nav('references')">Anbefalinger</button>
         <button data-nav="contact" onclick="nav('contact')">Kontakt</button>
       </div>
       <button class="nav-cta"><i class="ti ti-download" aria-hidden="true"></i> CV</button>
@@ -266,7 +285,79 @@ svg text{font-family:var(--font-sans)}
       </div>
     </div>
   </div>
+<!-- REFERENCES -->
+<div class="page" data-page="references">
+  <div class="references-page">
+    <p class="hero-eyebrow">What others say</p>
+    <h1>Recommendations</h1>
+    <p class="references-intro">Recommendations from my team at Demant, where I worked as a student assistant in Usability & CoCreation for two years.</p>
 
+    <div class="references-grid">
+
+      <div class="reference-card">
+        <div class="reference-quote">"I wholeheartedly recommend Nicoline to anyone seeking a talented and reliable new colleague. She approaches every task with initiative and curiosity - quickly figuring out who to involve, how to structure the work, and how to deliver strong results.<span class="ref-more" id="m1"> Nicoline is proactive, positive, and simply a joy to work with. As a student assistant in Demant's Team of Usability & CoCreation, she has been a great asset to our team, highly contributing both professionally and socially. Any team will be very lucky to have her!"</span></div>
+        <button class="ref-toggle" onclick="toggle('m1', this)">Read more ↓</button>
+        <div class="reference-person">
+          <div class="reference-initials" style="background:#e6edf5;color:#2a4d7a">LN</div>
+          <div>
+            <div class="reference-name">Lisbeth Nøhr Demant</div>
+            <div class="reference-title">Design and Usability Engineer · Direct manager</div>
+            <a class="reference-linkedin" href="https://www.linkedin.com/in/lisbethndemant/" target="_blank" rel="noopener"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="reference-card">
+        <div class="reference-quote">"It has been a real pleasure to have Nicoline as part of our team, and I would highly recommend her. Nicoline has a very positive mindset and is not afraid to take on new challenges. She works independently and is great at driving tasks forward.<span class="ref-more" id="m2"> During her time with us, she has contributed to a wide range of usability studies, supporting everything from recruitment and planning to conducting sessions and analyzing results. She has also independently planned, prepared, and executed several user tests and UX evaluations. The insights from this work have been highly valuable for our product development and in our communication with stakeholders. Nicoline has a strong understanding of design theory and practice, which she naturally applies in her work. She works efficiently, in a structured way, and communicates results clearly. Lastly, she is a great colleague - easy to work with and always contributing to a positive and fun team environment."</span></div>
+        <button class="ref-toggle" onclick="toggle('m2', this)">Read more ↓</button>
+        <div class="reference-person">
+          <div class="reference-initials" style="background:#e8f0e8;color:#3a6633">SK</div>
+          <div>
+            <div class="reference-name">Sara Kjær Langvad</div>
+            <div class="reference-title">Design & Innovation Engineer · Colleague</div>
+            <a class="reference-linkedin" href="https://www.linkedin.com/in/sara-langvad/" target="_blank" rel="noopener"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="reference-card">
+        <div class="reference-quote">"I've had the pleasure of working with Nicoline during her time as a student assistant, and I can warmly recommend her. Nicoline brings a rare combination of positivity, energy, and a strong willingness to help others. She approaches new tasks with a genuine curiosity and a smile, and she is not afraid to take on challenges.<span class="ref-more" id="m3"> Her proactive mindset and can-do attitude make her a great team player and a joy to work with. She consistently contributes with reliability and enthusiasm, and her supportive nature has been appreciated across the team. I'm confident she will bring great value to any future role she takes on. I wish her all the best in her continued career."</span></div>
+        <button class="ref-toggle" onclick="toggle('m3', this)">Read more ↓</button>
+        <div class="reference-person">
+          <div class="reference-initials" style="background:#e6edf5;color:#2a4d7a">HH</div>
+          <div>
+            <div class="reference-name">Helene Høgh Rasmussen</div>
+            <div class="reference-title">Senior Usability Engineer & Team Coach · Colleague</div>
+            <a class="reference-linkedin" href="https://www.linkedin.com/in/helene-h%C3%B8gh-rasmussen-4a26a2b5/" target="_blank" rel="noopener"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="reference-card">
+        <div class="reference-quote">"It is my pleasure to recommend Nicoline, who has worked as a student assistant in my team for Usability Engineering, Lean UX and CoCreation for the past two years. She approaches her tasks with a strong sense of responsibility and always delivers solid work.<span class="ref-more" id="m4"> Nicoline is not afraid to take initiative, and she approaches new tasks and challenges with both curiosity and drive - two highly valued qualities. She is an open and welcoming person who contributes positively to the collaboration in the team, meets others with respect and a good attitude, and is able to build strong relationships across the organisation. Nicoline has been a valuable part of the team throughout her employment, and I am convinced that she will be a great asset in any future position. I can therefore give her my warmest recommendations."</span></div>
+        <button class="ref-toggle" onclick="toggle('m4', this)">Read more ↓</button>
+        <div class="reference-person">
+          <div class="reference-initials" style="background:#f5ece6;color:#8c5033">AR</div>
+          <div>
+            <div class="reference-name">Andreas Robertson</div>
+            <div class="reference-title">Manager R&D, UX/UE · Senior colleague</div>
+            <a class="reference-linkedin" href="https://www.linkedin.com/in/andreas-r-58971687/" target="_blank" rel="noopener"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="letter-placeholder">
+      <i class="ti ti-file-description" aria-hidden="true"></i>
+      <div>
+        <div class="letter-title">Letter of Recommendation</div>
+        <div class="letter-sub">Coming soon</div>
+      </div>
+    </div>
+
+  </div>
+</div>
   <!-- CONTACT -->
   <div class="page" data-page="contact">
     <div class="contact-page">
@@ -477,6 +568,11 @@ function nav(name){
   showPage(name);
   document.querySelectorAll('.nav-links button').forEach(b=>b.classList.toggle('active',b.dataset.nav===name));
   window.scrollTo(0,0);
+}
+  function toggle(id, btn) {
+  const el = document.getElementById(id);
+  const open = el.classList.toggle('open');
+  btn.textContent = open ? 'Read less ↑' : 'Read more ↓';
 }
 </script>
 </body>
