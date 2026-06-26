@@ -297,26 +297,23 @@ svg text{font-family:var(--font-sans)}
 
 <script>
 // ─── LANGUAGE SYSTEM ───────────────────────────────────────────────────────────
-let currentLang = 'en';
+let currentLang = "en";
 
 function setLang(lang) {
   currentLang = lang;
-  document.getElementById('btn-en').classList.toggle('lang-active', lang === 'en');
-  document.getElementById('btn-da').classList.toggle('lang-active', lang === 'da');
-  document.documentElement.lang = lang === 'da' ? 'da' : 'en';
+  document.getElementById("btn-en").classList.toggle("lang-active", lang === "en");
+  document.getElementById("btn-da").classList.toggle("lang-active", lang === "da");
+  document.documentElement.lang = lang === "da" ? "da" : "en";
 
-  // Update all static data-en / data-da elements
-  document.querySelectorAll('[data-en]').forEach(el => {
-    const val = el.getAttribute('data-' + lang);
+  document.querySelectorAll("[data-en]").forEach(el => {
+    const val = el.getAttribute("data-" + lang);
     if (val !== null) el.innerHTML = val;
   });
 
-  // Re-render case cards with new language
   renderCaseCards();
 
-  // If a case detail is currently open, re-render it
   const casePage = document.querySelector('[data-page="case"]');
-  if (casePage && casePage.classList.contains('show')) {
+  if (casePage && casePage.classList.contains("show")) {
     const id = casePage.dataset.openCase;
     if (id) openCase(id, true);
   }
@@ -325,361 +322,361 @@ function setLang(lang) {
 // ─── CASE DATA ─────────────────────────────────────────────────────────────────
 const cases = [
   {
-    id: 'demant',
-    tagClass: 'tag-demant',
-    tag: { en: 'Demant · Internship', da: 'Demant · Praktik' },
-    title: { en: 'Exploratory user study', da: 'Explorativt brugerstudie' },
+    id: "demant",
+    tagClass: "tag-demant",
+    tag: { en: "Demant · Internship", da: "Demant · Praktik" },
+    title: { en: "Exploratory user study", da: "Explorativt brugerstudie" },
     desc: {
-      en: 'Independent study with 8 participants — recruitment, test design, analysis and presentation to 25+ stakeholders.',
-      da: 'Selvstændigt studie med 8 deltagere — rekruttering, testdesign, analyse og præsentation for 25+ stakeholders.'
+      en: "Independent study with 8 participants — recruitment, test design, analysis and presentation to 25+ stakeholders.",
+      da: "Selvstændigt studie med 8 deltagere — rekruttering, testdesign, analyse og præsentation for 25+ stakeholders."
     },
-    skills: ['UX Research', 'User Recruitment', 'Qualitative Analysis'],
-    skillsDa: ['UX Research', 'Brugerrekruttering', 'Kvalitativ analyse'],
+    skills: ["UX Research", "User Recruitment", "Qualitative Analysis"],
+    skillsDa: ["UX Research", "Brugerrekruttering", "Kvalitativ analyse"],
     img: `<img src="aipods-vs-oticon.png" alt="AirPods Pro 2 and Oticon Intent">`,
     detail: {
       en: {
-        eyebrow: 'Demant · Internship', eyebrowStyle: 'background:#e6edf5;color:#2a4d7a',
-        h1: 'Exploratory user study: AirPods Pro 2 vs. Oticon Intent',
-        lead: 'What can one of the world's largest hearing aid companies learn from Apple's new Hearing Aid feature? I explored this through an independent user study during my internship at Demant.',
-        meta: [['Role', 'UX Researcher'], ['Duration', '20-week internship'], ['Methods', 'Field testing, interviews'], ['Year', '2025']],
-        bannerImg: 'case-airpods-vs-oticon.png',
+        eyebrow: "Demant · Internship", eyebrowStyle: "background:#e6edf5;color:#2a4d7a",
+        h1: "Exploratory user study: AirPods Pro 2 vs. Oticon Intent",
+        lead: "What can one of the world’s largest hearing aid companies learn from Apple’s new Hearing Aid feature? I explored this through an independent user study during my internship at Demant.",
+        meta: [["Role", "UX Researcher"], ["Duration", "20-week internship"], ["Methods", "Field testing, interviews"], ["Year", "2025"]],
+        bannerImg: "case-airpods-vs-oticon.png",
         context: [
-          'Apple launched a Hearing Aid feature in AirPods Pro 2 at a fraction of the price of a traditional hearing aid. This raised an important question for Demant: what do users actually value, and where does the difference in experience lie?',
-          'The aim was to generate insight into the user experience of both solutions and compare them across comfort, sound, streaming, battery life, as well as visibility and discretion.'
+          "Apple launched a Hearing Aid feature in AirPods Pro 2 at a fraction of the price of a traditional hearing aid. This raised an important question for Demant: what do users actually value, and where does the difference in experience lie?",
+          "The aim was to generate insight into the user experience of both solutions and compare them across comfort, sound, streaming, battery life, as well as visibility and discretion."
         ],
-        processIntro: 'The study consisted of field tests with both products, followed by three visits where participants tested, were fitted, and compared the experiences.',
+        processIntro: "The study consisted of field tests with both products, followed by three visits where participants tested, were fitted, and compared the experiences.",
         process: [
-          ['Visit 1', 'Participants tried the AirPods hearing aid feature for the first time and completed Apple's hearing test.'],
-          ['Visit 2', 'Audiologist fitted participants' Oticon hearing aids and conducted a hearing test.'],
-          ['Visit 3', 'Comparison of the two experiences across the focus areas.'],
-          ['Participants', '8 new users with mild to moderate hearing loss, aged 43–68.']
+          ["Visit 1", "Participants tried the AirPods hearing aid feature for the first time and completed Apple’s hearing test."],
+          ["Visit 2", "Audiologist fitted participants’ Oticon hearing aids and conducted a hearing test."],
+          ["Visit 3", "Comparison of the two experiences across the focus areas."],
+          ["Participants", "8 new users with mild to moderate hearing loss, aged 43–68."]
         ],
         responsibilities: [
-          'Recruitment of a difficult target group — people with mild hearing loss and no prior experience',
-          'Planning and facilitation of the entire test process',
-          'Coordination with stakeholders across the organisation',
-          'Conducting user interviews and product tests',
-          'Analysis and synthesis of collected data',
-          'Presentation of results and recommendations'
+          "Recruitment of a difficult target group — people with mild hearing loss and no prior experience",
+          "Planning and facilitation of the entire test process",
+          "Coordination with stakeholders across the organisation",
+          "Conducting user interviews and product tests",
+          "Analysis and synthesis of collected data",
+          "Presentation of results and recommendations"
         ],
-        resultStats: [['25+', 'stakeholders presented to'], ['8', 'participants in depth study'], ['6', 'comparison parameters']],
-        resultText: 'The results were translated into concrete insights and recommendations, presented to more than 25 stakeholders across the organisation.',
-        confidential: 'Due to confidentiality, the specific results and recommendations cannot be shared. This case offers a view into the study's focus areas and the process behind it.'
+        resultStats: [["25+", "stakeholders presented to"], ["8", "participants in depth study"], ["6", "comparison parameters"]],
+        resultText: "The results were translated into concrete insights and recommendations, presented to more than 25 stakeholders across the organisation.",
+        confidential: "Due to confidentiality, the specific results and recommendations cannot be shared. This case offers a view into the study’s focus areas and the process behind it."
       },
       da: {
-        eyebrow: 'Demant · Praktik', eyebrowStyle: 'background:#e6edf5;color:#2a4d7a',
-        h1: 'Explorativt brugerstudie: AirPods Pro 2 vs. Oticon Intent',
-        lead: 'Hvad kan en af verdens største høreapparatsvirksomheder lære af Apples nye Hearing Aid-funktion? Det undersøgte jeg gennem et selvstændigt brugerstudie under min praktik hos Demant.',
-        meta: [['Rolle', 'UX Researcher'], ['Varighed', '20 ugers praktik'], ['Metoder', 'Felttest, interviews'], ['År', '2025']],
-        bannerImg: 'case-airpods-vs-oticon.png',
+        eyebrow: "Demant · Praktik", eyebrowStyle: "background:#e6edf5;color:#2a4d7a",
+        h1: "Explorativt brugerstudie: AirPods Pro 2 vs. Oticon Intent",
+        lead: "Hvad kan en af verdens største høreapparatsvirksomheder lære af Apples nye Hearing Aid-funktion? Det undersøgte jeg gennem et selvstændigt brugerstudie under min praktik hos Demant.",
+        meta: [["Rolle", "UX Researcher"], ["Varighed", "20 ugers praktik"], ["Metoder", "Felttest, interviews"], ["År", "2025"]],
+        bannerImg: "case-airpods-vs-oticon.png",
         context: [
-          'Apple lancerede en Hearing Aid-funktion i AirPods Pro 2 til en brøkdel af prisen på et traditionelt høreapparat. Det rejste et vigtigt spørgsmål for Demant: hvad værdsætter brugerne reelt, og hvor ligger forskellen i oplevelsen?',
-          'Formålet var at skabe indsigt i brugeroplevelsen af begge løsninger og sammenligne dem på komfort, lyd, streaming, batterilevetid samt synlighed og diskretion.'
+          "Apple lancerede en Hearing Aid-funktion i AirPods Pro 2 til en brøkdel af prisen på et traditionelt høreapparat. Det rejste et vigtigt spørgsmål for Demant: hvad værdsætter brugerne reelt, og hvor ligger forskellen i oplevelsen?",
+          "Formålet var at skabe indsigt i brugeroplevelsen af begge løsninger og sammenligne dem på komfort, lyd, streaming, batterilevetid samt synlighed og diskretion."
         ],
-        processIntro: 'Studiet bestod af felttests med begge produkter efterfulgt af tre besøg, hvor deltagerne testede, blev tilpasset og sammenlignede oplevelserne.',
+        processIntro: "Studiet bestod af felttests med begge produkter efterfulgt af tre besøg, hvor deltagerne testede, blev tilpasset og sammenlignede oplevelserne.",
         process: [
-          ['Besøg 1', 'Deltagerne afprøvede for første gang AirPods høreapparatfunktion og gennemførte Apples høretest.'],
-          ['Besøg 2', 'Audiolog tilpassede deltagernes Oticon-høreapparater og gennemførte en høretest.'],
-          ['Besøg 3', 'Sammenligning af de to oplevelser på tværs af fokusområderne.'],
-          ['Deltagere', '8 nye brugere med let til moderat høretab, 43–68 år.']
+          ["Besøg 1", "Deltagerne afprøvede for første gang AirPods høreapparatfunktion og gennemførte Apples høretest."],
+          ["Besøg 2", "Audiolog tilpassede deltagernes Oticon-høreapparater og gennemførte en høretest."],
+          ["Besøg 3", "Sammenligning af de to oplevelser på tværs af fokusområderne."],
+          ["Deltagere", "8 nye brugere med let til moderat høretab, 43–68 år."]
         ],
         responsibilities: [
-          'Rekruttering af en vanskelig målgruppe — personer med let høretab uden tidligere erfaring',
-          'Planlægning og facilitering af hele testforløbet',
-          'Koordinering med stakeholders på tværs af organisationen',
-          'Gennemførelse af brugerinterviews og produkttests',
-          'Analyse og syntese af indsamlet data',
-          'Præsentation af resultater og anbefalinger'
+          "Rekruttering af en vanskelig målgruppe — personer med let høretab uden tidligere erfaring",
+          "Planlægning og facilitering af hele testforløbet",
+          "Koordinering med stakeholders på tværs af organisationen",
+          "Gennemførelse af brugerinterviews og produkttests",
+          "Analyse og syntese af indsamlet data",
+          "Præsentation af resultater og anbefalinger"
         ],
-        resultStats: [['25+', 'stakeholders præsenteret for'], ['8', 'deltagere i dybdestudie'], ['6', 'sammenligningsparametre']],
-        resultText: 'Resultaterne blev omsat til konkrete indsigter og anbefalinger, der blev præsenteret for mere end 25 stakeholders på tværs af organisationen.',
-        confidential: 'På grund af fortrolighed kan de specifikke resultater og anbefalinger ikke deles. Denne case giver et indblik i undersøgelsens fokusområder og processen bag.'
+        resultStats: [["25+", "stakeholders præsenteret for"], ["8", "deltagere i dybdestudie"], ["6", "sammenligningsparametre"]],
+        resultText: "Resultaterne blev omsat til konkrete indsigter og anbefalinger, der blev præsenteret for mere end 25 stakeholders på tværs af organisationen.",
+        confidential: "På grund af fortrolighed kan de specifikke resultater og anbefalinger ikke deles. Denne case giver et indblik i undersøgelsens fokusområder og processen bag."
       }
     }
   },
   {
-    id: 'bachelor',
-    tagClass: 'tag-demant',
-    tag: { en: 'Demant · Bachelor project', da: 'Demant · Bachelorprojekt' },
-    title: { en: 'From complex feature to intuitive experience', da: 'Fra kompleks funktion til intuitiv oplevelse' },
+    id: "bachelor",
+    tagClass: "tag-demant",
+    tag: { en: "Demant · Bachelor project", da: "Demant · Bachelorprojekt" },
+    title: { en: "From complex feature to intuitive experience", da: "Fra kompleks funktion til intuitiv oplevelse" },
     desc: {
-      en: '20 user interviews, 3 co-creation workshops and 7 expert interviews. Prototype taken further by Demant.',
-      da: '20 brugerinterviews, 3 co-creation workshops og 7 ekspertinterviews. Prototype taget videre af Demant.'
+      en: "20 user interviews, 3 co-creation workshops and 7 expert interviews. Prototype taken further by Demant.",
+      da: "20 brugerinterviews, 3 co-creation workshops og 7 ekspertinterviews. Prototype taget videre af Demant."
     },
-    skills: ['Co-creation', 'Prototyping', 'Human-Centered Design'],
-    skillsDa: ['Co-creation', 'Prototyping', 'Human-Centered Design'],
+    skills: ["Co-creation", "Prototyping", "Human-Centered Design"],
+    skillsDa: ["Co-creation", "Prototyping", "Human-Centered Design"],
     img: `<img src="./tap-kontrol.png" alt="Tap control for hearing aids">`,
     detail: {
       en: {
-        eyebrow: 'Demant · Bachelor project', eyebrowStyle: 'background:#e6edf5;color:#2a4d7a',
-        h1: 'Tap control: from complex feature to intuitive experience',
-        lead: 'How do you help users understand and use a new feature in their hearing aid? We explored this in collaboration with Demant as part of our bachelor project.',
-        meta: [['Role', 'UX & Research'], ['Type', 'Bachelor project'], ['Collaboration', 'Demant'], ['Year', '2026']],
-        video: 'https://www.youtube.com/embed/uJw6iG9zyrc',
+        eyebrow: "Demant · Bachelor project", eyebrowStyle: "background:#e6edf5;color:#2a4d7a",
+        h1: "Tap control: from complex feature to intuitive experience",
+        lead: "How do you help users understand and use a new feature in their hearing aid? We explored this in collaboration with Demant as part of our bachelor project.",
+        meta: [["Role", "UX & Research"], ["Type", "Bachelor project"], ["Collaboration", "Demant"], ["Year", "2026"]],
+        video: "https://www.youtube.com/embed/uJw6iG9zyrc",
         context: [
-          'Demant had introduced a new tap-control feature, but many users struggled to understand its possibilities and use it correctly in everyday life.',
-          'This created a barrier between the technology and the value it was designed to create. Our task was to bridge that gap.'
+          "Demant had introduced a new tap-control feature, but many users struggled to understand its possibilities and use it correctly in everyday life.",
+          "This created a barrier between the technology and the value it was designed to create. Our task was to bridge that gap."
         ],
-        processIntro: 'We conducted extensive research to understand the problem from both user and expert perspectives.',
+        processIntro: "We conducted extensive research to understand the problem from both user and expert perspectives.",
         process: [
-          ['20 interviews', 'In-depth user interviews with hearing aid users.'],
-          ['3 workshops', 'Co-creation workshops with users and stakeholders.'],
-          ['7 experts', 'Expert interviews with audiologists.'],
-          ['4 usability tests', 'Tested our prototype 3 times with users and once with audiologists.']
+          ["20 interviews", "In-depth user interviews with hearing aid users."],
+          ["3 workshops", "Co-creation workshops with users and stakeholders."],
+          ["7 experts", "Expert interviews with audiologists."],
+          ["4 usability tests", "Tested our prototype 3 times with users and once with audiologists."]
         ],
         responsibilities: [
-          'Planning and facilitation of co-creation workshops',
-          'Conducting 20 in-depth user interviews',
-          'Coordination and interviews with audiologists',
-          'Analysis and synthesis of user insights',
-          'Concept development and prototyping in Figma',
-          'User testing and validation of the solution'
+          "Planning and facilitation of co-creation workshops",
+          "Conducting 20 in-depth user interviews",
+          "Coordination and interviews with audiologists",
+          "Analysis and synthesis of user insights",
+          "Concept development and prototyping in Figma",
+          "User testing and validation of the solution"
         ],
-        resultStats: [['20', 'user interviews'], ['3', 'co-creation workshops'], ['1', 'prototype taken further']],
-        resultText: 'We developed a prototype with a new introduction and training feature in Demant's existing app. The concept was received positively, and several of the project's recommendations were carried forward in the company's continued work.',
-        confidential: ''
+        resultStats: [["20", "user interviews"], ["3", "co-creation workshops"], ["1", "prototype taken further"]],
+        resultText: "We developed a prototype with a new introduction and training feature in Demant’s existing app. The concept was received positively, and several of the project’s recommendations were carried forward in the company’s continued work.",
+        confidential: ""
       },
       da: {
-        eyebrow: 'Demant · Bachelorprojekt', eyebrowStyle: 'background:#e6edf5;color:#2a4d7a',
-        h1: 'Tap-kontrol: fra kompleks funktion til intuitiv oplevelse',
-        lead: 'Hvordan hjælper man brugere med at forstå og anvende en ny funktion i deres høreapparat? Det undersøgte vi i samarbejde med Demant i vores bachelorprojekt.',
-        meta: [['Rolle', 'UX & Research'], ['Type', 'Bachelorprojekt'], ['Samarbejde', 'Demant'], ['År', '2026']],
-        video: 'https://www.youtube.com/embed/uJw6iG9zyrc',
+        eyebrow: "Demant · Bachelorprojekt", eyebrowStyle: "background:#e6edf5;color:#2a4d7a",
+        h1: "Tap-kontrol: fra kompleks funktion til intuitiv oplevelse",
+        lead: "Hvordan hjælper man brugere med at forstå og anvende en ny funktion i deres høreapparat? Det undersøgte vi i samarbejde med Demant i vores bachelorprojekt.",
+        meta: [["Rolle", "UX & Research"], ["Type", "Bachelorprojekt"], ["Samarbejde", "Demant"], ["År", "2026"]],
+        video: "https://www.youtube.com/embed/uJw6iG9zyrc",
         context: [
-          'Demant havde introduceret en ny tap-kontrolfunktion, men mange brugere havde svært ved at forstå funktionens muligheder og bruge den korrekt i hverdagen.',
-          'Det skabte en barriere mellem teknologien og den værdi, den var designet til at skabe. Vores opgave var at bygge bro over den barriere.'
+          "Demant havde introduceret en ny tap-kontrolfunktion, men mange brugere havde svært ved at forstå funktionens muligheder og bruge den korrekt i hverdagen.",
+          "Det skabte en barriere mellem teknologien og den værdi, den var designet til at skabe. Vores opgave var at bygge bro over den barriere."
         ],
-        processIntro: 'Vi gennemførte omfattende research for at forstå problemstillingen fra både bruger- og ekspertperspektiv.',
+        processIntro: "Vi gennemførte omfattende research for at forstå problemstillingen fra både bruger- og ekspertperspektiv.",
         process: [
-          ['20 interviews', 'Dybdegående brugerinterviews med høreapparatbrugere.'],
-          ['3 workshops', 'Co-creation workshops med brugere og interessenter.'],
-          ['7 eksperter', 'Ekspertinterviews med audiologer.'],
-          ['4 usability tests', 'Testede vores prototype 3 gange på brugere, og 1 gang på audiologer.']
+          ["20 interviews", "Dybdegående brugerinterviews med høreapparatbrugere."],
+          ["3 workshops", "Co-creation workshops med brugere og interessenter."],
+          ["7 eksperter", "Ekspertinterviews med audiologer."],
+          ["4 usability tests", "Testede vores prototype 3 gange på brugere, og 1 gang på audiologer."]
         ],
         responsibilities: [
-          'Planlægning og facilitering af co-creation workshops',
-          'Gennemførelse af 20 dybdegående brugerinterviews',
-          'Koordinering og interviews med audiologer',
-          'Analyse og syntese af brugerindsigter',
-          'Konceptudvikling og prototyping i Figma',
-          'Brugertest og validering af løsningen'
+          "Planlægning og facilitering af co-creation workshops",
+          "Gennemførelse af 20 dybdegående brugerinterviews",
+          "Koordinering og interviews med audiologer",
+          "Analyse og syntese af brugerindsigter",
+          "Konceptudvikling og prototyping i Figma",
+          "Brugertest og validering af løsningen"
         ],
-        resultStats: [['20', 'brugerinterviews'], ['3', 'co-creation workshops'], ['1', 'prototype taget videre']],
-        resultText: 'Vi udviklede en prototype med en ny introduktions- og træningsfunktion i Demants eksisterende app. Konceptet blev modtaget positivt, og flere af projektets anbefalinger blev taget videre i virksomhedens videre arbejde.',
-        confidential: ''
+        resultStats: [["20", "brugerinterviews"], ["3", "co-creation workshops"], ["1", "prototype taget videre"]],
+        resultText: "Vi udviklede en prototype med en ny introduktions- og træningsfunktion i Demants eksisterende app. Konceptet blev modtaget positivt, og flere af projektets anbefalinger blev taget videre i virksomhedens videre arbejde.",
+        confidential: ""
       }
     }
   },
   {
-    id: 'rejsekort',
-    tagClass: 'tag-ux',
-    tag: { en: 'DTU · Interaction Design', da: 'DTU · Interaktionsdesign' },
-    title: { en: 'Human-centred design of digital transit card solution', da: 'Brugercentreret design af digital rejsekortsløsning' },
+    id: "rejsekort",
+    tagClass: "tag-ux",
+    tag: { en: "DTU · Interaction Design", da: "DTU · Interaktionsdesign" },
+    title: { en: "Human-centred design of digital transit card solution", da: "Brugercentreret design af digital rejsekortsløsning" },
     desc: {
-      en: 'From field observations at stations to Figma prototype — wireframes, task flows and usability tests.',
-      da: 'Fra feltobservationer på stationer til Figma-prototype — wireframes, task flows og usability-tests.'
+      en: "From field observations at stations to Figma prototype — wireframes, task flows and usability tests.",
+      da: "Fra feltobservationer på stationer til Figma-prototype — wireframes, task flows og usability-tests."
     },
-    skills: ['Figma', 'Usability testing', 'Wireframes'],
-    skillsDa: ['Figma', 'Usability test', 'Wireframes'],
+    skills: ["Figma", "Usability testing", "Wireframes"],
+    skillsDa: ["Figma", "Usability test", "Wireframes"],
     img: `<img src="Rejsekort.png" alt="Digital Rejsekort app concept">`,
     detail: {
       en: {
-        eyebrow: 'DTU · Interaction Design', eyebrowStyle: 'background:#e8f0e8;color:#3a6633',
-        h1: 'Human-centred design of a digital transit card solution',
-        lead: 'The Rejsekort is often the only physical card left in the wallet — and full of friction. In the course Interaction Design, we designed a digital solution from scratch, driven by research and four rounds of usability testing.',
-        meta: [['Role', 'UX Designer'], ['Type', 'Course project'], ['Methods', 'Workshop, usability testing'], ['Team', '4 people']],
-        bannerImg: 'rejsekort-banner.png',
+        eyebrow: "DTU · Interaction Design", eyebrowStyle: "background:#e8f0e8;color:#3a6633",
+        h1: "Human-centred design of a digital transit card solution",
+        lead: "The Rejsekort is often the only physical card left in the wallet — and full of friction. In the course Interaction Design, we designed a digital solution from scratch, driven by research and four rounds of usability testing.",
+        meta: [["Role", "UX Designer"], ["Type", "Course project"], ["Methods", "Workshop, usability testing"], ["Team", "4 people"]],
+        bannerImg: "rejsekort-banner.png",
         context: [
-          'The Rejsekort is riddled with small friction points: readers out of order, check-in readers poorly placed, difficulties checking in multiple people — and above all, many people forgetting to check out and then having to battle a complicated website afterwards.',
-          'The system is also unintuitive for new users: should you swipe the card past or hold it still? And check-in and check-out readers share the same blue colour, making them hard to distinguish from a distance.'
+          "The Rejsekort is riddled with small friction points: readers out of order, check-in readers poorly placed, difficulties checking in multiple people — and above all, many people forgetting to check out and then having to battle a complicated website afterwards.",
+          "The system is also unintuitive for new users: should you swipe the card past or hold it still? And check-in and check-out readers share the same blue colour, making them hard to distinguish from a distance."
         ],
-        processIntro: 'We built the solution through a broad research process and iterated it across four rounds of usability testing.',
+        processIntro: "We built the solution through a broad research process and iterated it across four rounds of usability testing.",
         process: [
-          ['Etnoraids', 'Quick field observations at stations and on buses to validate the problems.'],
-          ['Generative workshop', '8 users, games such as "draw a toast" and an Impact & Effort Matrix to generate ideas from within.'],
-          ['Wire flow', 'Value proposition canvas, blueprint, storyboard and task flow to shape the user journey.'],
-          ['4 usability tests', 'Paper prototype tested and iterated four times with both frequent and new users.']
+          ["Etnoraids", "Quick field observations at stations and on buses to validate the problems."],
+          ["Generative workshop", "8 users, games such as ‘draw a toast’ and an Impact & Effort Matrix to generate ideas from within."],
+          ["Wire flow", "Value proposition canvas, blueprint, storyboard and task flow to shape the user journey."],
+          ["4 usability tests", "Paper prototype tested and iterated four times with both frequent and new users."]
         ],
         responsibilities: [
-          'Field observations (etnoraids) at train and bus stations',
-          'Planning and facilitation of a generative workshop with 8 participants',
-          'Developing storyboard, task flow and wire flow',
-          'Conducting four rounds of usability testing',
-          'Iterating the prototype after each test round'
+          "Field observations (etnoraids) at train and bus stations",
+          "Planning and facilitation of a generative workshop with 8 participants",
+          "Developing storyboard, task flow and wire flow",
+          "Conducting four rounds of usability testing",
+          "Iterating the prototype after each test round"
         ],
-        resultStats: [['4', 'rounds of usability testing'], ['8', 'workshop participants'], ['1', 'iterated prototype']],
-        resultText: 'Each test round moved the design forward: after test 1 we added a check-in feature and journey price. When a user confused the app's blue circle with the check-in readers, we changed it. We replaced CPR number with MitID, made buttons for multiple travellers larger, and gave the check-out button the same yellow colour as the physical readers — so the digital matched the physical.',
-        confidential: ''
+        resultStats: [["4", "rounds of usability testing"], ["8", "workshop participants"], ["1", "iterated prototype"]],
+        resultText: "Each test round moved the design forward: after test 1 we added a check-in feature and journey price. When a user confused the app’s blue circle with the check-in readers, we changed it. We replaced CPR number with MitID, made buttons for multiple travellers larger, and gave the check-out button the same yellow colour as the physical readers — so the digital matched the physical.",
+        confidential: ""
       },
       da: {
-        eyebrow: 'DTU · Interaktionsdesign', eyebrowStyle: 'background:#e8f0e8;color:#3a6633',
-        h1: 'Brugercentreret design af digital rejsekortsløsning',
-        lead: 'Rejsekortet er ofte det eneste fysiske kort tilbage i pungen — og fyldt med friktion. I faget Interaction Design designede vi en digital løsning fra grunden, drevet af research og fire runder usability-test.',
-        meta: [['Rolle', 'UX Designer'], ['Type', 'Kursusprojekt'], ['Metoder', 'Workshop, usabilitytest'], ['Team', '4 personer']],
-        bannerImg: 'rejsekort-banner.png',
+        eyebrow: "DTU · Interaktionsdesign", eyebrowStyle: "background:#e8f0e8;color:#3a6633",
+        h1: "Brugercentreret design af digital rejsekortsløsning",
+        lead: "Rejsekortet er ofte det eneste fysiske kort tilbage i pungen — og fyldt med friktion. I faget Interaction Design designede vi en digital løsning fra grunden, drevet af research og fire runder usability-test.",
+        meta: [["Rolle", "UX Designer"], ["Type", "Kursusprojekt"], ["Metoder", "Workshop, usabilitytest"], ["Team", "4 personer"]],
+        bannerImg: "rejsekort-banner.png",
         context: [
-          'Rejsekortet er fyldt med små friktioner: standere ude af drift, check-in-standere placeret uhensigtsmæssigt, besvær med at checke flere personer ind — og ikke mindst, at mange glemmer at checke ud og må kæmpe med en kompliceret hjemmeside bagefter.',
-          'Systemet er heller ikke intuitivt for nye brugere: skal man swipe kortet forbi eller holde det stille? Og check-in og check-ud-standere har samme blå farve, så de er svære at skelne på afstand.'
+          "Rejsekortet er fyldt med små friktioner: standere ude af drift, check-in-standere placeret uhensigtsmæssigt, besvær med at checke flere personer ind — og ikke mindst, at mange glemmer at checke ud og må kæmpe med en kompliceret hjemmeside bagefter.",
+          "Systemet er heller ikke intuitivt for nye brugere: skal man swipe kortet forbi eller holde det stille? Og check-in og check-ud-standere har samme blå farve, så de er svære at skelne på afstand."
         ],
-        processIntro: 'Vi byggede løsningen op gennem en bred researchproces og itererede den i fire runder usability-test.',
+        processIntro: "Vi byggede løsningen op gennem en bred researchproces og itererede den i fire runder usability-test.",
         process: [
-          ['Etnoraids', 'Hurtige feltobservationer på stationer og i busser for at validere problemerne.'],
-          ['Generativ workshop', '8 brugere, spil som "draw a toast" og Impact & Effort Matrix for at få idéer indefra.'],
-          ['Wire flow', 'Value proposition canvas, blueprint, storyboard og task flow til at forme brugerrejsen.'],
-          ['4 usability-tests', 'Papirprototype testet og itereret fire gange på både hyppige og nye brugere.']
+          ["Etnoraids", "Hurtige feltobservationer på stationer og i busser for at validere problemerne."],
+          ["Generativ workshop", "8 brugere, spil som ‘draw a toast’ og Impact & Effort Matrix for at få idéer indefra."],
+          ["Wire flow", "Value proposition canvas, blueprint, storyboard og task flow til at forme brugerrejsen."],
+          ["4 usability-tests", "Papirprototype testet og itereret fire gange på både hyppige og nye brugere."]
         ],
         responsibilities: [
-          'Feltobservationer (etnoraids) på tog- og busstationer',
-          'Planlægning og facilitering af generativ workshop med 8 deltagere',
-          'Udarbejdelse af storyboard, task flow og wire flow',
-          'Gennemførelse af fire usability-tests',
-          'Iteration af prototypen efter hver testrunde'
+          "Feltobservationer (etnoraids) på tog- og busstationer",
+          "Planlægning og facilitering af generativ workshop med 8 deltagere",
+          "Udarbejdelse af storyboard, task flow og wire flow",
+          "Gennemførelse af fire usability-tests",
+          "Iteration af prototypen efter hver testrunde"
         ],
-        resultStats: [['4', 'runder usability-test'], ['8', 'workshop-deltagere'], ['1', 'itereret prototype']],
-        resultText: 'Hver testrunde flyttede designet: efter test 1 tilføjede vi en check-in-funktion og pris for rejsen. Da en bruger forvekslede appens blå cirkel med check-in-standerne, ændrede vi den. Vi droppede CPR-nummer til fordel for MitID, gjorde knapper til flere rejsende større, og gav check-ud-knappen samme gule farve som de fysiske standere — så det digitale matchede det fysiske.',
-        confidential: ''
+        resultStats: [["4", "runder usability-test"], ["8", "workshop-deltagere"], ["1", "itereret prototype"]],
+        resultText: "Hver testrunde flyttede designet: efter test 1 tilføjede vi en check-in-funktion og pris for rejsen. Da en bruger forvekslede appens blå cirkel med check-in-standerne, ændrede vi den. Vi droppede CPR-nummer til fordel for MitID, gjorde knapper til flere rejsende større, og gav check-ud-knappen samme gule farve som de fysiske standere — så det digitale matchede det fysiske.",
+        confidential: ""
       }
     }
   },
   {
-    id: 'napz',
-    tagClass: 'tag-innovation',
-    tag: { en: 'DTU · Innovation', da: 'DTU · Innovation' },
-    title: { en: 'From idea to Letter of Intent from BabySam', da: 'Fra idé til Letter of Intent fra BabySam' },
+    id: "napz",
+    tagClass: "tag-innovation",
+    tag: { en: "DTU · Innovation", da: "DTU · Innovation" },
+    title: { en: "From idea to Letter of Intent from BabySam", da: "Fra idé til Letter of Intent fra BabySam" },
     desc: {
-      en: 'Design Thinking + Lean Startup. Won pitch competition in Dragons\' Den format and received Letter of Intent.',
-      da: 'Design Thinking + Lean Startup. Vandt pitch-konkurrence i Løvens Hule-format og modtog Letter of Intent.'
+      en: "Design Thinking + Lean Startup. Won pitch competition in Dragons’ Den format and received Letter of Intent.",
+      da: "Design Thinking + Lean Startup. Vandt pitch-konkurrence i Løvens Hule-format og modtog Letter of Intent."
     },
-    skills: ['Design Thinking', 'MVP', 'Pitch'],
-    skillsDa: ['Design Thinking', 'MVP', 'Pitch'],
+    skills: ["Design Thinking", "MVP", "Pitch"],
+    skillsDa: ["Design Thinking", "MVP", "Pitch"],
     img: `<img src="./Napz.png" alt="NapZ – cuddly toy with soothing sounds">`,
     detail: {
       en: {
-        eyebrow: 'DTU · Innovation', eyebrowStyle: 'background:#f5ece6;color:#8c5033',
-        h1: 'NapZ: From idea to BabySam Letter of Intent',
-        lead: 'Can you build a strong emotional connection into a product? We developed a cuddly toy that plays the mother\'s heartbeat — and took it all the way from idea to validated concept.',
-        meta: [['Role', 'Innovation & UX'], ['Method', 'Design Thinking, Lean'], ['Result', 'Won pitch + LOI'], ['Year', '2024']],
+        eyebrow: "DTU · Innovation", eyebrowStyle: "background:#f5ece6;color:#8c5033",
+        h1: "NapZ: From idea to BabySam Letter of Intent",
+        lead: "Can you build a strong emotional connection into a product? We developed a cuddly toy that plays the mother’s heartbeat — and took it all the way from idea to validated concept.",
+        meta: [["Role", "Innovation & UX"], ["Method", "Design Thinking, Lean"], ["Result", "Won pitch + LOI"], ["Year", "2024"]],
         banner: `<svg width="100%" height="100%" viewBox="0 0 680 290"><rect width="680" height="290" fill="#f5ede6"/><ellipse cx="280" cy="200" rx="150" ry="45" fill="#e8c9b0" opacity="0.5"/><ellipse cx="255" cy="165" rx="78" ry="56" fill="#d4a882" opacity="0.45"/><ellipse cx="285" cy="150" rx="56" ry="42" fill="#c49070" opacity="0.4"/><circle cx="275" cy="105" r="26" fill="#e8c9b0" opacity="0.7"/><rect x="470" y="70" width="110" height="140" rx="10" fill="#e8c9b0" opacity="0.45"/><rect x="482" y="82" width="86" height="92" rx="4" fill="#fff" opacity="0.55"/><text x="525" y="200" font-size="12" fill="#8c5033" text-anchor="middle" opacity="0.8">Letter of Intent</text></svg>`,
         context: [
-          'We worked through the entire innovation process from idea development to validating a finished concept, driven by Design Thinking and Lean Startup principles.',
-          'Through market research, we identified a growing demand for personalised products — this inspired a cuddly toy where mothers can record and play back their own heartbeat.'
+          "We worked through the entire innovation process from idea development to validating a finished concept, driven by Design Thinking and Lean Startup principles.",
+          "Through market research, we identified a growing demand for personalised products — this inspired a cuddly toy where mothers can record and play back their own heartbeat."
         ],
-        processIntro: 'We developed an MVP that was continuously tested and improved based on feedback.',
+        processIntro: "We developed an MVP that was continuously tested and improved based on feedback.",
         process: [
-          ['Research', 'Interviews and market research to identify the problem space.'],
-          ['Idea', 'Cuddly toy with the mother\'s heartbeat as a unique selling point.'],
-          ['MVP', 'Minimum Viable Product tested and iterated with users.'],
-          ['Pitch', 'Presentation in a Dragons\' Den-style format.']
+          ["Research", "Interviews and market research to identify the problem space."],
+          ["Idea", "Cuddly toy with the mother’s heartbeat as a unique selling point."],
+          ["MVP", "Minimum Viable Product tested and iterated with users."],
+          ["Pitch", "Presentation in a Dragons’ Den-style format."]
         ],
         responsibilities: [
-          'User interviews and research following Design Thinking',
-          'Idea development and conceptualisation',
-          'Development and testing of MVP following Lean Startup',
-          'Market research and validation',
-          'Developing and delivering the pitch'
+          "User interviews and research following Design Thinking",
+          "Idea development and conceptualisation",
+          "Development and testing of MVP following Lean Startup",
+          "Market research and validation",
+          "Developing and delivering the pitch"
         ],
-        resultStats: [['1st', 'place in pitch competition'], ['LOI', 'from BabySam'], ['MVP', 'tested & validated']],
-        resultText: 'Our team won the pitch competition, and we received a Letter of Intent from BabySam, who assessed that the concept had significant market potential.',
-        confidential: ''
+        resultStats: [["1st", "place in pitch competition"], ["LOI", "from BabySam"], ["MVP", "tested & validated"]],
+        resultText: "Our team won the pitch competition, and we received a Letter of Intent from BabySam, who assessed that the concept had significant market potential.",
+        confidential: ""
       },
       da: {
-        eyebrow: 'DTU · Innovation', eyebrowStyle: 'background:#f5ece6;color:#8c5033',
-        h1: 'NapZ: Fra idé til BabySam Letter of Intent',
-        lead: 'Kan man bygge en stærk følelsesmæssig forbindelse ind i et produkt? Vi udviklede en bamse, der afspiller moderens hjertelyd — og tog den hele vejen fra idé til valideret koncept.',
-        meta: [['Rolle', 'Innovation & UX'], ['Metode', 'Design Thinking, Lean'], ['Resultat', 'Vandt pitch + LOI'], ['År', '2024']],
+        eyebrow: "DTU · Innovation", eyebrowStyle: "background:#f5ece6;color:#8c5033",
+        h1: "NapZ: Fra idé til BabySam Letter of Intent",
+        lead: "Kan man bygge en stærk følelsesmæssig forbindelse ind i et produkt? Vi udviklede en bamse, der afspiller moderens hjertelyd — og tog den hele vejen fra idé til valideret koncept.",
+        meta: [["Rolle", "Innovation & UX"], ["Metode", "Design Thinking, Lean"], ["Resultat", "Vandt pitch + LOI"], ["År", "2024"]],
         banner: `<svg width="100%" height="100%" viewBox="0 0 680 290"><rect width="680" height="290" fill="#f5ede6"/><ellipse cx="280" cy="200" rx="150" ry="45" fill="#e8c9b0" opacity="0.5"/><ellipse cx="255" cy="165" rx="78" ry="56" fill="#d4a882" opacity="0.45"/><ellipse cx="285" cy="150" rx="56" ry="42" fill="#c49070" opacity="0.4"/><circle cx="275" cy="105" r="26" fill="#e8c9b0" opacity="0.7"/><rect x="470" y="70" width="110" height="140" rx="10" fill="#e8c9b0" opacity="0.45"/><rect x="482" y="82" width="86" height="92" rx="4" fill="#fff" opacity="0.55"/><text x="525" y="200" font-size="12" fill="#8c5033" text-anchor="middle" opacity="0.8">Letter of Intent</text></svg>`,
         context: [
-          'Vi arbejdede med hele innovationsprocessen fra idéudvikling til validering af et færdigt koncept, drevet af Design Thinking og Lean Startup-principper.',
-          'Gennem markedsresearch identificerede vi en stigende efterspørgsel efter personlige produkter — det inspirerede til en bamse, hvor mødre kan optage og afspille deres egen hjertelyd.'
+          "Vi arbejdede med hele innovationsprocessen fra idéudvikling til validering af et færdigt koncept, drevet af Design Thinking og Lean Startup-principper.",
+          "Gennem markedsresearch identificerede vi en stigende efterspørgsel efter personlige produkter — det inspirerede til en bamse, hvor mødre kan optage og afspille deres egen hjertelyd."
         ],
-        processIntro: 'Vi udviklede en MVP, som løbende blev testet og forbedret på baggrund af feedback.',
+        processIntro: "Vi udviklede en MVP, som løbende blev testet og forbedret på baggrund af feedback.",
         process: [
-          ['Research', 'Interviews og markedsresearch for at finde problemområdet.'],
-          ['Idé', 'Bamse med moderens hjertelyd som unikt salgspunkt.'],
-          ['MVP', 'Minimum Viable Product testet og itereret med brugere.'],
-          ['Pitch', 'Præsentation i et Løvens Hule-lignende format.']
+          ["Research", "Interviews og markedsresearch for at finde problemområdet."],
+          ["Idé", "Bamse med moderens hjertelyd som unikt salgspunkt."],
+          ["MVP", "Minimum Viable Product testet og itereret med brugere."],
+          ["Pitch", "Præsentation i et Løvens Hule-lignende format."]
         ],
         responsibilities: [
-          'Brugerinterviews og research efter Design Thinking',
-          'Idéudvikling og konceptualisering',
-          'Udvikling og test af MVP efter Lean Startup',
-          'Markedsresearch og validering',
-          'Udarbejdelse og levering af pitch'
+          "Brugerinterviews og research efter Design Thinking",
+          "Idéudvikling og konceptualisering",
+          "Udvikling og test af MVP efter Lean Startup",
+          "Markedsresearch og validering",
+          "Udarbejdelse og levering af pitch"
         ],
-        resultStats: [['1.', 'vinder af pitch'], ['LOI', 'fra BabySam'], ['MVP', 'testet & valideret']],
-        resultText: 'Vores team vandt pitch-konkurrencen, og vi modtog et Letter of Intent fra BabySam, som vurderede, at konceptet havde et betydeligt markedspotentiale.',
-        confidential: ''
+        resultStats: [["1.", "vinder af pitch"], ["LOI", "fra BabySam"], ["MVP", "testet & valideret"]],
+        resultText: "Vores team vandt pitch-konkurrencen, og vi modtog et Letter of Intent fra BabySam, som vurderede, at konceptet havde et betydeligt markedspotentiale.",
+        confidential: ""
       }
     }
   },
   {
-    id: 'oceansplate',
-    tagClass: 'tag-innovation',
-    tag: { en: 'DTU · Grøn Dyst', da: 'DTU · Grøn Dyst' },
-    title: { en: 'Sustainable product concept: from seaweed to disposable tableware', da: 'Bæredygtigt produktkoncept: fra tang til engangsservice' },
+    id: "oceansplate",
+    tagClass: "tag-innovation",
+    tag: { en: "DTU · Grøn Dyst", da: "DTU · Grøn Dyst" },
+    title: { en: "Sustainable product concept: from seaweed to disposable tableware", da: "Bæredygtigt produktkoncept: fra tang til engangsservice" },
     desc: {
-      en: 'Innovative sustainable alternative to plastic and cardboard. Presented at DTU\'s annual student conference Grøn Dyst.',
-      da: 'Innovativt bæredygtigt alternativ til plastik og pap. Præsenteret ved DTUs årlige studentkonference Grøn Dyst.'
+      en: "Innovative sustainable alternative to plastic and cardboard. Presented at DTU’s annual student conference Grøn Dyst.",
+      da: "Innovativt bæredygtigt alternativ til plastik og pap. Præsenteret ved DTUs årlige studentkonference Grøn Dyst."
     },
-    skills: ['Sustainability', 'Innovation', 'Pitch'],
-    skillsDa: ['Bæredygtighed', 'Innovation', 'Pitch'],
+    skills: ["Sustainability", "Innovation", "Pitch"],
+    skillsDa: ["Bæredygtighed", "Innovation", "Pitch"],
     img: `<img src="./oceansplate.png" alt="Sustainable product concept Oceansplate">`,
     detail: {
       en: {
-        eyebrow: 'DTU · Grøn Dyst', eyebrowStyle: 'background:#e8f0e8;color:#3a6633',
-        h1: 'Sustainable product concept: seaweed as an alternative to disposable tableware',
-        lead: 'Drawing on the UN Sustainable Development Goals, we developed an innovative and sustainable alternative to traditional disposable tableware made of cardboard and plastic — based on seaweed as a raw material.',
-        meta: [['Role', 'Innovation & Sustainability'], ['Context', 'DTU · Green Entrepreneurship'], ['Result', 'Presented at Grøn Dyst'], ['Year', '2024']],
-        bannerImg: 'Oceanplate banner.png',
+        eyebrow: "DTU · Grøn Dyst", eyebrowStyle: "background:#e8f0e8;color:#3a6633",
+        h1: "Sustainable product concept: seaweed as an alternative to disposable tableware",
+        lead: "Drawing on the UN Sustainable Development Goals, we developed an innovative and sustainable alternative to traditional disposable tableware made of cardboard and plastic — based on seaweed as a raw material.",
+        meta: [["Role", "Innovation & Sustainability"], ["Context", "DTU · Green Entrepreneurship"], ["Result", "Presented at Grøn Dyst"], ["Year", "2024"]],
+        bannerImg: "Oceanplate banner.png",
         context: [
-          'The project started from an identified opportunity to reduce the use of traditional cardboard and plastic disposable tableware — with seaweed as an alternative and sustainable material.',
-          'We investigated the material\'s properties, production possibilities and economic sustainability, with a focus on making the solution competitive on both price and quality.'
+          "The project started from an identified opportunity to reduce the use of traditional cardboard and plastic disposable tableware — with seaweed as an alternative and sustainable material.",
+          "We investigated the material’s properties, production possibilities and economic sustainability, with a focus on making the solution competitive on both price and quality."
         ],
-        processIntro: 'The project followed an innovation process from idea development and materials research to MVP and presentation at Grøn Dyst.',
+        processIntro: "The project followed an innovation process from idea development and materials research to MVP and presentation at Grøn Dyst.",
         process: [
-          ['Research', 'Investigation of seaweed\'s material properties, production possibilities and sustainability potential.'],
-          ['Idea development', 'Conceptualisation of a sustainable alternative to disposable tableware based on the UN SDGs.'],
-          ['MVP', 'Development and testing of a Minimum Viable Product.'],
-          ['Grøn Dyst', 'Presentation of the concept at DTU\'s annual student conference with 60+ participants.']
+          ["Research", "Investigation of seaweed’s material properties, production possibilities and sustainability potential."],
+          ["Idea development", "Conceptualisation of a sustainable alternative to disposable tableware based on the UN SDGs."],
+          ["MVP", "Development and testing of a Minimum Viable Product."],
+          ["Grøn Dyst", "Presentation of the concept at DTU’s annual student conference with 60+ participants."]
         ],
         responsibilities: [
-          'Idea development and conceptualisation based on the UN SDGs',
-          'Research into material properties and production possibilities',
-          'Assessment of economic and environmental sustainability',
-          'Development and testing of MVP',
-          'Developing and delivering pitch at Grøn Dyst'
+          "Idea development and conceptualisation based on the UN SDGs",
+          "Research into material properties and production possibilities",
+          "Assessment of economic and environmental sustainability",
+          "Development and testing of MVP",
+          "Developing and delivering pitch at Grøn Dyst"
         ],
-        resultStats: [['60+', 'participants at Grøn Dyst'], ['1', 'MVP developed and tested'], ['3', 'sustainability dimensions assessed']],
-        resultText: 'The concept was presented at DTU\'s annual student conference Grøn Dyst, where more than 60 other sustainable ideas competed. The project provided experience in innovation, sustainable business development and presentation skills.',
-        confidential: ''
+        resultStats: [["60+", "participants at Grøn Dyst"], ["1", "MVP developed and tested"], ["3", "sustainability dimensions assessed"]],
+        resultText: "The concept was presented at DTU’s annual student conference Grøn Dyst, where more than 60 other sustainable ideas competed. The project provided experience in innovation, sustainable business development and presentation skills.",
+        confidential: ""
       },
       da: {
-        eyebrow: 'DTU · Grøn Dyst', eyebrowStyle: 'background:#e8f0e8;color:#3a6633',
-        h1: 'Bæredygtigt produktkoncept: tang som alternativ til engangsservice',
-        lead: 'Med udgangspunkt i FNs verdensmål udviklede vi et innovativt og bæredygtigt alternativ til traditionel engangsservice af pap og plastik — baseret på tang som råmateriale.',
-        meta: [['Rolle', 'Innovation & Bæredygtighed'], ['Kontekst', 'DTU · Grøn Entreprnørskab'], ['Resultat', 'Præsenteret ved Grøn Dyst'], ['År', '2024']],
-        bannerImg: 'Oceanplate banner.png',
+        eyebrow: "DTU · Grøn Dyst", eyebrowStyle: "background:#e8f0e8;color:#3a6633",
+        h1: "Bæredygtigt produktkoncept: tang som alternativ til engangsservice",
+        lead: "Med udgangspunkt i FNs verdensmål udviklede vi et innovativt og bæredygtigt alternativ til traditionel engangsservice af pap og plastik — baseret på tang som råmateriale.",
+        meta: [["Rolle", "Innovation & Bæredygtighed"], ["Kontekst", "DTU · Grøn Entreprnørskab"], ["Resultat", "Præsenteret ved Grøn Dyst"], ["År", "2024"]],
+        bannerImg: "Oceanplate banner.png",
         context: [
-          'Projektet tog afsæt i en identificeret mulighed for at reducere brugen af traditionelle pap- og plastprodukter til engangsservice — med tang som et alternativt og bæredygtigt materiale.',
-          'Vi undersøgte materialets egenskaber, produktionsmuligheder og økonomiske bæredygtighed med fokus på at gøre løsningen konkurrencedygtig på både pris og kvalitet.'
+          "Projektet tog afsæt i en identificeret mulighed for at reducere brugen af traditionelle pap- og plastprodukter til engangsservice — med tang som et alternativt og bæredygtigt materiale.",
+          "Vi undersøgte materialets egenskaber, produktionsmuligheder og økonomiske bæredygtighed med fokus på at gøre løsningen konkurrencedygtig på både pris og kvalitet."
         ],
-        processIntro: 'Projektet fulgte en innovationsproces fra idéudvikling og materialeforskning til MVP og præsentation ved Grøn Dyst.',
+        processIntro: "Projektet fulgte en innovationsproces fra idéudvikling og materialeforskning til MVP og præsentation ved Grøn Dyst.",
         process: [
-          ['Research', 'Undersøgelse af tangs materialegenskaber, produktionsmuligheder og bæredygtighedspotentiale.'],
-          ['Idéudvikling', 'Konceptualisering af et bæredygtigt alternativ til engangsservice med udgangspunkt i FNs verdensmål.'],
-          ['MVP', 'Udvikling og test af et Minimum Viable Product.'],
-          ['Grøn Dyst', 'Præsentation af konceptet ved DTUs årlige studentkonference med 60+ deltagere.']
+          ["Research", "Undersøgelse af tangs materialegenskaber, produktionsmuligheder og bæredygtighedspotentiale."],
+          ["Idéudvikling", "Konceptualisering af et bæredygtigt alternativ til engangsservice med udgangspunkt i FNs verdensmål."],
+          ["MVP", "Udvikling og test af et Minimum Viable Product."],
+          ["Grøn Dyst", "Præsentation af konceptet ved DTUs årlige studentkonference med 60+ deltagere."]
         ],
         responsibilities: [
-          'Idéudvikling og konceptualisering med udgangspunkt i FNs verdensmål',
-          'Research i materialets egenskaber og produktionsmuligheder',
-          'Vurdering af økonomisk og miljømæssig bæredygtighed',
-          'Udvikling og test af MVP',
-          'Udarbejdelse og levering af pitch ved Grøn Dyst'
+          "Idéudvikling og konceptualisering med udgangspunkt i FNs verdensmål",
+          "Research i materialets egenskaber og produktionsmuligheder",
+          "Vurdering af økonomisk og miljømæssig bæredygtighed",
+          "Udvikling og test af MVP",
+          "Udarbejdelse og levering af pitch ved Grøn Dyst"
         ],
-        resultStats: [['60+', 'deltagere ved Grøn Dyst'], ['1', 'MVP udviklet og testet'], ['3', 'bæredygtighedsdimensioner vurderet']],
-        resultText: 'Konceptet blev præsenteret ved DTUs årlige studentkonference Grøn Dyst, hvor mere end 60 andre bæredygtige idéer dystede. Projektet gav erfaring med innovation, bæredygtig forretningsudvikling og præsentationsteknik.',
-        confidential: ''
+        resultStats: [["60+", "deltagere ved Grøn Dyst"], ["1", "MVP udviklet og testet"], ["3", "bæredygtighedsdimensioner vurderet"]],
+        resultText: "Konceptet blev præsenteret ved DTUs årlige studentkonference Grøn Dyst, hvor mere end 60 andre bæredygtige idéer dystede. Projektet gav erfaring med innovation, bæredygtig forretningsudvikling og præsentationsteknik.",
+        confidential: ""
       }
     }
   }
@@ -688,36 +685,36 @@ const cases = [
 // ─── RENDER CASE CARDS ─────────────────────────────────────────────────────────
 function caseCard(c) {
   const lang = currentLang;
-  const skills = lang === 'da' ? c.skillsDa : c.skills;
+  const skills = lang === "da" ? c.skillsDa : c.skills;
   return `<div class="case-card" onclick="openCase('${c.id}')">
     <div class="case-img">${c.img}</div>
     <div class="case-body">
       <div class="case-top"><span class="case-tag ${c.tagClass}">${c.tag[lang]}</span><i class="ti ti-arrow-right case-arrow" aria-hidden="true"></i></div>
       <p class="case-title">${c.title[lang]}</p>
       <p class="case-desc">${c.desc[lang]}</p>
-      <div class="case-skills">${skills.map(s => `<span class="skill-pill">${s}</span>`).join('')}</div>
+      <div class="case-skills">${skills.map(s => `<span class="skill-pill">${s}</span>`).join("")}</div>
     </div>
   </div>`;
 }
 
 function renderCaseCards() {
-  const html = cases.map(caseCard).join('');
-  document.getElementById('home-cases').innerHTML = html;
-  document.getElementById('all-cases').innerHTML = html;
+  const html = cases.map(caseCard).join("");
+  document.getElementById("home-cases").innerHTML = html;
+  document.getElementById("all-cases").innerHTML = html;
 }
 
 // ─── RENDER CASE DETAIL ────────────────────────────────────────────────────────
 function renderCase(c) {
   const d = c.detail[currentLang];
-  const meta = d.meta.map(m => `<div class="meta-item"><span class="meta-label">${m[0]}</span><span class="meta-value">${m[1]}</span></div>`).join('');
-  const context = d.context.map(p => `<p class="sec-text">${p}</p>`).join('');
-  const process = d.process.map(p => `<div class="process-card"><div class="process-num">${p[0]}</div><div class="process-card-text">${p[1]}</div></div>`).join('');
-  const resp = d.responsibilities.map(r => `<li><i class="ti ti-check" aria-hidden="true"></i> ${r}</li>`).join('');
-  const stats = d.resultStats.map(s => `<div><div class="result-stat-num">${s[0]}</div><div class="result-stat-lbl">${s[1]}</div></div>`).join('');
-  const conf = d.confidential ? `<p class="confidential-note">${d.confidential}</p>` : '';
-  const sectionLabels = currentLang === 'da'
-    ? { context: 'Kontekst', problem: 'Problemet', process: 'Proces', approach: 'Sådan greb jeg det an', responsibility: 'Mit ansvar', stood: 'Det stod jeg for', result: 'Resultat', led: 'Hvad det førte til' }
-    : { context: 'Context', problem: 'The problem', process: 'Process', approach: 'How I approached it', responsibility: 'My responsibilities', stood: 'What I owned', result: 'Result', led: 'What it led to' };
+  const meta = d.meta.map(m => `<div class="meta-item"><span class="meta-label">${m[0]}</span><span class="meta-value">${m[1]}</span></div>`).join("");
+  const context = d.context.map(p => `<p class="sec-text">${p}</p>`).join("");
+  const process = d.process.map(p => `<div class="process-card"><div class="process-num">${p[0]}</div><div class="process-card-text">${p[1]}</div></div>`).join("");
+  const resp = d.responsibilities.map(r => `<li><i class="ti ti-check" aria-hidden="true"></i> ${r}</li>`).join("");
+  const stats = d.resultStats.map(s => `<div><div class="result-stat-num">${s[0]}</div><div class="result-stat-lbl">${s[1]}</div></div>`).join("");
+  const conf = d.confidential ? `<p class="confidential-note">${d.confidential}</p>` : "";
+  const sectionLabels = currentLang === "da"
+    ? { context: "Kontekst", problem: "Problemet", process: "Proces", approach: "Sådan greb jeg det an", responsibility: "Mit ansvar", stood: "Det stod jeg for", result: "Resultat", led: "Hvad det førte til" }
+    : { context: "Context", problem: "The problem", process: "Process", approach: "How I approached it", responsibility: "My responsibilities", stood: "What I owned", result: "Result", led: "What it led to" };
 
   return `<div class="case-header">
     <span class="case-eyebrow" style="${d.eyebrowStyle}">${d.eyebrow}</span>
@@ -734,21 +731,21 @@ function renderCase(c) {
 
 function openCase(id, skipScroll) {
   const c = cases.find(x => x.id === id);
-  document.getElementById('case-detail').innerHTML = renderCase(c);
+  document.getElementById("case-detail").innerHTML = renderCase(c);
   const casePage = document.querySelector('[data-page="case"]');
   casePage.dataset.openCase = id;
-  showPage('case');
-  document.querySelectorAll('.nav-links button').forEach(b => b.classList.toggle('active', b.dataset.nav === 'cases'));
+  showPage("case");
+  document.querySelectorAll(".nav-links button").forEach(b => b.classList.toggle("active", b.dataset.nav === "cases"));
   if (!skipScroll) window.scrollTo(0, 0);
 }
 
 function showPage(name) {
-  document.querySelectorAll('.page').forEach(p => p.classList.toggle('show', p.dataset.page === name));
+  document.querySelectorAll(".page").forEach(p => p.classList.toggle("show", p.dataset.page === name));
 }
 
 function nav(name) {
   showPage(name);
-  document.querySelectorAll('.nav-links button').forEach(b => b.classList.toggle('active', b.dataset.nav === name));
+  document.querySelectorAll(".nav-links button").forEach(b => b.classList.toggle("active", b.dataset.nav === name));
   window.scrollTo(0, 0);
 }
 
