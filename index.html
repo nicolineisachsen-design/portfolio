@@ -123,6 +123,16 @@ a{color:inherit;text-decoration:none}
 .skill-section h3{font-size:14px;font-weight:500;margin-bottom:0.75rem}
 .skill-row{display:flex;flex-wrap:wrap;gap:8px}
 
+.reference-card{margin-top:2rem;background:var(--bg-secondary);border-radius:var(--radius-lg);padding:1.75rem 2rem;position:relative}
+.reference-quote-icon{font-size:28px;color:var(--accent);opacity:0.5;margin-bottom:0.75rem;display:block}
+.reference-quote{font-size:16px;color:var(--text-primary);line-height:1.7;font-style:italic;margin-bottom:1.25rem}
+.reference-author{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.reference-author-info{display:flex;flex-direction:column}
+.reference-author-name{font-size:14px;font-weight:500}
+.reference-author-title{font-size:12px;color:var(--text-secondary)}
+.reference-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:8px 14px;border-radius:var(--radius-md);border:0.5px solid var(--border-secondary);color:var(--text-primary);cursor:pointer;white-space:nowrap}
+.reference-link:hover{border-color:var(--accent);color:var(--accent)}
+
 .contact-page{padding:3rem 2rem;max-width:560px;margin:0 auto}
 .contact-page h1{font-size:30px;font-weight:500;margin-bottom:1rem}
 .contact-page p{font-size:16px;color:var(--text-secondary);line-height:1.7;margin-bottom:2rem}
@@ -265,6 +275,20 @@ svg text{font-family:var(--font-sans)}
           <span class="tag" data-en="Qualitative analysis" data-da="Kvalitativ analyse">Qualitative analysis</span>
         </div>
       </div>
+      <div class="reference-card">
+        <i class="ti ti-quote reference-quote-icon" aria-hidden="true"></i>
+        <p class="reference-quote" data-en="Insert a short quote from the recommendation letter here — e.g. a sentence highlighting your strengths as a researcher or collaborator." data-da="Indsæt et kort citat fra anbefalingsbrevet her — fx en sætning der fremhæver dine styrker som researcher eller samarbejdspartner.">Insert a short quote from the recommendation letter here.</p>
+        <div class="reference-author">
+          <div class="reference-author-info">
+            <span class="reference-author-name">[Leder navn]</span>
+            <span class="reference-author-title" data-en="Manager, Usability &amp; Co-creation, Demant" data-da="Leder, Usability &amp; Co-creation, Demant">Manager, Usability &amp; Co-creation, Demant</span>
+          </div>
+          <a class="reference-link" href="anbefaling.pdf" target="_blank" rel="noopener">
+            <i class="ti ti-file-text" aria-hidden="true"></i>
+            <span data-en="Read full letter" data-da="Læs hele brevet">Read full letter</span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -273,6 +297,7 @@ svg text{font-family:var(--font-sans)}
     <div class="contact-page">
       <h1 data-en="Let's talk" data-da="Lad os tale sammen">Let's talk</h1>
       <p data-en="Looking for a UX professional with an engineering mindset? I would love to hear from you — whether it is about a specific role or just a good conversation." data-da="Er du på udkig efter en UX'er med ingeniørblik? Så hører jeg gerne fra dig — uanset om det er en konkret rolle eller bare en god snak.">Looking for a UX professional with an engineering mindset? I would love to hear from you — whether it is about a specific role or just a good conversation.</p>
+      <div class="contact-links">
         <a class="contact-link" href="mailto:Nicoline.isachsen@gmail.com">
           <i class="ti ti-mail" aria-hidden="true"></i>
           <div><div class="contact-link-text">Email</div><div class="contact-link-sub">Nicoline.isachsen@gmail.com</div></div>
@@ -284,6 +309,10 @@ svg text{font-family:var(--font-sans)}
         <a class="contact-link" href="cv.pdf">
           <i class="ti ti-file-cv" aria-hidden="true"></i>
           <div><div class="contact-link-text" data-en="Download CV" data-da="Download CV">Download CV</div><div class="contact-link-sub">PDF</div></div>
+        </a>
+        <a class="contact-link" href="anbefaling.pdf" target="_blank" rel="noopener">
+          <i class="ti ti-file-text" aria-hidden="true"></i>
+          <div><div class="contact-link-text" data-en="Recommendation Letter" data-da="Anbefalingsbrev">Recommendation Letter</div><div class="contact-link-sub" data-en="From my manager at Demant" data-da="Fra min leder hos Demant">From my manager at Demant</div></div>
         </a>
       </div>
     </div>
