@@ -65,7 +65,7 @@ a{color:inherit;text-decoration:none}
 .cases-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
 .case-card{border:0.5px solid var(--border-tertiary);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-primary);cursor:pointer;transition:border-color 0.15s}
 .case-card:hover{border-color:var(--border-secondary)}
-.case-img{width:100%;height:260px;overflow:hidden}
+.case-img{width:100%;aspect-ratio:4/3;overflow:hidden}
 .case-img img{width:100%;height:100%;object-fit:cover;display:block}
 .case-body{padding:1rem 1.1rem 1.1rem}
 .case-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
@@ -95,8 +95,8 @@ a{color:inherit;text-decoration:none}
 .meta-item{display:flex;flex-direction:column;gap:3px}
 .meta-label{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary)}
 .meta-value{font-size:14px}
-.hero-banner{margin:0 2rem 2.5rem;border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);max-width:1080px;margin-left:auto;margin-right:auto}
-.hero-banner img{width:100%;height:100%;object-fit:cover}
+.hero-banner{margin:0 2rem 2.5rem;border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-secondary);border:0.5px solid var(--border-tertiary);max-width:1080px;margin-left:auto;margin-right:auto;aspect-ratio:16/9}
+.hero-banner img{width:100%;height:100%;object-fit:contain}
 .hero-banner img.banner-contain{object-fit:contain;background:#eef5ff;padding:10px}
 .hero-banner iframe{width:100%;height:500px;border:none}
 .csection{padding:0 2rem 2.5rem;max-width:680px;margin:0 auto}
@@ -114,6 +114,9 @@ a{color:inherit;text-decoration:none}
 .result-stats{display:flex;gap:2rem;margin-bottom:1rem;flex-wrap:wrap}
 .result-stat-num{font-size:26px;font-weight:500;color:var(--accent)}
 .result-stat-lbl{font-size:12px;color:var(--text-secondary);margin-top:2px}
+.result-text p{font-size:15px;color:var(--text-secondary);line-height:1.6;margin-bottom:0.6rem}
+.result-text p:last-child{margin-bottom:0}
+.result-text strong{color:var(--text-primary);font-weight:500}
 .confidential-note{font-size:13px;color:var(--text-tertiary);font-style:italic;margin-top:1rem;padding-left:12px;border-left:2px solid var(--border-tertiary)}
 
 .about-page{padding:3rem 2rem;max-width:720px;margin:0 auto}
@@ -149,15 +152,34 @@ svg text{font-family:var(--font-sans)}
 
 @media(max-width:720px){
   .hero{grid-template-columns:1fr;gap:2rem;padding:2.5rem 1.5rem}
-  .hero-name{font-size:30px}
+  .hero-name{font-size:28px}
+  .hero-img{max-width:260px;margin:0 auto}
   .cases-grid{grid-template-columns:1fr}
   .about-strip{grid-template-columns:1fr}
   .process-grid{grid-template-columns:1fr}
-  .nav{padding:1rem 1.5rem}
-  .nav-links{gap:1rem}
-  .section,.about-page,.contact-page{padding-left:1.5rem;padding-right:1.5rem}
-  .nav-right{gap:6px}
+  .nav{padding:0.85rem 1.25rem}
+  .nav-inner{flex-wrap:wrap;row-gap:0.65rem}
+  .nav-logo{font-size:13px;order:1}
+  .nav-right{order:2;gap:6px}
+  .nav-links{order:3;width:100%;justify-content:center;gap:1.1rem}
   .lang-toggle button{padding:5px 7px}
+  .section,.about-page,.contact-page{padding-left:1.5rem;padding-right:1.5rem}
+  .case-header,.back{padding-left:1.5rem;padding-right:1.5rem}
+  .hero-banner{margin-left:1.5rem;margin-right:1.5rem}
+  .hero-banner iframe{height:220px}
+  .csection{padding-left:1.5rem;padding-right:1.5rem}
+  .case-h1{font-size:24px}
+  .case-lead{font-size:14px}
+  .meta-row{gap:1.25rem}
+  .result-stats{gap:1.25rem}
+  .footer-bar{padding:1rem 1.5rem;flex-direction:column;align-items:flex-start;gap:6px}
+}
+
+@media(max-width:400px){
+  .hero-name{font-size:24px}
+  .nav-logo{font-size:12px}
+  .hero-tags{gap:6px}
+  .tag{font-size:11px;padding:3px 8px}
 }
 </style>
 </head>
@@ -335,8 +357,8 @@ const cases = [
     tag: { en: "Demant · Internship", da: "Demant · Praktik" },
     title: { en: "Exploratory user study", da: "Explorativt brugerstudie" },
     desc: {
-      en: "Independent user study with 8 participants — from recruitment and test design to analysis and presentation to more than 25 stakeholders.",
-      da: "Selvstændigt brugerstudie med 8 deltagere — fra rekruttering og testdesign til analyse og præsentation for mere end 25 interessenter."
+      en: "Independent user study with 8 participants, from recruitment and test design to analysis and presentation to more than 50 stakeholders.",
+      da: "Selvstændigt brugerstudie med 8 deltagere, fra rekruttering og testdesign til analyse og præsentation for mere end 50 interessenter."
     },
     skills: ["UX Research", "User Recruitment", "Qualitative Analysis"],
     skillsDa: ["UX Research", "Brugerrekruttering", "Kvalitativ analyse"],
@@ -349,10 +371,11 @@ const cases = [
         meta: [["Role", "UX Researcher"], ["Duration", "20-week internship"], ["Methods", "Field testing, interviews"], ["Year", "2025"]],
         bannerImg: "case-airpods-vs-oticon.png",
         context: [
-          "Apple launched a Hearing Aid feature in AirPods Pro 2 at a fraction of the price of a traditional hearing aid. This raised an important question for Demant: what do users actually value, and where does the difference in experience lie?",
-          "The aim was to generate insight into the user experience of both solutions and compare them across comfort, sound, streaming, battery life, as well as visibility and discretion."
+          "Apple launched a Hearing Aid feature in AirPods Pro 2 in October 2024. It was significantly cheaper and more accessible than a traditional hearing aid. This mattered to Demant because of a specific group of people: those who suspect they have hearing loss but haven't yet bought a hearing aid. Often the barrier is cost, inconvenience, or the stigma of identifying as a hearing aid user. Apple's offering lowers that barrier, which gave them a real chance to reach this group before Demant did.",
+          "Demant needed to understand this group better. What do they actually value? Where does Apple's offering still fall short? The answers could help Demant reach these users earlier, or show what it would take to guide them toward a proper hearing aid later on.",
+          "I was asked to take ownership of this study during my internship. The task was to understand how end users experienced Apple's offering compared to Demant's own Oticon Intent. We compared the two across comfort, sound, streaming, battery life, visibility and discretion."
         ],
-        processIntro: "The study consisted of field tests with both products, followed by three visits where participants tested, were fitted, and compared the experiences.",
+        processIntro: "I designed the three-visit test protocol independently. Participants experienced each product on its own before comparing them, a deliberate choice to avoid one experience influencing perception of the other. The two experiences are fundamentally different: one guided by an audiologist through professional fitting and a hearing test, the other a self-service digital setup guided by Apple.",
         process: [
           ["Visit 1", "Participants tried the AirPods hearing aid feature for the first time and completed Apple’s hearing test."],
           ["Visit 2", "Audiologist fitted participants’ Oticon hearing aids and conducted a hearing test."],
@@ -360,16 +383,16 @@ const cases = [
           ["Participants", "8 new users with mild to moderate hearing loss, aged 43–68."]
         ],
         responsibilities: [
-          "Recruitment of a hard-to-reach target group — people with mild hearing loss and no prior hearing aid experience",
-          "Planning and facilitation of the entire test process",
-          "Coordination with cross-functional stakeholders across the organisation",
+          "Recruitment of a hard-to-reach target group: people with mild hearing loss and no prior hearing aid experience",
+          "Independent design and facilitation of the three-visit test protocol",
+          "Ongoing stakeholder management to keep a growing group of collaborators aligned throughout the project",
           "Conducting user interviews and product tests",
           "Analysis and synthesis of collected data",
-          "Presentation of results and recommendations"
+          "Presentation of results and recommendations to more than 50 stakeholders"
         ],
         resultStats: [["50+", "stakeholders presented to"], ["8", "participants in an in-depth study"], ["6", "comparison parameters"]],
-        resultText: "The results were translated into concrete insights and recommendations, presented to more than 25 stakeholders across the organisation.",
-        confidential: "Due to confidentiality, the specific results and recommendations cannot be shared. This case offers a view into the study’s focus areas and the process behind it."
+        resultText: "<p>The most striking finding concerned stigma and sound. Participants generally found Oticon's hearing aids more discreet, while AirPods felt more exposing, not because they were more visible, but because their purpose wasn't clear to the people around them. They felt the need to explain the AirPods Pro 2's purpose when in larger gatherings.</p><p>This was reinforced by how participants described the sound itself. All 8 participants found wind noise very disruptive, and described the experience as being inside a bubble, using words like artificial, unnatural and metallic, whereas Oticon Intent's sound was described as natural.</p><p>The results were presented to more than 50 stakeholders across two sessions. Stakeholder management took up a significant amount of my time, and in hindsight I would have consolidated it into fewer, better-prepared sessions instead of coordinating alignment with many stakeholders individually. It's a lesson I carried directly into how I approached my bachelor project.</p>",
+        confidential: "Due to confidentiality, Demant's specific strategic recommendations cannot be shared. This case offers a view into the study's focus areas, the process behind it, and the user-facing findings."
       },
       da: {
         eyebrow: "Demant · Praktik", eyebrowStyle: "background:#e6edf5;color:#2a4d7a",
@@ -378,10 +401,11 @@ const cases = [
         meta: [["Rolle", "UX Researcher"], ["Varighed", "20 ugers praktik"], ["Metoder", "Felttest, interviews"], ["År", "2025"]],
         bannerImg: "case-airpods-vs-oticon.png",
         context: [
-          "Apple lancerede en Hearing Aid-funktion i AirPods Pro 2 til en brøkdel af prisen på et traditionelt høreapparat. Det rejste et vigtigt spørgsmål for Demant: hvad værdsætter brugerne reelt, og hvor ligger forskellen i oplevelsen?",
-          "Formålet var at skabe indsigt i brugeroplevelsen af begge løsninger og sammenligne dem på komfort, lyd, streaming, batterilevetid samt synlighed og diskretion."
+          "Apple lancerede en Hearing Aid-funktion i AirPods Pro 2 i oktober 2024. Den var væsentligt billigere og mere tilgængelig end et traditionelt høreapparat. Det betød noget for Demant på grund af en bestemt gruppe mennesker: dem der har mistanke om høretab, men endnu ikke har anskaffet et høreapparat. Barrieren er ofte pris, besvær eller stigmaet ved at identificere sig som høreapparatbruger. Apples løsning sænker den barriere, hvilket gav dem en reel chance for at nå denne gruppe før Demant.",
+          "Demant havde brug for at forstå denne gruppe bedre. Hvad værdsætter de reelt? Hvor kommer Apples løsning til kort? Svarene kunne hjælpe Demant med at nå brugerne tidligere, eller vise hvad der skulle til for at guide dem videre til et rigtigt høreapparat senere.",
+          "Jeg blev spurgt, om jeg ville overtage studiet under min praktik. Opgaven var at forstå, hvordan slutbrugere oplevede Apples løsning sammenlignet med Demants eget Oticon Intent. Vi sammenlignede de to på tværs af komfort, lyd, streaming, batterilevetid, synlighed og diskretion."
         ],
-        processIntro: "Studiet bestod af felttests med begge produkter efterfulgt af tre besøg, hvor deltagerne testede, blev tilpasset og sammenlignede oplevelserne.",
+        processIntro: "Jeg designede selv testforløbet med tre besøg. Deltagerne oplevede hvert produkt for sig, før de sammenlignede dem, et bevidst valg for at undgå at den ene oplevelse farvede opfattelsen af den anden. De to oplevelser er grundlæggende forskellige: den ene styret af en audiolog gennem professionel tilpasning og en høretest, den anden en selvbetjent digital opsætning guidet af Apple.",
         process: [
           ["Besøg 1", "Deltagerne afprøvede for første gang AirPods høreapparatfunktion og gennemførte Apples høretest."],
           ["Besøg 2", "Audiolog tilpassede deltagernes Oticon-høreapparater og gennemførte en høretest."],
@@ -389,16 +413,16 @@ const cases = [
           ["Deltagere", "8 nye brugere med let til moderat høretab, 43–68 år."]
         ],
         responsibilities: [
-          "Rekruttering af en svært tilgængelig målgruppe — personer med let høretab uden tidligere erfaring med høreapparater",
-          "Planlægning og facilitering af hele testforløbet",
-          "Koordinering med tværfaglige interessenter på tværs af organisationen",
+          "Rekruttering af en svært tilgængelig målgruppe: personer med let høretab uden tidligere erfaring med høreapparater",
+          "Selvstændig design og facilitering af testforløbet med tre besøg",
+          "Løbende stakeholder management for at holde en voksende gruppe samarbejdspartnere afstemt gennem hele projektet",
           "Gennemførelse af brugerinterviews og produkttests",
           "Analyse og syntese af indsamlet data",
-          "Præsentation af resultater og anbefalinger"
+          "Præsentation af resultater og anbefalinger for mere end 50 interessenter"
         ],
-        resultStats: [["25+", "interessenter præsenteret for"], ["8", "deltagere i et dybdegående studie"], ["6", "sammenligningsparametre"]],
-        resultText: "Resultaterne blev omsat til konkrete indsigter og anbefalinger, som blev præsenteret for mere end 25 interessenter på tværs af organisationen.",
-        confidential: "På grund af fortrolighed kan de specifikke resultater og anbefalinger ikke deles. Denne case giver et indblik i undersøgelsens fokusområder og processen bag."
+        resultStats: [["50+", "interessenter præsenteret for"], ["8", "deltagere i et dybdegående studie"], ["6", "sammenligningsparametre"]],
+        resultText: "<p>Det mest slående fund handlede om stigma og lyd. Deltagerne oplevede generelt Oticon som mest diskret, mens AirPods føltes mere udleverende, ikke fordi de var mere synlige, men fordi formålet ikke var tydeligt for omgivelserne. De følte behov for at forklare AirPods Pro 2's formål, når de var i større forsamlinger.</p><p>Det blev understøttet af, hvordan deltagerne beskrev selve lyden. Alle 8 deltagere oplevede vindstøj som meget generende og beskrev oplevelsen som at være i en osteklokke, med ord som kunstig, unaturlig og metallisk, hvorimod Oticon Intents lyd blev beskrevet som naturlig.</p><p>Resultaterne blev præsenteret for over 50 interessenter fordelt på to sessioner. Stakeholder management fyldte meget af min tid, og set i bakspejlet ville jeg have samlet det i færre, bedre forberedte sessioner i stedet for at koordinere afstemning med mange interessenter enkeltvis. Det er en læring, jeg tog direkte med mig ind i, hvordan jeg greb bachelorprojektet an.</p>",
+        confidential: "På grund af fortrolighed kan Demants konkrete strategiske anbefalinger ikke deles. Denne case giver et indblik i undersøgelsens fokusområder, processen bag og de brugervendte fund."
       }
     }
   },
@@ -734,7 +758,7 @@ function renderCase(c) {
   <div class="csection"><p class="sec-label">${sectionLabels.context}</p><h2 class="sec-title">${sectionLabels.problem}</h2>${context}</div>
   <div class="csection"><p class="sec-label">${sectionLabels.process}</p><h2 class="sec-title">${sectionLabels.approach}</h2><p class="sec-text">${d.processIntro}</p><div class="process-grid">${process}</div></div>
   <div class="csection"><p class="sec-label">${sectionLabels.responsibility}</p><h2 class="sec-title">${sectionLabels.stood}</h2><ul class="responsibility-list">${resp}</ul></div>
-  <div class="csection"><p class="sec-label">${sectionLabels.result}</p><h2 class="sec-title">${sectionLabels.led}</h2><div class="result-card"><div class="result-stats">${stats}</div><p class="result-text">${d.resultText}</p></div>${conf}</div>`;
+  <div class="csection"><p class="sec-label">${sectionLabels.result}</p><h2 class="sec-title">${sectionLabels.led}</h2><div class="result-card"><div class="result-stats">${stats}</div><div class="result-text">${d.resultText}</div></div>${conf}</div>`;
 }
 
 function openCase(id, skipScroll) {
