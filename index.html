@@ -200,7 +200,7 @@ svg text{font-family:var(--font-sans)}
           <button id="btn-en" class="lang-active" onclick="setLang('en')">EN</button>
           <button id="btn-da" onclick="setLang('da')">DA</button>
         </div>
-        <button class="nav-cta" onclick="window.location.href='cv.pdf'"><i class="ti ti-download" aria-hidden="true"></i> CV</button>
+        <button class="nav-cta" onclick="openCv()"><i class="ti ti-download" aria-hidden="true"></i> CV</button>
       </div>
     </div>
   </nav>
@@ -310,7 +310,7 @@ svg text{font-family:var(--font-sans)}
           <i class="ti ti-brand-linkedin" aria-hidden="true"></i>
           <div><div class="contact-link-text">LinkedIn</div><div class="contact-link-sub">linkedin.com/in/nicoline-lodahl</div></div>
         </a>
-        <a class="contact-link" href="cv.pdf">
+        <a class="contact-link" id="cv-contact-link" href="cv-en.pdf">
           <i class="ti ti-file-cv" aria-hidden="true"></i>
           <div><div class="contact-link-text" data-en="Download CV" data-da="Download CV">Download CV</div><div class="contact-link-sub">PDF</div></div>
         </a>
@@ -337,6 +337,11 @@ function setLang(lang) {
   document.getElementById("btn-da").classList.toggle("lang-active", lang === "da");
   document.documentElement.lang = lang === "da" ? "da" : "en";
 
+  const cvContactLink = document.getElementById("cv-contact-link");
+  if (cvContactLink) {
+    cvContactLink.href = getCvFile();
+  }
+
   document.querySelectorAll("[data-en]").forEach(el => {
     const val = el.getAttribute("data-" + lang);
     if (val !== null) el.innerHTML = val;
@@ -349,6 +354,14 @@ function setLang(lang) {
     const id = casePage.dataset.openCase;
     if (id) openCase(id, true);
   }
+}
+
+function getCvFile() {
+  return currentLang === "da" ? "cv.pdf" : "cv-en.pdf";
+}
+
+function openCv() {
+  window.location.href = getCvFile();
 }
 
 // ─── CASE DATA ─────────────────────────────────────────────────────────────────
