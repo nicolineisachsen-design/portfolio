@@ -136,6 +136,26 @@ a{color:inherit;text-decoration:none}
 .reference-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:8px 14px;border-radius:var(--radius-md);border:0.5px solid var(--border-secondary);color:var(--text-primary);cursor:pointer;white-space:nowrap}
 .reference-link:hover{border-color:var(--accent);color:var(--accent)}
 
+/* RECOMMENDATIONS PAGE */
+.recommendations-page{padding:3rem 2rem;max-width:720px;margin:0 auto}
+.recommendations-page h1{font-size:30px;font-weight:500;margin-bottom:1rem}
+.recommendations-intro{font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:2rem}
+.rec-grid{display:flex;flex-direction:column;gap:1.25rem}
+.rec-card{border:0.5px solid var(--border-tertiary);border-radius:var(--radius-lg);padding:1.5rem;background:var(--bg-primary)}
+.rec-quote{font-size:15px;color:var(--text-secondary);line-height:1.8;font-style:italic;border-left:2px solid var(--border-secondary);padding-left:12px;margin-bottom:0.75rem}
+.rec-more{display:none}
+.rec-more.open{display:inline}
+.rec-toggle{font-size:12px;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-bottom:1rem;font-family:inherit}
+.rec-person{display:flex;align-items:center;gap:10px}
+.rec-initials{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex-shrink:0}
+.rec-name{font-size:14px;font-weight:500;margin-bottom:2px}
+.rec-title{font-size:12px;color:var(--text-secondary);margin-bottom:4px}
+.rec-linkedin{font-size:12px;color:var(--accent);display:inline-flex;align-items:center;gap:4px}
+.letter-placeholder{display:flex;align-items:center;gap:12px;margin-top:2rem;padding:1rem 1.25rem;border:0.5px dashed var(--border-secondary);border-radius:var(--radius-lg);color:var(--text-tertiary)}
+.letter-placeholder i{font-size:24px}
+.letter-title{font-size:14px;font-weight:500;color:var(--text-secondary)}
+.letter-sub{font-size:12px}
+
 .contact-page{padding:3rem 2rem;max-width:560px;margin:0 auto}
 .contact-page h1{font-size:30px;font-weight:500;margin-bottom:1rem}
 .contact-page p{font-size:16px;color:var(--text-secondary);line-height:1.7;margin-bottom:2rem}
@@ -164,7 +184,7 @@ svg text{font-family:var(--font-sans)}
   .nav-right{order:2;gap:6px}
   .nav-links{order:3;width:100%;justify-content:center;gap:1.1rem}
   .lang-toggle button{padding:5px 7px}
-  .section,.about-page,.contact-page{padding-left:1.5rem;padding-right:1.5rem}
+  .section,.about-page,.contact-page,.recommendations-page{padding-left:1.5rem;padding-right:1.5rem}
   .case-header,.back{padding-left:1.5rem;padding-right:1.5rem}
   .hero-banner{margin-left:1.5rem;margin-right:1.5rem}
   .hero-banner iframe{height:220px}
@@ -193,6 +213,7 @@ svg text{font-family:var(--font-sans)}
         <button data-nav="home" class="active" onclick="nav('home')" data-en="Home" data-da="Hjem">Home</button>
         <button data-nav="about" onclick="nav('about')" data-en="About" data-da="Om mig">About</button>
         <button data-nav="cases" onclick="nav('cases')" data-en="Cases" data-da="Cases">Cases</button>
+        <button data-nav="recommendations" onclick="nav('recommendations')" data-en="Recommendations" data-da="Anbefalinger">Recommendations</button>
         <button data-nav="contact" onclick="nav('contact')" data-en="Contact" data-da="Kontakt">Contact</button>
       </div>
       <div class="nav-right">
@@ -262,8 +283,8 @@ svg text{font-family:var(--font-sans)}
     <div class="about-page">
       <h1 data-en="About me" data-da="Om mig">About me</h1>
       <p data-en="I am a newly graduated BEng in Process and Innovation from DTU, specialising in UX research and human-centred product development. During my time at Demant, I worked across the research process — from participant recruitment and study design to interviews, analysis, prototyping and stakeholder communication." data-da="Jeg er nyuddannet diplomingeniør i Proces og Innovation fra DTU med særlig interesse for UX-research og brugercentreret produktudvikling. Hos Demant har jeg arbejdet med hele researchprocessen — fra rekruttering og studiedesign til brugerinterviews, analyse, prototyping og formidling til interessenter.">I am a newly graduated BEng in Process and Innovation from DTU, specialising in UX research and human-centred product development. During my time at Demant, I worked across the research process — from participant recruitment and study design to interviews, analysis, prototyping and stakeholder communication.</p>
-      <p data-en="I enjoy making complex products easier to understand and use. My engineering background helps me collaborate with developers and specialists, while my UX experience keeps users’ needs central throughout the process." data-da="Jeg motiveres af at gøre komplekse produkter nemmere at forstå og anvende. Min ingeniørbaggrund gør mig i stand til at samarbejde med udviklere og specialister, mens min UX-erfaring hjælper mig med at fastholde brugernes behov gennem hele processen.">I enjoy making complex products easier to understand and use. My engineering background helps me collaborate with developers and specialists, while my UX experience keeps users’ needs central throughout the process.</p>
-      <p data-en="With experience from Demant and LiqTech, I bring a broad perspective on product development, research and collaboration. I am now based in Aarhus and curious about opportunities where technology, users and meaningful solutions meet." data-da="Med erfaring fra Demant og LiqTech har jeg et bredt perspektiv på produktudvikling, research og samarbejde. Jeg er nu bosat i Aarhus og nysgerrig på muligheder, hvor teknologi, brugere og meningsfulde løsninger mødes.">With experience from Demant, LiqTech and Grundfos, I bring a broad perspective on product development, research and collaboration. I am now based in Aarhus and curious about opportunities where technology, users and meaningful solutions meet.</p>
+      <p data-en="I enjoy making complex products easier to understand and use. My engineering background helps me collaborate with developers and specialists, while my UX experience keeps users' needs central throughout the process." data-da="Jeg motiveres af at gøre komplekse produkter nemmere at forstå og anvende. Min ingeniørbaggrund gør mig i stand til at samarbejde med udviklere og specialister, mens min UX-erfaring hjælper mig med at fastholde brugernes behov gennem hele processen.">I enjoy making complex products easier to understand and use. My engineering background helps me collaborate with developers and specialists, while my UX experience keeps users' needs central throughout the process.</p>
+      <p data-en="With experience from Demant, LiqTech and Grundfos, I bring a broad perspective on product development, research and collaboration. I am now based in Aarhus and curious about opportunities where technology, users and meaningful solutions meet." data-da="Med erfaring fra Demant, LiqTech og Grundfos har jeg et bredt perspektiv på produktudvikling, research og samarbejde. Jeg er nu bosat i Aarhus og nysgerrig på muligheder, hvor teknologi, brugere og meningsfulde løsninger mødes.">With experience from Demant, LiqTech and Grundfos, I bring a broad perspective on product development, research and collaboration. I am now based in Aarhus and curious about opportunities where technology, users and meaningful solutions meet.</p>
       <div class="skill-section">
         <h3 data-en="Methods &amp; tools" data-da="Metoder &amp; værktøjer">Methods &amp; tools</h3>
         <div class="skill-row">
@@ -281,11 +302,11 @@ svg text{font-family:var(--font-sans)}
       </div>
       <div class="reference-card">
         <i class="ti ti-quote reference-quote-icon" aria-hidden="true"></i>
-        <p class="reference-quote" data-en="&quot;What sets her apart is her ability to cut through complexity and quickly identify what truly matters for the user and the product.&quot;" data-da="&quot;Det, der adskiller hende, er hendes evne til at skære igennem kompleksitet og hurtigt identificere, hvad der virkelig betyder noget for brugeren og produktet.&quot;">"What sets her apart is her ability to cut through complexity and quickly identify what truly matters for the user and the product."</p>
+        <p class="reference-quote" data-en="&quot;I wholeheartedly recommend Nicoline to anyone seeking a talented and reliable new colleague. She approaches every task with initiative and curiosity — quickly figuring out who to involve, how to structure the work, and how to deliver strong results. Nicoline is proactive, positive, and simply a joy to work with.&quot;" data-da="&quot;Jeg kan varmt anbefale Nicoline til enhver, der søger en talentfuld og pålidelig ny kollega. Hun griber enhver opgave an med initiativ og nysgerrighed — hurtigt finder hun ud af, hvem der skal involveres, og hvordan arbejdet skal struktureres. Nicoline er proaktiv, positiv og en fornøjelse at arbejde sammen med.&quot;">"I wholeheartedly recommend Nicoline to anyone seeking a talented and reliable new colleague. She approaches every task with initiative and curiosity — quickly figuring out who to involve, how to structure the work, and how to deliver strong results. Nicoline is proactive, positive, and simply a joy to work with."</p>
         <div class="reference-author">
           <div class="reference-author-info">
-            <span class="reference-author-name">Lisbeth Nøhr</span>
-            <span class="reference-author-title" data-en="Senior Usability Engineer &amp; Student Assistant Manager, Demant" data-da="Senior Usability Engineer &amp; Student Assistant Manager, Demant">Senior Usability Engineer &amp; Student Assistant Manager, Demant</span>
+            <span class="reference-author-name">Lisbeth Nøhr Demant</span>
+            <span class="reference-author-title" data-en="Design and Usability Engineer · Direct manager, Demant" data-da="Design and Usability Engineer · Direkte leder, Demant">Design and Usability Engineer · Direct manager, Demant</span>
           </div>
           <a class="reference-link" href="anbefaling.pdf" target="_blank" rel="noopener">
             <i class="ti ti-file-text" aria-hidden="true"></i>
@@ -293,6 +314,84 @@ svg text{font-family:var(--font-sans)}
           </a>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- RECOMMENDATIONS -->
+  <div class="page" data-page="recommendations">
+    <div class="recommendations-page">
+      <p class="hero-eyebrow" data-en="What others say" data-da="Hvad andre siger">What others say</p>
+      <h1 data-en="Recommendations" data-da="Anbefalinger">Recommendations</h1>
+      <p class="recommendations-intro" data-en="Recommendations from my team at Demant, where I worked as a student assistant in Usability &amp; CoCreation for two years — including a 20-week full-time internship." data-da="Anbefalinger fra mit team hos Demant, hvor jeg arbejdede som studentermedhjælper i Usability &amp; CoCreation i to år — herunder et 20 ugers fuldtidspraktikforløb.">Recommendations from my team at Demant, where I worked as a student assistant in Usability &amp; CoCreation for two years — including a 20-week full-time internship.</p>
+
+      <div class="rec-grid">
+
+        <!-- Lisbeth -->
+        <div class="rec-card">
+          <div class="rec-quote">"I wholeheartedly recommend Nicoline to anyone seeking a talented and reliable new colleague. As a student assistant in Demant's Team of Usability &amp; CoCreation, she has been a great asset to our team, highly contributing both professionally and socially.<span class="rec-more" id="r1"> She approaches every task with initiative and curiosity - quickly figuring out who to involve, how to structure the work, and how to deliver strong results. Nicoline is proactive, positive, and simply a joy to work with. Any team will be very lucky to have her!"</span></div>
+          <button class="rec-toggle" data-more-en="Read more ↓" data-less-en="Read less ↑" data-more-da="Læs mere ↓" data-less-da="Læs mindre ↑" onclick="toggleRec('r1', this)">Read more ↓</button>
+          <div class="rec-person">
+            <div class="rec-initials" style="background:#e6edf5;color:#2a4d7a">LN</div>
+            <div>
+              <div class="rec-name">Lisbeth Nøhr Demant</div>
+              <div class="rec-title" data-en="Design and Usability Engineer · Direct manager" data-da="Design and Usability Engineer · Direkte leder">Design and Usability Engineer · Direct manager</div>
+              <a class="rec-linkedin" href="https://www.linkedin.com/in/lisbethndemant/" target="_blank" rel="noopener"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sara -->
+        <div class="rec-card">
+          <div class="rec-quote">"It has been a real pleasure to have Nicoline as part of our team, and I would highly recommend her. Nicoline has a very positive mindset and is not afraid to take on new challenges. She works independently and is great at driving tasks forward.<span class="rec-more" id="r2"> During her time with us, she has contributed to a wide range of usability studies, supporting everything from recruitment and planning to conducting sessions and analyzing results. She has also independently planned, prepared, and executed several user tests and UX evaluations. The insights from this work have been highly valuable for our product development and in our communication with stakeholders. Nicoline has a strong understanding of design theory and practice, which she naturally applies in her work. She works efficiently, in a structured way, and communicates results clearly. Lastly, she is a great colleague - easy to work with and always contributing to a positive and fun team environment."</span></div>
+          <button class="rec-toggle" data-more-en="Read more ↓" data-less-en="Read less ↑" data-more-da="Læs mere ↓" data-less-da="Læs mindre ↑" onclick="toggleRec('r2', this)">Read more ↓</button>
+          <div class="rec-person">
+            <div class="rec-initials" style="background:#e8f0e8;color:#3a6633">SK</div>
+            <div>
+              <div class="rec-name">Sara Kjær Langvad</div>
+              <div class="rec-title" data-en="Design &amp; Innovation Engineer · Colleague" data-da="Design &amp; Innovation Engineer · Kollega">Design &amp; Innovation Engineer · Colleague</div>
+              <a class="rec-linkedin" href="https://www.linkedin.com/in/sara-langvad/" target="_blank" rel="noopener"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Helene -->
+        <div class="rec-card">
+          <div class="rec-quote">"I've had the pleasure of working with Nicoline during her time as a student assistant, and I can warmly recommend her. Nicoline brings a rare combination of positivity, energy, and a strong willingness to help others.<span class="rec-more" id="r3"> She approaches new tasks with a genuine curiosity and a smile, and she is not afraid to take on challenges - even when stepping into unfamiliar territory. Her proactive mindset and can-do attitude make her a great team player and a joy to work with. She consistently contributes with reliability and enthusiasm, and her supportive nature has been appreciated across the team. I'm confident she will bring great value to any future role she takes on. I wish her all the best in her continued career."</span></div>
+          <button class="rec-toggle" data-more-en="Read more ↓" data-less-en="Read less ↑" data-more-da="Læs mere ↓" data-less-da="Læs mindre ↑" onclick="toggleRec('r3', this)">Read more ↓</button>
+          <div class="rec-person">
+            <div class="rec-initials" style="background:#e6edf5;color:#2a4d7a">HH</div>
+            <div>
+              <div class="rec-name">Helene Høgh Rasmussen</div>
+              <div class="rec-title" data-en="Senior Usability Engineer &amp; Team Coach · Colleague" data-da="Senior Usability Engineer &amp; Team Coach · Kollega">Senior Usability Engineer &amp; Team Coach · Colleague</div>
+              <a class="rec-linkedin" href="https://www.linkedin.com/in/helene-h%C3%B8gh-rasmussen-4a26a2b5/" target="_blank" rel="noopener"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Andreas -->
+        <div class="rec-card">
+          <div class="rec-quote">"It is my pleasure to recommend Nicoline, who has worked as a student assistant in my team for Usability Engineering, Lean UX and CoCreation for the past two years. She approaches her tasks with a strong sense of responsibility and always delivers solid work.<span class="rec-more" id="r4"> Nicoline is not afraid to take initiative, and she approaches new tasks and challenges with both curiosity and drive - two highly valued qualities. Furthermore, Nicoline is an open and welcoming person who contributes positively to the collaboration in the team. She is pleasant to work with, meets others with respect and a good attitude, and is able to build strong relationships across the organisation. Her positive approach and helpful nature mean that she is well-liked by both colleagues and managers. Nicoline has been a valuable part of the team throughout her employment, and I am convinced that she will be a great asset in any future position. I can therefore give her my warmest recommendations."</span></div>
+          <button class="rec-toggle" data-more-en="Read more ↓" data-less-en="Read less ↑" data-more-da="Læs mere ↓" data-less-da="Læs mindre ↑" onclick="toggleRec('r4', this)">Read more ↓</button>
+          <div class="rec-person">
+            <div class="rec-initials" style="background:#f5ece6;color:#8c5033">AR</div>
+            <div>
+              <div class="rec-name">Andreas Robertson</div>
+              <div class="rec-title" data-en="Manager R&amp;D, UX/UE · Senior colleague" data-da="Manager R&amp;D, UX/UE · Senior kollega">Manager R&amp;D, UX/UE · Senior colleague</div>
+              <a class="rec-linkedin" href="https://www.linkedin.com/in/andreas-r-58971687/" target="_blank" rel="noopener"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="letter-placeholder">
+        <i class="ti ti-file-description" aria-hidden="true"></i>
+        <div>
+          <div class="letter-title" data-en="Letter of Recommendation" data-da="Anbefalingsbrev">Letter of Recommendation</div>
+          <div class="letter-sub" data-en="Coming soon" data-da="Kommer snart">Coming soon</div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -338,13 +437,19 @@ function setLang(lang) {
   document.documentElement.lang = lang === "da" ? "da" : "en";
 
   const cvContactLink = document.getElementById("cv-contact-link");
-  if (cvContactLink) {
-    cvContactLink.href = getCvFile();
-  }
+  if (cvContactLink) cvContactLink.href = getCvFile();
 
   document.querySelectorAll("[data-en]").forEach(el => {
     const val = el.getAttribute("data-" + lang);
     if (val !== null) el.innerHTML = val;
+  });
+
+  // Update rec-toggle buttons
+  document.querySelectorAll(".rec-toggle").forEach(btn => {
+    const isOpen = btn.textContent.includes("↑");
+    btn.textContent = isOpen
+      ? btn.getAttribute("data-less-" + lang)
+      : btn.getAttribute("data-more-" + lang);
   });
 
   renderCaseCards();
@@ -362,6 +467,15 @@ function getCvFile() {
 
 function openCv() {
   window.location.href = getCvFile();
+}
+
+// ─── RECOMMENDATIONS TOGGLE ────────────────────────────────────────────────────
+function toggleRec(id, btn) {
+  const el = document.getElementById(id);
+  const open = el.classList.toggle("open");
+  btn.textContent = open
+    ? btn.getAttribute("data-less-" + currentLang)
+    : btn.getAttribute("data-more-" + currentLang);
 }
 
 // ─── CASE DATA ─────────────────────────────────────────────────────────────────
@@ -382,16 +496,16 @@ const cases = [
       en: {
         eyebrow: "Demant · Internship", eyebrowStyle: "background:#e6edf5;color:#2a4d7a",
         h1: "Exploratory user study: AirPods Pro 2 vs. Oticon Intent",
-        lead: "During my internship at Demant, I led an exploratory study comparing Apple’s Hearing Aid feature in AirPods Pro 2 with Oticon Intent. The aim was to understand how first-time users experienced the two solutions and what Demant could learn from the comparison.",
+        lead: "During my internship at Demant, I led an exploratory study comparing Apple's Hearing Aid feature in AirPods Pro 2 with Oticon Intent. The aim was to understand how first-time users experienced the two solutions and what Demant could learn from the comparison.",
         meta: [["Role", "UX Researcher"], ["Duration", "20-week internship"], ["Methods", "Field testing, interviews"], ["Year", "2025"]],
         bannerImg: "case-airpods-vs-oticon.png",
         context: [
-          "Apple’s launch of a Hearing Aid feature in AirPods Pro 2 created a new and more accessible entry point for people who suspected they had hearing loss but had not yet chosen a traditional hearing aid. Cost, inconvenience and stigma can all delay that decision. For Demant, the launch raised an important question: how would this group experience Apple’s solution compared with a professionally fitted hearing aid?",
+          "Apple's launch of a Hearing Aid feature in AirPods Pro 2 created a new and more accessible entry point for people who suspected they had hearing loss but had not yet chosen a traditional hearing aid. Cost, inconvenience and stigma can all delay that decision. For Demant, the launch raised an important question: how would this group experience Apple's solution compared with a professionally fitted hearing aid?",
           "I took ownership of a study designed to answer that question. The comparison focused on comfort, sound quality, streaming, battery life, visibility and discretion, while also looking at the wider experience of setting up and starting to use each product."
         ],
-        processIntro: "I developed and facilitated a three-visit study in which participants tried each solution separately before comparing them. This structure reduced the risk that the first product would shape their expectations of the second. It also made room for the key difference between the two journeys: Oticon Intent was professionally fitted by an audiologist, while the AirPods setup was completed independently through Apple’s digital flow.",
+        processIntro: "I developed and facilitated a three-visit study in which participants tried each solution separately before comparing them.",
         process: [
-          ["Visit 1", "Participants completed Apple’s hearing test and set up the AirPods Hearing Aid feature for the first time."],
+          ["Visit 1", "Participants completed Apple's hearing test and set up the AirPods Hearing Aid feature for the first time."],
           ["Visit 2", "An audiologist conducted a hearing test and professionally fitted the participants with Oticon Intent."],
           ["Visit 3", "Participants compared the two experiences across the selected focus areas."],
           ["Participants", "8 first-time users aged 43 to 68 with mild to moderate hearing loss."]
@@ -405,20 +519,20 @@ const cases = [
           "Presenting findings and recommendations to more than 50 stakeholders"
         ],
         resultStats: [["50+", "stakeholders presented to"], ["8", "participants in an in-depth study"], ["6", "comparison parameters"]],
-        resultText: "<p>The study showed that discretion was not only a question of how visible a product was. Although AirPods are familiar to most people, several participants felt more exposed when using them as hearing aids because the purpose was unclear to others. In larger social settings, they felt a need to explain why they were wearing them. Oticon Intent was generally experienced as the more discreet solution.</p><p>Sound quality created an equally clear contrast. All 8 participants found wind noise disruptive when using AirPods and described the sound as artificial, metallic or similar to being inside a bubble. Oticon Intent was more often described as natural.</p><p>I presented the findings and recommendations to more than 50 stakeholders across two sessions. As interest in the project grew, stakeholder coordination became a substantial part of my role. The experience taught me to establish a clearer communication structure early in a project and gather alignment in fewer, more focused sessions. I applied that learning directly in my bachelor project.</p>",
-        confidential: "The strategic recommendations developed for Demant are confidential. This case therefore focuses on the study design, my role and the user-facing findings."
+        resultText: "<p>The study explored how people experience discretion and sound quality when using different hearing solutions in everyday situations. The findings revealed that discretion is influenced by more than a product's appearance. Social context and how others interpret the product can also affect how comfortable a person feels using it.</p><p>The research also highlighted differences in how participants experienced sound across the tested solutions. These insights contributed to a broader understanding of the factors that shape acceptance and confidence when using hearing technology.</p><p>I communicated the findings and recommendations to stakeholders across the organisation. As interest in the project increased, coordinating expectations and communication became an important part of my role. This taught me to establish a clearer communication structure early in the process and create alignment through focused stakeholder sessions, an approach I later applied in my bachelor project.</p>",
+        confidential: "To respect confidentiality, product-specific results, supporting data and strategic recommendations have been omitted. This case focuses on my research approach, responsibilities and professional learning."
       },
       da: {
         eyebrow: "Demant · Praktik", eyebrowStyle: "background:#e6edf5;color:#2a4d7a",
         h1: "Explorativt brugerstudie: AirPods Pro 2 vs. Oticon Intent",
-        lead: "Under min praktik hos Demant stod jeg for et eksplorativt studie, hvor Apples Hearing Aid-funktion i AirPods Pro 2 blev sammenlignet med Oticon Intent. Formålet var at forstå, hvordan førstegangsbrugere oplevede de to løsninger, og hvad Demant kunne lære af forskellene.",
+        lead: "Under min praktik hos Demant stod jeg for et eksplorativt studie, hvor Apples Hearing Aid-funktion i AirPods Pro 2 blev sammenlignet med Oticon Intent.",
         meta: [["Rolle", "UX Researcher"], ["Varighed", "20 ugers praktik"], ["Metoder", "Felttest, interviews"], ["År", "2025"]],
         bannerImg: "case-airpods-vs-oticon.png",
         context: [
-          "Apples Hearing Aid-funktion i AirPods Pro 2 skabte en ny og mere tilgængelig indgang for mennesker, der havde mistanke om høretab, men endnu ikke havde valgt et traditionelt høreapparat. Pris, besvær og stigma kan alle være med til at udskyde den beslutning. For Demant rejste lanceringen derfor et vigtigt spørgsmål: Hvordan ville denne målgruppe opleve Apples løsning sammenlignet med et professionelt tilpasset høreapparat?",
-          "Jeg fik ansvaret for at udvikle et studie, der kunne belyse netop det. Sammenligningen omfattede komfort, lydkvalitet, streaming, batterilevetid, synlighed og diskretion. Vi så også på den samlede oplevelse af at komme i gang med og lære de to produkter at kende."
+          "Apples Hearing Aid-funktion i AirPods Pro 2 skabte en ny og mere tilgængelig indgang for mennesker, der havde mistanke om høretab, men endnu ikke havde valgt et traditionelt høreapparat.",
+          "Jeg fik ansvaret for at udvikle et studie, der kunne belyse netop det. Sammenligningen omfattede komfort, lydkvalitet, streaming, batterilevetid, synlighed og diskretion."
         ],
-        processIntro: "Jeg udviklede og faciliterede et studie fordelt over tre besøg. Deltagerne afprøvede først løsningerne hver for sig og sammenlignede dem til sidst. Det mindskede risikoen for, at oplevelsen af det første produkt påvirkede forventningerne til det næste. Opbygningen gav samtidig plads til en væsentlig forskel mellem de to brugerrejser: Oticon Intent blev tilpasset professionelt af en audiolog, mens AirPods blev sat op af deltagerne selv gennem Apples digitale flow.",
+        processIntro: "Jeg udviklede og faciliterede et studie fordelt over tre besøg.",
         process: [
           ["Besøg 1", "Deltagerne gennemførte Apples høretest og satte Hearing Aid-funktionen op for første gang."],
           ["Besøg 2", "En audiolog gennemførte en høretest og tilpassede Oticon Intent til den enkelte deltager."],
@@ -434,7 +548,7 @@ const cases = [
           "Præsentation af fund og anbefalinger for mere end 50 interessenter"
         ],
         resultStats: [["50+", "interessenter præsenteret for"], ["8", "deltagere i et dybdegående studie"], ["6", "sammenligningsparametre"]],
-        resultText: "<p>Studiet viste, at diskretion ikke kun handler om, hvor synligt et produkt er. Selvom AirPods er velkendte for de fleste, følte flere deltagere sig mere udstillede, når de brugte dem som høreapparat, fordi formålet ikke var tydeligt for omgivelserne. I større sociale sammenhænge oplevede de et behov for at forklare, hvorfor de havde dem i. Oticon Intent blev generelt oplevet som den mest diskrete løsning.</p><p>Forskellen var også tydelig i oplevelsen af lyd. Alle 8 deltagere fandt vindstøj generende med AirPods og beskrev lyden som kunstig, metallisk eller som at være i en osteklokke. Oticon Intent blev oftere beskrevet som naturlig.</p><p>Jeg præsenterede fund og anbefalinger for mere end 50 interessenter fordelt på to sessioner. I takt med at interessen for projektet voksede, blev koordinering og afstemning en større del af min rolle. Erfaringen lærte mig at etablere en tydelig kommunikationsstruktur tidligt og samle beslutninger i færre, mere fokuserede sessioner. Den læring tog jeg direkte med videre i bachelorprojektet.</p>",
+        resultText: "<p>Studiet viste, at diskretion ikke kun handler om, hvor synligt et produkt er. Selvom AirPods er velkendte for de fleste, følte flere deltagere sig mere udstillede, når de brugte dem som høreapparat.</p><p>Forskellen var også tydelig i oplevelsen af lyd. Alle 8 deltagere fandt vindstøj generende med AirPods og beskrev lyden som kunstig eller metallisk. Oticon Intent blev oftere beskrevet som naturlig.</p><p>Jeg præsenterede fund og anbefalinger for mere end 50 interessenter fordelt på to sessioner.</p>",
         confidential: "De strategiske anbefalinger til Demant er fortrolige. Casen fokuserer derfor på studiedesignet, min rolle og de brugervendte fund."
       }
     }
@@ -478,7 +592,7 @@ const cases = [
           "User testing and validation of the solution"
         ],
         resultStats: [["20", "user interviews"], ["3", "co-creation workshops"], ["1", "prototype taken further"]],
-        resultText: "We developed a prototype with a new introduction and training feature in Demant’s existing app. The concept was received positively, and several of the project’s recommendations were carried forward in the company’s continued work.",
+        resultText: "We developed a prototype with a new introduction and training feature in Demant's existing app. The concept was received positively, and several of the project's recommendations were carried forward in the company's continued work.",
         confidential: ""
       },
       da: {
@@ -538,7 +652,7 @@ const cases = [
         processIntro: "We developed the solution through an iterative research and design process and refined it across four rounds of usability testing.",
         process: [
           ["Field observations", "Short ethnographic observations at stations and on buses to validate the identified problems."],
-          ["Generative workshop", "A workshop with 8 users using exercises such as Draw Toast and an Impact–Effort Matrix to generate ideas from their experiences."],
+          ["Generative workshop", "A workshop with 8 users using exercises such as Draw Toast and an Impact–Effort Matrix."],
           ["User flow", "Value Proposition Canvas, service blueprint, storyboard and task flow used to shape the user journey."],
           ["4 usability tests", "Paper prototype tested and iterated four times with both frequent and new users."]
         ],
@@ -550,7 +664,7 @@ const cases = [
           "Iterating the prototype after each test round"
         ],
         resultStats: [["4", "rounds of usability testing"], ["8", "workshop participants"], ["1", "iterated prototype"]],
-        resultText: "Each test round moved the design forward: after test 1 we added a check-in feature and journey price. When a user confused the app’s blue circle with the check-in readers, we changed it. We replaced CPR number with MitID, made buttons for multiple travellers larger, and gave the check-out button the same yellow colour as the physical readers — so the digital matched the physical.",
+        resultText: "Each test round moved the design forward: after test 1 we added a check-in feature and journey price. We replaced CPR number with MitID, made buttons for multiple travellers larger, and gave the check-out button the same yellow colour as the physical readers.",
         confidential: ""
       },
       da: {
@@ -560,14 +674,14 @@ const cases = [
         meta: [["Rolle", "UX Designer"], ["Type", "Kursusprojekt"], ["Metoder", "Workshop, brugertest"], ["Team", "4 personer"]],
         bannerImg: "rejsekort-banner.png",
         context: [
-          "Brugerne møder flere friktionspunkter med Rejsekortet: standere kan være ude af drift eller placeret uhensigtsmæssigt, det kan være besværligt at checke flere rejsende ind, og et glemt check-ud kræver ofte, at man navigerer på en kompliceret hjemmeside bagefter.",
+          "Brugerne møder flere friktionspunkter med Rejsekortet: standere kan være ude af drift eller placeret uhensigtsmæssigt, og et glemt check-ud kræver ofte, at man navigerer på en kompliceret hjemmeside bagefter.",
           "Systemet er heller ikke intuitivt for nye brugere: skal man swipe kortet forbi eller holde det stille? Og check-in og check-ud-standere har samme blå farve, så de er svære at skelne på afstand."
         ],
         processIntro: "Vi udviklede løsningen gennem en iterativ research- og designproces og forbedrede den på tværs af fire runder brugertest.",
         process: [
           ["Feltobservationer", "Korte etnografiske observationer på stationer og i busser for at validere de identificerede problemer."],
-          ["Generativ workshop", "En workshop med 8 brugere med øvelser som Draw Toast og en Impact–Effort Matrix for at generere idéer med afsæt i deres erfaringer."],
-          ["Brugerflow", "Value Proposition Canvas, service blueprint, storyboard og opgaveflow blev brugt til at forme brugerrejsen."],
+          ["Generativ workshop", "En workshop med 8 brugere med øvelser som Draw Toast og en Impact–Effort Matrix."],
+          ["Brugerflow", "Value Proposition Canvas, service blueprint, storyboard og opgaveflow til at forme brugerrejsen."],
           ["4 brugertest", "Papirprototypen blev testet og itereret fire gange med både erfarne og nye brugere."]
         ],
         responsibilities: [
@@ -578,7 +692,7 @@ const cases = [
           "Iteration af prototypen efter hver testrunde"
         ],
         resultStats: [["4", "runder brugertest"], ["8", "workshopdeltagere"], ["1", "itereret prototype"]],
-        resultText: "Resultaterne fra hver testrunde blev omsat til konkrete designændringer. Vi tilføjede blandt andet check-in og rejsepris, erstattede CPR-nummer med MitID, gjorde knapperne til flere rejsende større og gav check-ud-knappen samme gule farve som de fysiske standere, så den digitale løsning understøttede den eksisterende brugerforståelse.",
+        resultText: "Resultaterne fra hver testrunde blev omsat til konkrete designændringer. Vi tilføjede check-in og rejsepris, erstattede CPR-nummer med MitID, og gav check-ud-knappen samme gule farve som de fysiske standere.",
         confidential: ""
       }
     }
@@ -599,7 +713,7 @@ const cases = [
       en: {
         eyebrow: "DTU · Innovation", eyebrowStyle: "background:#f5ece6;color:#8c5033",
         h1: "NapZ: From idea to a Letter of Intent from BabySam",
-        lead: "Can you build a strong emotional connection into a product? We developed a cuddly toy that plays the mother’s heartbeat — and took it all the way from idea to validated concept.",
+        lead: "Can you build a strong emotional connection into a product? We developed a cuddly toy that plays the mother's heartbeat — and took it all the way from idea to validated concept.",
         meta: [["Role", "Innovation & UX"], ["Method", "Design Thinking, Lean"], ["Result", "Won pitch + LOI"], ["Year", "2024"]],
         bannerImg: "Napz banner.png",
         context: [
@@ -609,9 +723,9 @@ const cases = [
         processIntro: "We developed an MVP that was continuously tested and improved based on feedback.",
         process: [
           ["Research", "Interviews and market research to identify the problem space."],
-          ["Idea", "Cuddly toy with the mother’s heartbeat as a unique selling point."],
+          ["Idea", "Cuddly toy with the mother's heartbeat as a unique selling point."],
           ["MVP", "Minimum Viable Product tested and iterated with users."],
-          ["Pitch", "Presentation of the concept in a Dragons’ Den-style pitch."]
+          ["Pitch", "Presentation of the concept in a Dragons' Den-style pitch."]
         ],
         responsibilities: [
           "User interviews and research following Design Thinking",
@@ -675,14 +789,14 @@ const cases = [
         bannerImg: "Oceanplate banner.png",
         context: [
           "The project began with an opportunity to reduce the use of conventional cardboard and plastic disposable tableware by exploring seaweed as an alternative material.",
-          "We investigated the material’s properties, production possibilities and economic sustainability, with a focus on making the solution competitive on both price and quality."
+          "We investigated the material's properties, production possibilities and economic sustainability, with a focus on making the solution competitive on both price and quality."
         ],
         processIntro: "The project followed an innovation process from idea development and materials research to MVP and presentation at Grøn Dyst.",
         process: [
-          ["Research", "Investigation of seaweed’s material properties, production possibilities and sustainability potential."],
+          ["Research", "Investigation of seaweed's material properties, production possibilities and sustainability potential."],
           ["Idea development", "Concept development for a sustainable alternative to disposable tableware based on the UN SDGs."],
           ["MVP", "Development and testing of a Minimum Viable Product."],
-          ["Grøn Dyst", "Presentation of the concept at DTU’s annual student conference alongside more than 60 sustainable projects."]
+          ["Grøn Dyst", "Presentation of the concept at DTU's annual student conference alongside more than 60 sustainable projects."]
         ],
         responsibilities: [
           "Idea and concept development based on the UN SDGs",
@@ -692,13 +806,13 @@ const cases = [
           "Developing and delivering pitch at Grøn Dyst"
         ],
         resultStats: [["60+", "sustainable projects presented"], ["1", "MVP developed and tested"], ["3", "sustainability dimensions assessed"]],
-        resultText: "The concept was presented at DTU’s annual student conference Grøn Dyst alongside more than 60 other sustainable projects. The project strengthened our experience in innovation, sustainable business development and professional communication.",
+        resultText: "The concept was presented at DTU's annual student conference Grøn Dyst alongside more than 60 other sustainable projects. The project strengthened our experience in innovation, sustainable business development and professional communication.",
         confidential: ""
       },
       da: {
         eyebrow: "DTU · Grøn Dyst", eyebrowStyle: "background:#e8f0e8;color:#3a6633",
         h1: "Bæredygtigt produktkoncept: tang som alternativ til engangsservice",
-        lead: "Med udgangspunkt i FN’s verdensmål udviklede vi et bæredygtigt alternativ til traditionel engangsservice af pap og plast med tang som råmateriale.",
+        lead: "Med udgangspunkt i FN's verdensmål udviklede vi et bæredygtigt alternativ til traditionel engangsservice af pap og plast med tang som råmateriale.",
         meta: [["Rolle", "Innovation & Bæredygtighed"], ["Kontekst", "DTU · Grøn Entreprenørskab"], ["Resultat", "Præsenteret ved Grøn Dyst"], ["År", "2024"]],
         bannerImg: "Oceanplate banner.png",
         context: [
@@ -708,19 +822,19 @@ const cases = [
         processIntro: "Projektet fulgte en innovationsproces fra idéudvikling og materialeforskning til MVP og præsentation ved Grøn Dyst.",
         process: [
           ["Research", "Undersøgelse af tangs materialegenskaber, produktionsmuligheder og bæredygtighedspotentiale."],
-          ["Idéudvikling", "Konceptudvikling af et bæredygtigt alternativ til engangsservice med udgangspunkt i FN’s verdensmål."],
+          ["Idéudvikling", "Konceptudvikling af et bæredygtigt alternativ til engangsservice med udgangspunkt i FN's verdensmål."],
           ["MVP", "Udvikling og test af et Minimum Viable Product."],
-          ["Grøn Dyst", "Præsentation af konceptet ved DTU’s årlige studentkonference sammen med mere end 60 bæredygtige projekter."]
+          ["Grøn Dyst", "Præsentation af konceptet ved DTU's årlige studentkonference sammen med mere end 60 bæredygtige projekter."]
         ],
         responsibilities: [
-          "Idé- og konceptudvikling med udgangspunkt i FN’s verdensmål",
+          "Idé- og konceptudvikling med udgangspunkt i FN's verdensmål",
           "Research i materialets egenskaber og produktionsmuligheder",
           "Vurdering af økonomisk og miljømæssig bæredygtighed",
           "Udvikling og test af MVP",
           "Udarbejdelse og levering af pitch ved Grøn Dyst"
         ],
         resultStats: [["60+", "bæredygtige projekter præsenteret"], ["1", "MVP udviklet og testet"], ["3", "bæredygtighedsdimensioner vurderet"]],
-        resultText: "Konceptet blev præsenteret ved DTU’s årlige studentkonference Grøn Dyst sammen med mere end 60 andre bæredygtige projekter. Projektet styrkede vores erfaring med innovation, bæredygtig forretningsudvikling og professionel formidling.",
+        resultText: "Konceptet blev præsenteret ved DTU's årlige studentkonference Grøn Dyst sammen med mere end 60 andre bæredygtige projekter. Projektet styrkede vores erfaring med innovation, bæredygtig forretningsudvikling og professionel formidling.",
         confidential: ""
       }
     }
