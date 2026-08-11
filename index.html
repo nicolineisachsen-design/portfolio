@@ -104,6 +104,7 @@ a{color:inherit;text-decoration:none}
 .sec-label{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:0.75rem}
 .sec-title{font-size:20px;font-weight:500;margin-bottom:1rem}
 .sec-text{font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:1rem}
+.sec-text strong{color:var(--text-primary);font-weight:500}
 .process-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem;margin-top:1.25rem}
 .process-card{border:0.5px solid var(--border-tertiary);border-radius:var(--radius-md);padding:0.9rem 1rem}
 .process-num{font-size:13px;color:var(--accent);font-weight:500;margin-bottom:4px}
@@ -154,6 +155,24 @@ a{color:inherit;text-decoration:none}
 .fact-body{padding:1.1rem 1.2rem 1.3rem}
 .fact-title{font-size:13px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;line-height:1.45;margin-bottom:0.6rem}
 .fact-text{font-size:13px;color:var(--text-secondary);line-height:1.7}
+
+/* CASE SECTION MODULES */
+.research-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:0.7rem;margin-top:0.5rem}
+.research-stat{background:var(--bg-secondary);border-radius:var(--radius-md);padding:0.85rem 0.9rem}
+.research-stat-num{font-size:20px;font-weight:500;color:var(--accent);line-height:1.2}
+.research-stat-lbl{font-size:11px;color:var(--text-secondary);margin-top:3px;line-height:1.45}
+.insight{border-left:3px solid var(--accent);background:var(--bg-tertiary);border-radius:0 var(--radius-md) var(--radius-md) 0;padding:1.15rem 1.35rem}
+.insight-label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:0.5rem}
+.insight-text{font-size:17px;line-height:1.6;color:var(--text-primary)}
+.flow{display:flex;flex-wrap:wrap;gap:8px;margin:1rem 0 0.25rem}
+.flow-step{flex:1 1 105px;border:0.5px solid var(--border-tertiary);border-radius:var(--radius-md);padding:0.7rem 0.6rem;font-size:12px;line-height:1.4;text-align:center;min-width:0}
+.flow-step span{display:block;font-size:10px;color:var(--accent);margin-bottom:4px}
+.findings-head{display:grid;grid-template-columns:1fr 20px 1fr;gap:0.75rem;padding:0 1rem 0.4rem;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary)}
+.findings{display:flex;flex-direction:column;gap:0.6rem}
+.finding{display:grid;grid-template-columns:1fr 20px 1fr;gap:0.75rem;align-items:center;border:0.5px solid var(--border-tertiary);border-radius:var(--radius-md);padding:0.85rem 1rem}
+.finding-a{font-size:13px;color:var(--text-secondary);line-height:1.55}
+.finding-b{font-size:13px;color:var(--text-primary);line-height:1.55}
+.finding-arrow{color:var(--accent);font-size:15px}
 
 /* RECOMMENDATIONS PAGE */
 .recommendations-page{padding:3rem 2rem;max-width:720px;margin:0 auto}
@@ -214,6 +233,10 @@ svg text{font-family:var(--font-sans)}
   .case-lead{font-size:14px}
   .meta-row{gap:1.25rem}
   .result-stats{gap:1.25rem}
+  .findings-head{display:none}
+  .finding{grid-template-columns:1fr;gap:0.5rem}
+  .finding-arrow{display:none}
+  .finding-b{padding-left:10px;border-left:2px solid var(--accent)}
   .footer-bar{padding:1rem 1.5rem;flex-direction:column;align-items:flex-start;gap:6px}
 }
 
@@ -516,72 +539,166 @@ const cases = [
     id: "demant",
     tagClass: "tag-demant",
     tag: { en: "Demant · Internship", da: "Demant · Praktik" },
-    title: { en: "Exploratory user study", da: "Explorativt brugerstudie" },
+    title: { en: "Comparing first-time experiences with two hearing solutions", da: "Førstegangsoplevelsen med to høreløsninger" },
     desc: {
-      en: "Led an independent user study with 8 participants, covering recruitment, study design, interviews, analysis and presentation of the findings to more than 50 stakeholders.",
-      da: "Jeg stod for et selvstændigt brugerstudie med 8 deltagere og havde ansvar for rekruttering, studiedesign, interviews, analyse og formidling til mere end 50 interessenter."
+      en: "I led a three-visit study with 8 first-time users comparing Apple's self-guided AirPods Pro 2 setup with a professionally fitted Oticon Intent, and presented the findings to more than 50 stakeholders.",
+      da: "Jeg stod for et studie over tre besøg med 8 førstegangsbrugere, hvor Apples selvbetjente opsætning i AirPods Pro 2 blev sammenlignet med et professionelt tilpasset Oticon Intent, og præsenterede fundene for mere end 50 interessenter."
     },
-    skills: ["UX Research", "User Recruitment", "Qualitative Analysis"],
-    skillsDa: ["UX Research", "Brugerrekruttering", "Kvalitativ analyse"],
+    skills: ["Study design", "User Recruitment", "Qualitative Analysis"],
+    skillsDa: ["Studiedesign", "Brugerrekruttering", "Kvalitativ analyse"],
     img: `<img src="aipods-vs-oticon.png" alt="AirPods Pro 2 and Oticon Intent">`,
     detail: {
       en: {
         eyebrow: "Demant · Internship", eyebrowStyle: "background:#2a4d7a;color:#ffffff",
-        h1: "Exploratory user study: AirPods Pro 2 vs. Oticon Intent",
-        lead: "During my internship at Demant, I led an exploratory study comparing Apple's Hearing Aid feature in AirPods Pro 2 with Oticon Intent. The aim was to understand how first-time users experienced the two solutions and what Demant could learn from the comparison.",
-        meta: [["Role", "UX Researcher"], ["Duration", "20-week internship"], ["Methods", "Field testing, interviews"], ["Year", "2025"]],
+        h1: "Comparing first-time experiences with AirPods Pro 2 and Oticon Intent",
+        lead: "Apple's Hearing Aid feature in AirPods Pro 2 introduced a more accessible entry point for people who suspected hearing loss but had not yet chosen a traditional hearing aid. During my internship at Demant, I led an exploratory study examining how first-time users experienced Apple's self-guided solution compared with a professionally fitted Oticon Intent. The goal was not to determine an overall winner, but to understand how the two user journeys shaped comfort, confidence, sound quality and acceptance.",
+        meta: [
+          ["Role", "UX Researcher"],
+          ["Project", "Internship study at Demant"],
+          ["Participants", "8 first-time users"],
+          ["Methods", "Product trials, semi-structured interviews, comparative evaluation"],
+          ["Year", "2025"]
+        ],
         bannerImg: "case-airpods-vs-oticon.png",
-        context: [
-          "Apple's launch of a Hearing Aid feature in AirPods Pro 2 created a new and more accessible entry point for people who suspected they had hearing loss but had not yet chosen a traditional hearing aid. Cost, inconvenience and stigma can all delay that decision. For Demant, the launch raised an important question: how would this group experience Apple's solution compared with a professionally fitted hearing aid?",
-          "I took ownership of a study designed to answer that question. The comparison focused on comfort, sound quality, streaming, battery life, visibility and discretion, while also looking at the wider experience of setting up and starting to use each product."
+        sections: [
+          {
+            label: "Context", title: "Why this mattered to Demant",
+            paras: [
+              "Cost, inconvenience and stigma can all delay the decision to get a hearing aid. Apple's launch put a self-guided alternative into the hands of exactly the group that had not yet made that decision, and it did so without an audiologist involved at any point.",
+              "For Demant, the open question was not whether Apple's solution measured up technically. It was what a first-time user takes away from each journey, and what that means for how a hearing aid is introduced."
+            ]
+          },
+          {
+            type: "insight", label: "Research question",
+            text: "How do first-time users experience Apple's self-guided hearing aid journey compared with a professionally fitted hearing aid?"
+          },
+          {
+            label: "Study design", title: "Three visits, one product at a time", type: "flow",
+            paras: ["I designed the study so participants met each solution on its own terms before being asked to compare them."],
+            steps: ["Self-guided setup", "Professional fitting", "Comparison"],
+            parasAfter: [
+              "<strong>Visit 1.</strong> Participants completed Apple's hearing test and set up the AirPods Hearing Aid feature for the first time, without guidance from me.",
+              "<strong>Visit 2.</strong> An audiologist conducted a hearing test and fitted participants with Oticon Intent.",
+              "<strong>Visit 3.</strong> Participants reflected on and compared the two experiences across the defined research areas: comfort, sound quality, streaming, battery life, visibility and discretion, alongside the wider experience of setting up and starting to use each product.",
+              "I recruited 8 participants aged 43 to 68 with mild to moderate hearing loss and no previous hearing aid experience, since the point was to capture a first encounter rather than a comparison against something already familiar."
+            ]
+          },
+          {
+            label: "Project scope", title: "Study at a glance", type: "stats",
+            items: [
+              ["8", "first-time users"],
+              ["3", "visits per participant"],
+              ["6", "comparison areas"],
+              ["50+", "stakeholders reached across two sessions"]
+            ],
+            parasAfter: ["These figures describe the scope of the study, not its impact on the product."]
+          },
+          {
+            label: "My role", title: "What I owned and where I relied on others", type: "list",
+            paras: ["I led the study end to end. The clinical work was handled by colleagues with the qualifications for it."],
+            items: [
+              "Designing the three-visit study and defining the comparison areas",
+              "Recruiting participants against the first-time-user criteria",
+              "Facilitating all interviews and product evaluations",
+              "Analysing the material and identifying patterns across participants",
+              "Coordinating stakeholders and keeping contributors aligned",
+              "Presenting findings and recommendations to more than 50 stakeholders across two sessions"
+            ],
+            parasAfter: ["Hearing tests and the professional fitting of Oticon Intent were carried out by an audiologist."]
+          },
+          {
+            label: "Findings", title: "What I can and cannot share",
+            paras: [
+              "<strong>What remains confidential.</strong> I cannot share which solution participants preferred, how the two products compared on individual parameters, or the strategic recommendations delivered to Demant.",
+              "<strong>What I can share.</strong> The study challenged a purely visual understanding of discretion. How exposed a participant felt was shaped by social context, by what a product is associated with, and by how they expected other people to interpret what they were wearing, not only by how visible the device was.",
+              "The study produced a set of synthesised findings and recommendations, presented to more than 50 stakeholders across Demant. The product-specific conclusions remain confidential, but the work contributed a first-time-user perspective on how onboarding, sound, discretion and social context shape early acceptance of hearing technology."
+            ]
+          },
+          {
+            label: "Learning", title: "Stakeholder communication needs its own structure",
+            paras: [
+              "As interest in the project grew, more stakeholders became involved and expectations became harder to coordinate. Occasional updates were not enough once several teams had a view on what the study should answer.",
+              "I learned that stakeholder communication needs its own structure rather than being handled as it comes up. In my bachelor project I applied that by establishing a communication plan early and using focused sessions to align contributors before decisions were needed."
+            ]
+          }
         ],
-        processIntro: "I developed and facilitated a three-visit study in which participants tried each solution separately before comparing them.",
-        process: [
-          ["Visit 1", "Participants completed Apple's hearing test and set up the AirPods Hearing Aid feature for the first time."],
-          ["Visit 2", "An audiologist conducted a hearing test and professionally fitted the participants with Oticon Intent."],
-          ["Visit 3", "Participants compared the two experiences across the selected focus areas."],
-          ["Participants", "8 first-time users aged 43 to 68 with mild to moderate hearing loss."]
-        ],
-        responsibilities: [
-          "Recruiting people with mild hearing loss and no previous hearing aid experience",
-          "Designing and facilitating the full three-visit study",
-          "Coordinating stakeholders and keeping contributors aligned throughout the project",
-          "Conducting interviews and product evaluations",
-          "Analysing the material and identifying patterns across the study",
-          "Presenting findings and recommendations to more than 50 stakeholders"
-        ],
-        resultStats: [["50+", "stakeholders presented to"], ["8", "participants in an in-depth study"], ["6", "comparison parameters"]],
-        resultText: "<p>The study explored how people experience discretion and sound quality when using different hearing solutions in everyday situations. The findings revealed that discretion is influenced by more than a product's appearance. Social context and how others interpret the product can also affect how comfortable a person feels using it.</p><p>The research also highlighted differences in how participants experienced sound across the tested solutions. These insights contributed to a broader understanding of the factors that shape acceptance and confidence when using hearing technology.</p><p>I communicated the findings and recommendations to stakeholders across the organisation. As interest in the project increased, coordinating expectations and communication became an important part of my role. This taught me to establish a clearer communication structure early in the process and create alignment through focused stakeholder sessions, an approach I later applied in my bachelor project.</p>",
         confidential: "To respect confidentiality, product-specific results, supporting data and strategic recommendations have been omitted. This case focuses on my research approach, responsibilities and professional learning."
       },
       da: {
         eyebrow: "Demant · Praktik", eyebrowStyle: "background:#2a4d7a;color:#ffffff",
-        h1: "Explorativt brugerstudie: AirPods Pro 2 vs. Oticon Intent",
-        lead: "Under min praktik hos Demant stod jeg for et eksplorativt studie, hvor Apples Hearing Aid-funktion i AirPods Pro 2 blev sammenlignet med Oticon Intent.",
-        meta: [["Rolle", "UX Researcher"], ["Varighed", "20 ugers praktik"], ["Metoder", "Felttest, interviews"], ["År", "2025"]],
+        h1: "Førstegangsoplevelsen med AirPods Pro 2 og Oticon Intent",
+        lead: "Apples Hearing Aid-funktion i AirPods Pro 2 gav en mere tilgængelig indgang for mennesker, der havde mistanke om høretab, men endnu ikke havde valgt et traditionelt høreapparat. Under min praktik hos Demant stod jeg for et eksplorativt studie af, hvordan førstegangsbrugere oplevede Apples selvbetjente løsning sammenlignet med et professionelt tilpasset Oticon Intent. Formålet var ikke at kåre en vinder, men at forstå, hvordan de to forløb påvirkede komfort, tryghed, lydkvalitet og accept.",
+        meta: [
+          ["Rolle", "UX Researcher"],
+          ["Projekt", "Praktikstudie hos Demant"],
+          ["Deltagere", "8 førstegangsbrugere"],
+          ["Metoder", "Produkttest, semistrukturerede interviews, sammenlignende evaluering"],
+          ["År", "2025"]
+        ],
         bannerImg: "case-airpods-vs-oticon.png",
-        context: [
-          "Apples Hearing Aid-funktion i AirPods Pro 2 skabte en ny og mere tilgængelig indgang for mennesker, der havde mistanke om høretab, men endnu ikke havde valgt et traditionelt høreapparat.",
-          "Jeg fik ansvaret for at udvikle et studie, der kunne belyse netop det. Sammenligningen omfattede komfort, lydkvalitet, streaming, batterilevetid, synlighed og diskretion."
+        sections: [
+          {
+            label: "Kontekst", title: "Hvorfor det betød noget for Demant",
+            paras: [
+              "Pris, besvær og stigma kan alle udskyde beslutningen om at få et høreapparat. Apples lancering lagde et selvbetjent alternativ i hænderne på præcis den gruppe, der endnu ikke havde truffet beslutningen, og uden at en audiolog var involveret på noget tidspunkt.",
+              "For Demant var det åbne spørgsmål ikke, om Apples løsning kunne måle sig teknisk. Det var, hvad en førstegangsbruger tager med sig fra hvert forløb, og hvad det betyder for, hvordan et høreapparat introduceres."
+            ]
+          },
+          {
+            type: "insight", label: "Undersøgelsesspørgsmål",
+            text: "Hvordan oplever førstegangsbrugere Apples selvbetjente forløb sammenlignet med et professionelt tilpasset høreapparat?"
+          },
+          {
+            label: "Studiedesign", title: "Tre besøg, ét produkt ad gangen", type: "flow",
+            paras: ["Jeg designede studiet, så deltagerne mødte hver løsning på dens egne præmisser, inden de blev bedt om at sammenligne."],
+            steps: ["Selvbetjent opsætning", "Professionel tilpasning", "Sammenligning"],
+            parasAfter: [
+              "<strong>Besøg 1.</strong> Deltagerne gennemførte Apples høretest og satte Hearing Aid-funktionen op for første gang uden vejledning fra mig.",
+              "<strong>Besøg 2.</strong> En audiolog gennemførte en høretest og tilpassede Oticon Intent til den enkelte deltager.",
+              "<strong>Besøg 3.</strong> Deltagerne reflekterede over og sammenlignede de to oplevelser på tværs af de fastlagte fokusområder: komfort, lydkvalitet, streaming, batterilevetid, synlighed og diskretion, samt den bredere oplevelse af at sætte op og komme i gang med hvert produkt.",
+              "Jeg rekrutterede 8 deltagere mellem 43 og 68 år med let til moderat høretab og uden tidligere erfaring med høreapparater, fordi pointen var at indfange et førstegangsmøde og ikke en sammenligning med noget kendt."
+            ]
+          },
+          {
+            label: "Omfang", title: "Studiet i tal", type: "stats",
+            items: [
+              ["8", "førstegangsbrugere"],
+              ["3", "besøg per deltager"],
+              ["6", "sammenligningsområder"],
+              ["50+", "interessenter nået over to sessioner"]
+            ],
+            parasAfter: ["Tallene beskriver studiets omfang og ikke dets effekt på produktet."]
+          },
+          {
+            label: "Min rolle", title: "Det jeg selv stod for, og hvor jeg trak på andre", type: "list",
+            paras: ["Jeg stod for studiet fra start til slut. Det kliniske arbejde blev varetaget af kolleger med kvalifikationerne til det."],
+            items: [
+              "Design af studiet over tre besøg og fastlæggelse af sammenligningsområderne",
+              "Rekruttering af deltagere efter kriterierne for førstegangsbrugere",
+              "Facilitering af alle interviews og produktevalueringer",
+              "Analyse af materialet og identifikation af mønstre på tværs af deltagerne",
+              "Koordinering af interessenter og løbende afstemning",
+              "Præsentation af fund og anbefalinger for mere end 50 interessenter over to sessioner"
+            ],
+            parasAfter: ["Høretest og den professionelle tilpasning af Oticon Intent blev udført af en audiolog."]
+          },
+          {
+            label: "Fund", title: "Det jeg kan og ikke kan dele",
+            paras: [
+              "<strong>Det, der forbliver fortroligt.</strong> Jeg kan ikke dele, hvilken løsning deltagerne foretrak, hvordan de to produkter klarede sig på de enkelte parametre, eller de strategiske anbefalinger, der blev leveret til Demant.",
+              "<strong>Det, jeg kan dele.</strong> Studiet udfordrede en rent visuel forståelse af diskretion. Hvor udstillet en deltager følte sig, blev formet af den sociale sammenhæng, af hvad et produkt forbindes med, og af hvordan de forventede, at andre ville tolke det, de havde på, og ikke kun af hvor synligt apparatet var.",
+              "Studiet resulterede i et sæt syntetiserede fund og anbefalinger, som blev præsenteret for mere end 50 interessenter på tværs af Demant. De produktspecifikke konklusioner er fortrolige, men arbejdet bidrog med et førstegangsbrugerperspektiv på, hvordan onboarding, lyd, diskretion og social sammenhæng former den tidlige accept af høreteknologi."
+            ]
+          },
+          {
+            label: "Læring", title: "Interessentkommunikation skal have sin egen struktur",
+            paras: [
+              "I takt med at interessen for projektet voksede, blev flere interessenter involveret, og forventningerne blev sværere at koordinere. Løbende opdateringer var ikke nok, når flere teams havde en holdning til, hvad studiet skulle svare på.",
+              "Jeg lærte, at interessentkommunikation skal have sin egen struktur frem for at blive håndteret, som det opstår. I mit bachelorprojekt brugte jeg det ved at lægge en kommunikationsplan tidligt og bruge fokuserede sessioner til at afstemme bidragydere, inden der skulle træffes beslutninger."
+            ]
+          }
         ],
-        processIntro: "Jeg udviklede og faciliterede et studie fordelt over tre besøg.",
-        process: [
-          ["Besøg 1", "Deltagerne gennemførte Apples høretest og satte Hearing Aid-funktionen op for første gang."],
-          ["Besøg 2", "En audiolog gennemførte en høretest og tilpassede Oticon Intent til den enkelte deltager."],
-          ["Besøg 3", "Deltagerne sammenlignede de to oplevelser på tværs af de udvalgte fokusområder."],
-          ["Deltagere", "8 førstegangsbrugere mellem 43 og 68 år med let til moderat høretab."]
-        ],
-        responsibilities: [
-          "Rekruttering af personer med let høretab og uden tidligere erfaring med høreapparater",
-          "Design og facilitering af hele studieforløbet med tre besøg",
-          "Koordinering af interessenter og løbende afstemning på tværs af projektet",
-          "Gennemførelse af interviews og produktevalueringer",
-          "Analyse af materialet og identifikation af mønstre på tværs af studiet",
-          "Præsentation af fund og anbefalinger for mere end 50 interessenter"
-        ],
-        resultStats: [["50+", "interessenter præsenteret for"], ["8", "deltagere i et dybdegående studie"], ["6", "sammenligningsparametre"]],
-        resultText: "<p>Studiet viste, at diskretion ikke kun handler om, hvor synligt et produkt er. Selvom AirPods er velkendte for de fleste, følte flere deltagere sig mere udstillede, når de brugte dem som høreapparat.</p><p>Forskellen var også tydelig i oplevelsen af lyd. Alle 8 deltagere fandt vindstøj generende med AirPods og beskrev lyden som kunstig eller metallisk. Oticon Intent blev oftere beskrevet som naturlig.</p><p>Jeg præsenterede fund og anbefalinger for mere end 50 interessenter fordelt på to sessioner.</p>",
-        confidential: "De strategiske anbefalinger til Demant er fortrolige. Casen fokuserer derfor på studiedesignet, min rolle og de brugervendte fund."
+        confidential: "Af hensyn til fortrolighed er produktspecifikke resultater, understøttende data og strategiske anbefalinger udeladt. Casen fokuserer på studiedesignet, min rolle og min faglige læring."
       }
     }
   },
@@ -589,71 +706,177 @@ const cases = [
     id: "bachelor",
     tagClass: "tag-demant",
     tag: { en: "Demant · Bachelor project", da: "Demant · Bachelorprojekt" },
-    title: { en: "From complex feature to intuitive experience", da: "Fra kompleks funktion til intuitiv oplevelse" },
+    title: { en: "Helping users learn tap control independently", da: "Sådan lærer brugerne tap-kontrol på egen hånd" },
     desc: {
-      en: "20 user interviews, 3 co-creation workshops and 7 expert interviews. The prototype and several recommendations were taken forward by Demant.",
-      da: "20 brugerinterviews, 3 co-creation-workshops og 7 ekspertinterviews. Prototypen og flere anbefalinger blev taget videre af Demant."
+      en: "73% of the hearing aid users we surveyed had never tried tap control. We designed an in-app training experience that lets them practise the gesture with immediate feedback.",
+      da: "73 % af de høreapparatbrugere, vi spurgte, havde aldrig prøvet tap-kontrol. Vi designede en træningsfunktion i appen, hvor de kan øve bevægelsen med feedback med det samme."
     },
-    skills: ["Co-creation", "Prototyping", "Human-Centred Design"],
-    skillsDa: ["Co-creation", "Prototyping", "Human-Centred Design"],
+    skills: ["Workshop facilitation", "Prototyping", "Usability testing"],
+    skillsDa: ["Workshopfacilitering", "Prototyping", "Brugertest"],
     img: `<img src="./tap-kontrol.png" alt="Tap control for hearing aids">`,
     detail: {
       en: {
         eyebrow: "Demant · Bachelor project", eyebrowStyle: "background:#2a4d7a;color:#ffffff",
-        h1: "Tap control: from complex feature to intuitive experience",
-        lead: "How do you help users understand and use a new feature in their hearing aid? We explored this in collaboration with Demant as part of our bachelor project.",
-        meta: [["Role", "UX & Research"], ["Type", "Bachelor project"], ["Collaboration", "Demant"], ["Year", "2026"]],
+        h1: "Helping hearing aid users learn tap control independently",
+        lead: "Oticon hearing aids can be controlled by tapping the ear, but 73% of the hearing aid users we surveyed had never tried the feature. We investigated what prevented adoption and designed an in-app training experience that lets users practise the gesture with immediate feedback.",
+        meta: [
+          ["Role", "UX Research &amp; Design"],
+          ["Team", "Two-person bachelor project"],
+          ["Partner", "Demant · Oticon"],
+          ["Methods", "Survey, interviews, observation, workshops, prototyping, usability testing"],
+          ["Year", "2026"]
+        ],
         video: "https://www.youtube.com/embed/uJw6iG9zyrc",
-        context: [
-          "Demant had introduced a new tap-control feature, but many users struggled to understand its possibilities and use it correctly in everyday life.",
-          "This created a barrier between the technology and the value it was designed to create. Our task was to bridge that gap."
+        sections: [
+          {
+            label: "Problem", title: "Adoption depended on a 45-minute appointment",
+            paras: [
+              "Tap control already existed in the product. Users could answer a call or adjust settings by tapping the hearing aid instead of taking out their phone. Almost nobody used it.",
+              "Audiologists have 45 minutes per patient and decide themselves whether to introduce the feature during a fitting. A Demant survey of 27 hearing care professionals found that fewer than half consistently train patients in it. Once users left the clinic, they had no way to learn or practise the gesture on their own."
+            ]
+          },
+          {
+            label: "Research", title: "What the project covered", type: "stats",
+            items: [
+              ["64", "survey responses"],
+              ["21", "interviews with users, audiologists and a technical engineer"],
+              ["3", "observed learnability sessions"],
+              ["2", "workshops"],
+              ["9", "usability tests"]
+            ],
+            parasAfter: ["These figures cover the work completed across the two-person project as a whole."]
+          },
+          {
+            type: "insight", label: "Key insight",
+            text: "The main barrier was not whether users could physically perform the gesture. It was that they lacked guidance, practice and confirmation that the hearing aid had registered it."
+          },
+          {
+            label: "Workshops", title: "Two groups, one direction",
+            paras: [
+              "We held separate workshops with five usability engineers and five hearing aid users aged 67 to 85. Both groups independently suggested in-app training.",
+              "Among the experts, two ideas tied at the top of the scoring: training material for audiologists, and in-app training. The tie had to be broken with evidence rather than preference. Since audiologists already have only 45 minutes per patient, adding another task to the consultation was not realistic. In-app training let users keep practising after they left the clinic, so that was the direction we took.",
+              "In the user workshop, the $100 test did not work as planned. Participants found it difficult to rank the ideas against each other, so the format was changed during the session to open discussion followed by individual voting. That produced both a ranking and the reasoning behind it.",
+              "The independent convergence gave us confidence that in-app guidance was the right direction to prototype and test."
+            ]
+          },
+          {
+            label: "Solution", title: "An in-app training feature", type: "flow",
+            paras: ["The prototype guides users from understanding the feature to performing the gesture themselves, with immediate visual feedback after each registered tap."],
+            steps: ["Introduction", "Video guide", "Gesture practice", "Immediate feedback", "Simple results"],
+            parasAfter: ["It was built as a high-fidelity Figma prototype inside Oticon's existing app, so it sits in a routine users already have."]
+          },
+          {
+            label: "Usability testing", title: "Nine participants, one full iteration", type: "findings",
+            paras: ["Nine participants aged 56 to 85 tested the prototype in 45-minute sessions. Testing showed that participants understood and engaged with the practice module, which was consistently described as the most appreciated part of the prototype. It also revealed problems with the animation, visual hierarchy, feedback and results screen. These findings informed a full prototype iteration."],
+            headA: "What testing revealed", headB: "What changed",
+            rows: [
+              ["Users could not tell whether a double tap ended a call", "Added ringtone and speech to the video and zoomed in on the gesture"],
+              ["The abstract circular target did not connect to tapping the ear", "Replaced it with an illustration of an ear and hearing aid"],
+              ["Grey buttons appeared disabled", "Changed them to Oticon pink"],
+              ["Average tap speed had no meaning for users", "Reduced the results screen to successful taps only"],
+              ["Participants did not want to save their results", "Removed the option entirely"],
+              ["Text was too small for the age group", "Enlarged text throughout the prototype"]
+            ]
+          },
+          {
+            label: "Limitations", title: "What the study could not tell us",
+            paras: ["All sessions took place at Oticon rather than in participants' homes, which is not where the feature would actually be learned. We also did not have access to Oticon's official design manual, so the prototype was rebuilt manually from the app on our own phones. That was enough to test the concept, but some details will differ from the real design system."]
+          },
+          {
+            label: "Contribution", title: "My role", type: "list",
+            paras: ["This was a two-person bachelor project. The work below was carried out across the project."],
+            items: [
+              "Planning and facilitating workshops with experts and end users",
+              "Semi-structured interviews with users, audiologists and a technical engineer",
+              "Analysing survey, interview and observation data into recurring themes",
+              "Prioritising problem statements and defining the design direction",
+              "Building the high-fidelity prototype in Figma",
+              "Running usability testing and iterating the prototype"
+            ]
+          }
         ],
-        processIntro: "We conducted extensive research to understand the problem from both user and expert perspectives.",
-        process: [
-          ["20 interviews", "In-depth user interviews with hearing aid users."],
-          ["3 workshops", "Co-creation workshops with users and stakeholders."],
-          ["7 experts", "Expert interviews with audiologists."],
-          ["4 usability tests", "Tested and iterated the prototype three times with users and once with audiologists."]
-        ],
-        responsibilities: [
-          "Planning and facilitation of co-creation workshops",
-          "Conducting 20 in-depth user interviews",
-          "Coordination and interviews with audiologists",
-          "Analysis and synthesis of user insights",
-          "Concept development and prototyping in Figma",
-          "User testing and validation of the solution"
-        ],
-        resultStats: [["20", "user interviews"], ["3", "co-creation workshops"], ["1", "prototype taken further"]],
-        resultText: "We developed a prototype with a new introduction and training feature in Demant's existing app. The concept was received positively, and several of the project's recommendations were carried forward in the company's continued work.",
         confidential: ""
       },
       da: {
         eyebrow: "Demant · Bachelorprojekt", eyebrowStyle: "background:#2a4d7a;color:#ffffff",
-        h1: "Tap-kontrol: fra kompleks funktion til intuitiv oplevelse",
-        lead: "Hvordan hjælper man brugere med at forstå og anvende en ny funktion i deres høreapparat? Det undersøgte vi i samarbejde med Demant i vores bachelorprojekt.",
-        meta: [["Rolle", "UX & Research"], ["Type", "Bachelorprojekt"], ["Samarbejde", "Demant"], ["År", "2026"]],
+        h1: "Sådan lærer høreapparatbrugere tap-kontrol på egen hånd",
+        lead: "Oticons høreapparater kan styres ved at tappe på øret, men 73 % af de høreapparatbrugere, vi spurgte, havde aldrig prøvet funktionen. Vi undersøgte, hvad der stod i vejen, og designede en træningsfunktion i appen, hvor brugerne kan øve bevægelsen med feedback med det samme.",
+        meta: [
+          ["Rolle", "UX-research &amp; design"],
+          ["Team", "Bachelorprojekt, to personer"],
+          ["Samarbejde", "Demant · Oticon"],
+          ["Metoder", "Survey, interviews, observation, workshops, prototyping, brugertest"],
+          ["År", "2026"]
+        ],
         video: "https://www.youtube.com/embed/uJw6iG9zyrc",
-        context: [
-          "Demant havde introduceret en ny tap-kontrolfunktion, men mange brugere havde svært ved at forstå funktionens muligheder og bruge den korrekt i hverdagen.",
-          "Det skabte en barriere mellem teknologien og den værdi, den var designet til at skabe. Vores opgave var at bygge bro over den barriere."
+        sections: [
+          {
+            label: "Problem", title: "Udbredelsen afhang af en konsultation på 45 minutter",
+            paras: [
+              "Tap-kontrol fandtes allerede i produktet. Brugerne kunne tage et opkald eller justere indstillinger ved at tappe på høreapparatet i stedet for at finde telefonen frem. Næsten ingen brugte det.",
+              "Audiologer har 45 minutter per patient og vurderer selv, om funktionen skal introduceres under tilpasningen. En survey fra Demant blandt 27 hørespecialister viste, at under halvdelen konsekvent træner patienterne i den. Når brugerne havde forladt klinikken, havde de ingen mulighed for at lære eller øve bevægelsen selv."
+            ]
+          },
+          {
+            label: "Research", title: "Det projektet dækkede", type: "stats",
+            items: [
+              ["64", "survey-besvarelser"],
+              ["21", "interviews med brugere, audiologer og en teknisk ingeniør"],
+              ["3", "observerede learnability-sessioner"],
+              ["2", "workshops"],
+              ["9", "brugertest"]
+            ],
+            parasAfter: ["Tallene dækker det arbejde, der blev gennemført i bachelorprojektet som helhed, udført af to personer."]
+          },
+          {
+            type: "insight", label: "Central indsigt",
+            text: "Den væsentligste barriere var ikke, om brugerne fysisk kunne udføre bevægelsen. Det var, at de manglede vejledning, træning og en bekræftelse på, at høreapparatet havde registreret den."
+          },
+          {
+            label: "Workshops", title: "To grupper, én retning",
+            paras: [
+              "Vi holdt separate workshops med fem usability engineers og fem høreapparatbrugere mellem 67 og 85 år. Begge grupper foreslog uafhængigt af hinanden træning i appen.",
+              "Blandt eksperterne endte to idéer lige i toppen af scoringen: undervisningsmateriale til audiologer og træning i appen. Det uafgjorte resultat skulle brydes med research frem for præference. Da audiologer i forvejen kun har 45 minutter per patient, var det ikke realistisk at lægge endnu en opgave ind i konsultationen. Træning i appen gjorde det muligt for brugerne at øve videre, efter de havde forladt klinikken, og det blev derfor retningen.",
+              "I brugerworkshoppen fungerede $100-testen ikke som planlagt. Deltagerne havde svært ved at rangere idéerne mod hinanden, så formatet blev lavet om undervejs til åben diskussion efterfulgt af individuel afstemning. Det gav både en rangering og begrundelserne bag.",
+              "At de to grupper nåede frem til det samme uafhængigt af hinanden gav os tillid til, at vejledning i appen var den rigtige retning at prototype og teste."
+            ]
+          },
+          {
+            label: "Løsning", title: "En træningsfunktion i appen", type: "flow",
+            paras: ["Prototypen fører brugeren fra at forstå funktionen til selv at udføre bevægelsen, med visuel feedback med det samme efter hvert registreret tap."],
+            steps: ["Introduktion", "Videoguide", "Øv bevægelsen", "Feedback med det samme", "Enkelt resultat"],
+            parasAfter: ["Den blev bygget som en high fidelity-prototype i Figma inde i Oticons eksisterende app, så den ligger i en rutine, brugerne har i forvejen."]
+          },
+          {
+            label: "Brugertest", title: "Ni deltagere, én gennemarbejdet iteration", type: "findings",
+            paras: ["Ni deltagere mellem 56 og 85 år testede prototypen i sessioner på 45 minutter. Testen viste, at deltagerne forstod og brugte træningsmodulet, som gennemgående blev beskrevet som den mest værdsatte del af prototypen. Den afdækkede samtidig problemer med animationen, det visuelle hierarki, feedbacken og resultatskærmen. Fundene førte til en gennemarbejdet iteration af prototypen."],
+            headA: "Det testen viste", headB: "Det vi ændrede",
+            rows: [
+              ["Brugerne kunne ikke se, om et dobbelt tap afsluttede et opkald", "Ringetone og tale blev lagt på videoen, og der blev zoomet ind på bevægelsen"],
+              ["Det abstrakte cirkelfelt hang ikke sammen med at tappe på øret", "Erstattet af en illustration af et øre med høreapparat"],
+              ["Grå knapper blev opfattet som inaktive", "Ændret til Oticons pink"],
+              ["Gennemsnitlig tap-hastighed sagde brugerne ikke noget", "Resultatskærmen skåret ned til antal vellykkede tap"],
+              ["Deltagerne ville ikke gemme deres resultater", "Muligheden blev fjernet helt"],
+              ["Teksten var for lille til aldersgruppen", "Teksten blev forstørret i hele prototypen"]
+            ]
+          },
+          {
+            label: "Begrænsninger", title: "Det studiet ikke kunne sige noget om",
+            paras: ["Alle sessioner foregik hos Oticon og ikke hjemme hos deltagerne, hvilket ikke er der, funktionen reelt skal læres. Vi havde heller ikke adgang til Oticons officielle designmanual, så prototypen blev bygget manuelt ud fra appen på vores egne telefoner. Det var tilstrækkeligt til at teste konceptet, men enkelte detaljer afviger fra det rigtige designsystem."]
+          },
+          {
+            label: "Bidrag", title: "Min rolle", type: "list",
+            paras: ["Projektet var et bachelorprojekt udført af to personer. Arbejdet nedenfor blev gennemført i projektet."],
+            items: [
+              "Planlægning og facilitering af workshops med eksperter og slutbrugere",
+              "Semistrukturerede interviews med brugere, audiologer og en teknisk ingeniør",
+              "Analyse af survey-, interview- og observationsdata til gennemgående temaer",
+              "Prioritering af problemformuleringer og fastlæggelse af designretningen",
+              "Udvikling af high fidelity-prototypen i Figma",
+              "Gennemførelse af brugertest og iteration af prototypen"
+            ]
+          }
         ],
-        processIntro: "Vi gennemførte omfattende research for at forstå problemstillingen fra både bruger- og ekspertperspektiv.",
-        process: [
-          ["20 interviews", "Dybdegående brugerinterviews med høreapparatbrugere."],
-          ["3 workshops", "Co-creation workshops med brugere og interessenter."],
-          ["7 eksperter", "Ekspertinterviews med audiologer."],
-          ["4 brugertest", "Testede og itererede prototypen tre gange med brugere og én gang med audiologer."]
-        ],
-        responsibilities: [
-          "Planlægning og facilitering af co-creation workshops",
-          "Gennemførelse af 20 dybdegående brugerinterviews",
-          "Koordinering og interviews med audiologer",
-          "Analyse og syntese af brugerindsigter",
-          "Konceptudvikling og prototyping i Figma",
-          "Brugertest og validering af løsningen"
-        ],
-        resultStats: [["20", "brugerinterviews"], ["3", "co-creation workshops"], ["1", "prototype taget videre"]],
-        resultText: "Vi udviklede en prototype med en ny introduktions- og træningsfunktion i Demants eksisterende app. Konceptet blev modtaget positivt, og flere af projektets anbefalinger blev videreført i virksomhedens efterfølgende arbejde.",
         confidential: ""
       }
     }
@@ -893,28 +1116,67 @@ function renderCaseCards() {
   document.getElementById("home-cases").innerHTML = html;
 }
 
+// ─── RENDER FLEXIBLE CASE SECTIONS ─────────────────────────────────────────────
+function renderSection(s) {
+  const paras = (s.paras || []).map(p => `<p class="sec-text">${p}</p>`).join("");
+  const after = (s.parasAfter || []).map(p => `<p class="sec-text">${p}</p>`).join("");
+  let body = "";
+
+  if (s.type === "insight") {
+    return `<div class="csection"><div class="insight"><p class="insight-label">${s.label}</p><p class="insight-text">${s.text}</p></div></div>`;
+  }
+  if (s.type === "stats") {
+    body = `<div class="research-stats">${s.items.map(i => `<div class="research-stat"><div class="research-stat-num">${i[0]}</div><div class="research-stat-lbl">${i[1]}</div></div>`).join("")}</div>`;
+  }
+  if (s.type === "flow") {
+    body = `<div class="flow">${s.steps.map((st, i) => `<div class="flow-step"><span>${i + 1}</span>${st}</div>`).join("")}</div>`;
+  }
+  if (s.type === "findings") {
+    body = `<div class="findings-head"><span>${s.headA}</span><span></span><span>${s.headB}</span></div>
+    <div class="findings">${s.rows.map(r => `<div class="finding"><div class="finding-a">${r[0]}</div><i class="ti ti-arrow-right finding-arrow" aria-hidden="true"></i><div class="finding-b">${r[1]}</div></div>`).join("")}</div>`;
+  }
+  if (s.type === "list") {
+    body = `<ul class="responsibility-list">${s.items.map(x => `<li><i class="ti ti-check" aria-hidden="true"></i> ${x}</li>`).join("")}</ul>`;
+  }
+
+  return `<div class="csection">${s.label ? `<p class="sec-label">${s.label}</p>` : ""}${s.title ? `<h2 class="sec-title">${s.title}</h2>` : ""}${paras}${body}${after}</div>`;
+}
+
 // ─── RENDER CASE DETAIL ────────────────────────────────────────────────────────
 function renderCase(c) {
   const d = c.detail[currentLang];
   const meta = d.meta.map(m => `<div class="meta-item"><span class="meta-label">${m[0]}</span><span class="meta-value">${m[1]}</span></div>`).join("");
-  const context = d.context.map(p => `<p class="sec-text">${p}</p>`).join("");
-  const process = d.process.map(p => `<div class="process-card"><div class="process-num">${p[0]}</div><div class="process-card-text">${p[1]}</div></div>`).join("");
-  const resp = d.responsibilities.map(r => `<li><i class="ti ti-check" aria-hidden="true"></i> ${r}</li>`).join("");
-  const stats = d.resultStats.map(s => `<div><div class="result-stat-num">${s[0]}</div><div class="result-stat-lbl">${s[1]}</div></div>`).join("");
-  const conf = d.confidential ? `<p class="confidential-note">${d.confidential}</p>` : "";
-  const sectionLabels = currentLang === "da"
-    ? { context: "Kontekst", problem: "Problemet", process: "Proces", approach: "Sådan greb jeg det an", responsibility: "Mit ansvar", stood: "Det stod jeg for", result: "Resultat", led: "Hvad det førte til" }
-    : { context: "Context", problem: "The problem", process: "Process", approach: "How I approached it", responsibility: "My responsibilities", stood: "What I owned", result: "Result", led: "What it led to" };
 
-  return `<div class="case-header">
+  const head = `<div class="case-header">
     <span class="case-eyebrow" style="${d.eyebrowStyle}">${d.eyebrow}</span>
     <h1 class="case-h1">${d.h1}</h1>
     <p class="case-lead">${d.lead}</p>
     <div class="meta-row">${meta}</div>
   </div>
-  <div class="hero-banner">${d.video ? `<iframe src="${d.video}" title="Figma prototype" allowfullscreen></iframe>` : d.bannerImg ? `<img src="${d.bannerImg}" alt="${d.h1}">` : d.banner}</div>
+  <div class="hero-banner">${d.video ? `<iframe src="${d.video}" title="Figma prototype" allowfullscreen></iframe>` : d.bannerImg ? `<img src="${d.bannerImg}" alt="${d.h1}">` : d.banner}</div>`;
+
+  // Sections-based layout (used by cases that need a custom structure)
+  if (d.sections) {
+    const note = d.confidential ? `<div class="csection"><p class="confidential-note">${d.confidential}</p></div>` : "";
+    return head + d.sections.map(renderSection).join("") + note;
+  }
+
+  const context = d.context.map(p => `<p class="sec-text">${p}</p>`).join("");
+  const process = d.process.map(p => `<div class="process-card"><div class="process-num">${p[0]}</div><div class="process-card-text">${p[1]}</div></div>`).join("");
+  const resp = d.responsibilities.map(r => `<li><i class="ti ti-check" aria-hidden="true"></i> ${r}</li>`).join("");
+  const stats = d.resultStats.map(s => `<div><div class="result-stat-num">${s[0]}</div><div class="result-stat-lbl">${s[1]}</div></div>`).join("");
+  const conf = d.confidential ? `<p class="confidential-note">${d.confidential}</p>` : "";
+  const extra = d.extra
+    ? `<div class="csection"><p class="sec-label">${d.extra.label}</p><h2 class="sec-title">${d.extra.title}</h2>${d.extra.paras.map(p => `<p class="sec-text">${p}</p>`).join("")}</div>`
+    : "";
+  const sectionLabels = currentLang === "da"
+    ? { context: "Kontekst", problem: "Problemet", process: "Proces", approach: "Sådan greb jeg det an", responsibility: "Mit ansvar", stood: "Det stod jeg for", result: "Resultat", led: "Hvad det førte til" }
+    : { context: "Context", problem: "The problem", process: "Process", approach: "How I approached it", responsibility: "My responsibilities", stood: "What I owned", result: "Result", led: "What it led to" };
+
+  return head + `
   <div class="csection"><p class="sec-label">${sectionLabels.context}</p><h2 class="sec-title">${sectionLabels.problem}</h2>${context}</div>
   <div class="csection"><p class="sec-label">${sectionLabels.process}</p><h2 class="sec-title">${sectionLabels.approach}</h2><p class="sec-text">${d.processIntro}</p><div class="process-grid">${process}</div></div>
+  ${extra}
   <div class="csection"><p class="sec-label">${sectionLabels.responsibility}</p><h2 class="sec-title">${sectionLabels.stood}</h2><ul class="responsibility-list">${resp}</ul></div>
   <div class="csection"><p class="sec-label">${sectionLabels.result}</p><h2 class="sec-title">${sectionLabels.led}</h2><div class="result-card"><div class="result-stats">${stats}</div><div class="result-text">${d.resultText}</div></div>${conf}</div>`;
 }
