@@ -164,7 +164,7 @@ a{color:inherit;text-decoration:none}
 .insight{border-left:3px solid var(--accent);background:var(--bg-tertiary);border-radius:0 var(--radius-md) var(--radius-md) 0;padding:1.15rem 1.35rem}
 .insight-label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:0.5rem}
 .insight-text{font-size:17px;line-height:1.6;color:var(--text-primary)}
-.flow{display:flex;flex-wrap:wrap;gap:8px;margin:1rem 0 0.25rem}
+.flow{display:flex;flex-wrap:wrap;gap:8px;margin:1rem 0 1.75rem}
 .flow-step{flex:1 1 105px;border:0.5px solid var(--border-tertiary);border-radius:var(--radius-md);padding:0.7rem 0.6rem;font-size:12px;line-height:1.4;text-align:center;min-width:0}
 .flow-step span{display:block;font-size:10px;color:var(--accent);margin-bottom:4px}
 .findings-head{display:grid;grid-template-columns:1fr 20px 1fr;gap:0.75rem;padding:0 1rem 0.4rem;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary)}
@@ -574,13 +574,15 @@ const cases = [
           },
           {
             label: "Study design", title: "Three visits, one product at a time", type: "flow",
-            paras: ["I designed the study so participants met each solution on its own terms before being asked to compare them."],
-            steps: ["Self-guided setup", "Professional fitting", "Comparison"],
+            paras: [
+              "I recruited 8 participants aged 43 to 68 with mild to moderate hearing loss and no previous hearing aid experience, since the point was to capture a first encounter rather than a comparison against something already familiar.",
+              "I designed the study so participants met each solution on its own terms before being asked to compare them."
+            ],
+            steps: [["Visit 1", "Self-guided setup"], ["Visit 2", "Professional fitting"], ["Visit 3", "Comparison"]],
             parasAfter: [
-              "<strong>Visit 1.</strong> Participants completed Apple's hearing test and set up the AirPods Hearing Aid feature for the first time, without guidance from me.",
-              "<strong>Visit 2.</strong> An audiologist conducted a hearing test and fitted participants with Oticon Intent.",
-              "<strong>Visit 3.</strong> Participants reflected on and compared the two experiences across the defined research areas: comfort, sound quality, streaming, battery life, visibility and discretion, alongside the wider experience of setting up and starting to use each product.",
-              "I recruited 8 participants aged 43 to 68 with mild to moderate hearing loss and no previous hearing aid experience, since the point was to capture a first encounter rather than a comparison against something already familiar."
+              "Participants began by completing Apple's hearing test and setting up the AirPods Hearing Aid feature for the first time, without guidance from me.",
+              "At the second visit, an audiologist conducted a hearing test and fitted participants with Oticon Intent.",
+              "Only at the third visit did participants reflect on and compare the two experiences, across the defined research areas: comfort, sound quality, streaming, battery life, visibility and discretion, alongside the wider experience of setting up and starting to use each product."
             ]
           },
           {
@@ -607,11 +609,11 @@ const cases = [
             parasAfter: ["Hearing tests and the professional fitting of Oticon Intent were carried out by an audiologist."]
           },
           {
-            label: "Findings", title: "What I can and cannot share",
+            label: "Findings", title: "Discretion is not only about how visible a device is",
             paras: [
-              "<strong>What remains confidential.</strong> I cannot share which solution participants preferred, how the two products compared on individual parameters, or the strategic recommendations delivered to Demant.",
-              "<strong>What I can share.</strong> The study challenged a purely visual understanding of discretion. How exposed a participant felt was shaped by social context, by what a product is associated with, and by how they expected other people to interpret what they were wearing, not only by how visible the device was.",
-              "The study produced a set of synthesised findings and recommendations, presented to more than 50 stakeholders across Demant. The product-specific conclusions remain confidential, but the work contributed a first-time-user perspective on how onboarding, sound, discretion and social context shape early acceptance of hearing technology."
+              "The clearest insight I can share is that discretion is not a purely visual property. How exposed a participant felt was shaped by the social situation they were in, by what the product is associated with, and by how they expected other people to interpret what they were wearing.",
+              "That matters for design, because it means discretion cannot be solved by making a device smaller alone. It also has to account for what wearing it appears to say about the person.",
+              "The rest of the findings, including how the two products compared on individual areas and the recommendations that followed, stay with Demant."
             ]
           },
           {
@@ -650,13 +652,15 @@ const cases = [
           },
           {
             label: "Studiedesign", title: "Tre besøg, ét produkt ad gangen", type: "flow",
-            paras: ["Jeg designede studiet, så deltagerne mødte hver løsning på dens egne præmisser, inden de blev bedt om at sammenligne."],
-            steps: ["Selvbetjent opsætning", "Professionel tilpasning", "Sammenligning"],
+            paras: [
+              "Jeg rekrutterede 8 deltagere mellem 43 og 68 år med let til moderat høretab og uden tidligere erfaring med høreapparater, fordi pointen var at indfange et førstegangsmøde og ikke en sammenligning med noget kendt.",
+              "Jeg designede studiet, så deltagerne mødte hver løsning på dens egne præmisser, inden de blev bedt om at sammenligne."
+            ],
+            steps: [["Besøg 1", "Selvbetjent opsætning"], ["Besøg 2", "Professionel tilpasning"], ["Besøg 3", "Sammenligning"]],
             parasAfter: [
-              "<strong>Besøg 1.</strong> Deltagerne gennemførte Apples høretest og satte Hearing Aid-funktionen op for første gang uden vejledning fra mig.",
-              "<strong>Besøg 2.</strong> En audiolog gennemførte en høretest og tilpassede Oticon Intent til den enkelte deltager.",
-              "<strong>Besøg 3.</strong> Deltagerne reflekterede over og sammenlignede de to oplevelser på tværs af de fastlagte fokusområder: komfort, lydkvalitet, streaming, batterilevetid, synlighed og diskretion, samt den bredere oplevelse af at sætte op og komme i gang med hvert produkt.",
-              "Jeg rekrutterede 8 deltagere mellem 43 og 68 år med let til moderat høretab og uden tidligere erfaring med høreapparater, fordi pointen var at indfange et førstegangsmøde og ikke en sammenligning med noget kendt."
+              "Deltagerne begyndte med at gennemføre Apples høretest og sætte Hearing Aid-funktionen op for første gang uden vejledning fra mig.",
+              "Ved andet besøg gennemførte en audiolog en høretest og tilpassede Oticon Intent til den enkelte deltager.",
+              "Først ved tredje besøg reflekterede deltagerne over og sammenlignede de to oplevelser på tværs af de fastlagte fokusområder: komfort, lydkvalitet, streaming, batterilevetid, synlighed og diskretion, samt den bredere oplevelse af at sætte op og komme i gang med hvert produkt."
             ]
           },
           {
@@ -683,11 +687,11 @@ const cases = [
             parasAfter: ["Høretest og den professionelle tilpasning af Oticon Intent blev udført af en audiolog."]
           },
           {
-            label: "Fund", title: "Det jeg kan og ikke kan dele",
+            label: "Fund", title: "Diskretion handler ikke kun om, hvor synligt et apparat er",
             paras: [
-              "<strong>Det, der forbliver fortroligt.</strong> Jeg kan ikke dele, hvilken løsning deltagerne foretrak, hvordan de to produkter klarede sig på de enkelte parametre, eller de strategiske anbefalinger, der blev leveret til Demant.",
-              "<strong>Det, jeg kan dele.</strong> Studiet udfordrede en rent visuel forståelse af diskretion. Hvor udstillet en deltager følte sig, blev formet af den sociale sammenhæng, af hvad et produkt forbindes med, og af hvordan de forventede, at andre ville tolke det, de havde på, og ikke kun af hvor synligt apparatet var.",
-              "Studiet resulterede i et sæt syntetiserede fund og anbefalinger, som blev præsenteret for mere end 50 interessenter på tværs af Demant. De produktspecifikke konklusioner er fortrolige, men arbejdet bidrog med et førstegangsbrugerperspektiv på, hvordan onboarding, lyd, diskretion og social sammenhæng former den tidlige accept af høreteknologi."
+              "Den tydeligste indsigt, jeg kan dele, er, at diskretion ikke er en rent visuel egenskab. Hvor udstillet en deltager følte sig, blev formet af den sociale situation, de var i, af hvad produktet forbindes med, og af hvordan de forventede, at andre ville tolke det, de havde på.",
+              "Det har betydning for design, fordi diskretion så ikke kan løses ved at gøre apparatet mindre alene. Det skal også tage højde for, hvad det signalerer om personen at have det på.",
+              "Resten af fundene, herunder hvordan de to produkter klarede sig på de enkelte områder og de anbefalinger, der fulgte, bliver hos Demant."
             ]
           },
           {
@@ -1129,7 +1133,11 @@ function renderSection(s) {
     body = `<div class="research-stats">${s.items.map(i => `<div class="research-stat"><div class="research-stat-num">${i[0]}</div><div class="research-stat-lbl">${i[1]}</div></div>`).join("")}</div>`;
   }
   if (s.type === "flow") {
-    body = `<div class="flow">${s.steps.map((st, i) => `<div class="flow-step"><span>${i + 1}</span>${st}</div>`).join("")}</div>`;
+    body = `<div class="flow">${s.steps.map((st, i) => {
+      const label = Array.isArray(st) ? st[0] : (i + 1);
+      const text = Array.isArray(st) ? st[1] : st;
+      return `<div class="flow-step"><span>${label}</span>${text}</div>`;
+    }).join("")}</div>`;
   }
   if (s.type === "findings") {
     body = `<div class="findings-head"><span>${s.headA}</span><span></span><span>${s.headB}</span></div>
