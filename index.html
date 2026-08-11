@@ -173,6 +173,10 @@ a{color:inherit;text-decoration:none}
 .finding-a{font-size:13px;color:var(--text-secondary);line-height:1.55}
 .finding-b{font-size:13px;color:var(--text-primary);line-height:1.55}
 .finding-arrow{color:var(--accent);font-size:15px}
+.sec-figure{margin:1.5rem 0;width:min(880px,calc(100vw - 3rem));margin-left:50%;transform:translateX(-50%)}
+.sec-figure img{width:100%;height:auto;display:block;border-radius:var(--radius-md);border:0.5px solid var(--border-tertiary)}
+.sec-caption{font-size:12px;color:var(--text-tertiary);margin-top:0.5rem;line-height:1.5;text-align:center}
+.sec-figure-narrow{width:min(420px,100%);margin-left:auto;margin-right:auto;transform:none}
 
 /* RECOMMENDATIONS PAGE */
 .recommendations-page{padding:3rem 2rem;max-width:720px;margin:0 auto}
@@ -736,7 +740,7 @@ const cases = [
             label: "Problem", title: "Adoption depended on a 45-minute appointment",
             paras: [
               "Tap control already existed in the product. Users could answer a call or adjust settings by tapping the hearing aid instead of taking out their phone. Almost nobody used it.",
-              "Audiologists have 45 minutes per patient and decide themselves whether to introduce the feature during a fitting. A Demant survey of 27 hearing care professionals found that fewer than half consistently train patients in it. Once users left the clinic, they had no way to learn or practise the gesture on their own."
+              "Audiologists have 45 minutes per patient and decide themselves whether to introduce the feature during a fitting. In our interviews with them, that time pressure came up as a reason tap control is often left out. Once users left the clinic, they had no way to learn or practise the gesture on their own."
             ]
           },
           {
@@ -744,7 +748,7 @@ const cases = [
             items: [
               ["64", "survey responses"],
               ["21", "interviews with users, audiologists and a technical engineer"],
-              ["3", "observed learnability sessions"],
+              ["3", "observed user test sessions"],
               ["2", "workshops"],
               ["9", "usability tests"]
             ],
@@ -759,8 +763,12 @@ const cases = [
             paras: [
               "We held separate workshops with five usability engineers and five hearing aid users aged 67 to 85. Both groups independently suggested in-app training.",
               "Among the experts, two ideas tied at the top of the scoring: training material for audiologists, and in-app training. The tie had to be broken with evidence rather than preference. Since audiologists already have only 45 minutes per patient, adding another task to the consultation was not realistic. In-app training let users keep practising after they left the clinic, so that was the direction we took.",
-              "In the user workshop, the $100 test did not work as planned. Participants found it difficult to rank the ideas against each other, so the format was changed during the session to open discussion followed by individual voting. That produced both a ranking and the reasoning behind it.",
+              "In the user workshop, the exercise we had planned for prioritising the ideas did not work. Participants found it difficult to rank the ideas against each other, so the format was changed during the session to open discussion followed by individual voting. That produced both a ranking and the reasoning behind it.",
               "The independent convergence gave us confidence that in-app guidance was the right direction to prototype and test."
+            ],
+            images: [
+              { src: "workshop-setup.png", alt: "Nicoline facilitating a workshop", caption: "Setting up before the user workshop.", narrow: true },
+              { src: "workshop-users.png", alt: "Workshop with hearing aid users", caption: "Workshop with hearing aid users. Participants have been anonymised." }
             ]
           },
           {
@@ -799,7 +807,7 @@ const cases = [
             ]
           }
         ],
-        confidential: ""
+        confidential: "This case presents findings from our own bachelor research. Participant data has been anonymised, and internal Demant material has been omitted."
       },
       da: {
         eyebrow: "Demant · Bachelorprojekt", eyebrowStyle: "background:#2a4d7a;color:#ffffff",
@@ -818,7 +826,7 @@ const cases = [
             label: "Problem", title: "Udbredelsen afhang af en konsultation på 45 minutter",
             paras: [
               "Tap-kontrol fandtes allerede i produktet. Brugerne kunne tage et opkald eller justere indstillinger ved at tappe på høreapparatet i stedet for at finde telefonen frem. Næsten ingen brugte det.",
-              "Audiologer har 45 minutter per patient og vurderer selv, om funktionen skal introduceres under tilpasningen. En survey fra Demant blandt 27 hørespecialister viste, at under halvdelen konsekvent træner patienterne i den. Når brugerne havde forladt klinikken, havde de ingen mulighed for at lære eller øve bevægelsen selv."
+              "Audiologer har 45 minutter per patient og vurderer selv, om funktionen skal introduceres under tilpasningen. I vores interviews med dem blev netop det tidspres nævnt som en grund til, at tap-kontrol ofte bliver sprunget over. Når brugerne havde forladt klinikken, havde de ingen mulighed for at lære eller øve bevægelsen selv."
             ]
           },
           {
@@ -826,7 +834,7 @@ const cases = [
             items: [
               ["64", "survey-besvarelser"],
               ["21", "interviews med brugere, audiologer og en teknisk ingeniør"],
-              ["3", "observerede learnability-sessioner"],
+              ["3", "observerede testsessioner"],
               ["2", "workshops"],
               ["9", "brugertest"]
             ],
@@ -841,8 +849,12 @@ const cases = [
             paras: [
               "Vi holdt separate workshops med fem usability engineers og fem høreapparatbrugere mellem 67 og 85 år. Begge grupper foreslog uafhængigt af hinanden træning i appen.",
               "Blandt eksperterne endte to idéer lige i toppen af scoringen: undervisningsmateriale til audiologer og træning i appen. Det uafgjorte resultat skulle brydes med research frem for præference. Da audiologer i forvejen kun har 45 minutter per patient, var det ikke realistisk at lægge endnu en opgave ind i konsultationen. Træning i appen gjorde det muligt for brugerne at øve videre, efter de havde forladt klinikken, og det blev derfor retningen.",
-              "I brugerworkshoppen fungerede $100-testen ikke som planlagt. Deltagerne havde svært ved at rangere idéerne mod hinanden, så formatet blev lavet om undervejs til åben diskussion efterfulgt af individuel afstemning. Det gav både en rangering og begrundelserne bag.",
+              "I brugerworkshoppen fungerede den øvelse, vi havde planlagt til at prioritere idéerne, ikke. Deltagerne havde svært ved at rangere idéerne mod hinanden, så formatet blev lavet om undervejs til åben diskussion efterfulgt af individuel afstemning. Det gav både en rangering og begrundelserne bag.",
               "At de to grupper nåede frem til det samme uafhængigt af hinanden gav os tillid til, at vejledning i appen var den rigtige retning at prototype og teste."
+            ],
+            images: [
+              { src: "workshop-setup.png", alt: "Nicoline faciliterer en workshop", caption: "Klargøring inden brugerworkshoppen.", narrow: true },
+              { src: "workshop-users.png", alt: "Workshop med høreapparatbrugere", caption: "Workshop med høreapparatbrugere. Deltagerne er anonymiseret." }
             ]
           },
           {
@@ -881,7 +893,7 @@ const cases = [
             ]
           }
         ],
-        confidential: ""
+        confidential: "Casen bygger på fundene fra vores eget bachelorprojekt. Deltagerdata er anonymiseret, og internt Demant-materiale er udeladt."
       }
     }
   },
@@ -1147,7 +1159,9 @@ function renderSection(s) {
     body = `<ul class="responsibility-list">${s.items.map(x => `<li><i class="ti ti-check" aria-hidden="true"></i> ${x}</li>`).join("")}</ul>`;
   }
 
-  return `<div class="csection">${s.label ? `<p class="sec-label">${s.label}</p>` : ""}${s.title ? `<h2 class="sec-title">${s.title}</h2>` : ""}${paras}${body}${after}</div>`;
+  const figures = (s.images || []).map(im => `<figure class="sec-figure${im.narrow ? " sec-figure-narrow" : ""}"><img src="${im.src}" alt="${im.alt || ""}">${im.caption ? `<figcaption class="sec-caption">${im.caption}</figcaption>` : ""}</figure>`).join("");
+
+  return `<div class="csection">${s.label ? `<p class="sec-label">${s.label}</p>` : ""}${s.title ? `<h2 class="sec-title">${s.title}</h2>` : ""}${paras}${body}${figures}${after}</div>`;
 }
 
 // ─── RENDER CASE DETAIL ────────────────────────────────────────────────────────
