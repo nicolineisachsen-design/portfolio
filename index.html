@@ -72,7 +72,8 @@ a{color:inherit;text-decoration:none}
 .case-tag{font-size:11px;padding:3px 8px;border-radius:var(--radius-md);font-weight:500}
 .tag-ux{background:#e8f0e8;color:#3a6633}
 .tag-innovation{background:#f5ece6;color:#8c5033}
-.tag-demant{background:#e6edf5;color:#2a4d7a}
+.tag-demant{background:#2a4d7a;color:#ffffff}
+.tag-dtu{background:#9c2a20;color:#ffffff}
 .case-arrow{font-size:15px;color:var(--text-secondary)}
 .case-title{font-size:14px;font-weight:500;margin-bottom:6px;line-height:1.4}
 .case-desc{font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px}
@@ -129,12 +130,25 @@ a{color:inherit;text-decoration:none}
 .reference-card{margin-top:2rem;background:var(--bg-secondary);border-radius:var(--radius-lg);padding:1.75rem 2rem;position:relative}
 .reference-quote-icon{font-size:28px;color:var(--accent);opacity:0.5;margin-bottom:0.75rem;display:block}
 .reference-quote{font-size:16px;color:var(--text-primary);line-height:1.7;font-style:italic;margin-bottom:1.25rem}
+.reference-highlight{background:#f5ece6;color:#8c5033;padding:2px 4px;border-radius:3px;font-style:italic}
 .reference-author{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .reference-author-info{display:flex;flex-direction:column}
 .reference-author-name{font-size:14px;font-weight:500}
 .reference-author-title{font-size:12px;color:var(--text-secondary)}
 .reference-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:8px 14px;border-radius:var(--radius-md);border:0.5px solid var(--border-secondary);color:var(--text-primary);cursor:pointer;white-space:nowrap}
 .reference-link:hover{border-color:var(--accent);color:var(--accent)}
+
+/* FACTS ABOUT ME */
+.facts-band{background:var(--bg-secondary);padding:3rem 2rem}
+.facts-inner{max-width:1080px;margin:0 auto}
+.facts-label{font-size:12px;letter-spacing:0.08em;color:var(--text-secondary);text-transform:uppercase;margin-bottom:1.5rem}
+.facts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1.25rem}
+.fact-card{background:var(--bg-primary);border:0.5px solid var(--border-tertiary);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.fact-img{width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--bg-tertiary)}
+.fact-img img{width:100%;height:100%;object-fit:cover;display:block}
+.fact-body{padding:1.1rem 1.2rem 1.3rem}
+.fact-title{font-size:13px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;line-height:1.45;margin-bottom:0.6rem}
+.fact-text{font-size:13px;color:var(--text-secondary);line-height:1.7}
 
 /* RECOMMENDATIONS PAGE */
 .recommendations-page{padding:3rem 2rem;max-width:720px;margin:0 auto}
@@ -185,6 +199,8 @@ svg text{font-family:var(--font-sans)}
   .nav-links{order:3;width:100%;justify-content:center;gap:1.1rem}
   .lang-toggle button{padding:5px 7px}
   .section,.about-page,.contact-page,.recommendations-page{padding-left:1.5rem;padding-right:1.5rem}
+  .facts-band{padding:2.5rem 1.5rem}
+  .facts-grid{grid-template-columns:1fr}
   .case-header,.back{padding-left:1.5rem;padding-right:1.5rem}
   .hero-banner{margin-left:1.5rem;margin-right:1.5rem}
   .hero-banner iframe{height:220px}
@@ -212,7 +228,6 @@ svg text{font-family:var(--font-sans)}
       <div class="nav-links">
         <button data-nav="home" class="active" onclick="nav('home')" data-en="Home" data-da="Hjem">Home</button>
         <button data-nav="about" onclick="nav('about')" data-en="About" data-da="Om mig">About</button>
-        <button data-nav="cases" onclick="nav('cases')" data-en="Cases" data-da="Cases">Cases</button>
         <button data-nav="recommendations" onclick="nav('recommendations')" data-en="Recommendations" data-da="Anbefalinger">Recommendations</button>
         <button data-nav="contact" onclick="nav('contact')" data-en="Contact" data-da="Kontakt">Contact</button>
       </div>
@@ -256,25 +271,14 @@ svg text{font-family:var(--font-sans)}
     <div class="section">
       <div class="section-header">
         <span class="section-label" data-en="Selected cases" data-da="Udvalgte cases">Selected cases</span>
-        <span class="section-link" onclick="nav('cases')" data-en="See all" data-da="Se alle">See all <i class="ti ti-arrow-right" aria-hidden="true"></i></span>
       </div>
       <div class="cases-grid" id="home-cases"></div>
     </div>
   </div>
 
-  <!-- CASES OVERVIEW -->
-  <div class="page" data-page="cases">
-    <div class="section">
-      <div class="section-header">
-        <span class="section-label" data-en="All cases" data-da="Alle cases">All cases</span>
-      </div>
-      <div class="cases-grid" id="all-cases"></div>
-    </div>
-  </div>
-
   <!-- CASE DETAIL -->
   <div class="page" data-page="case">
-    <span class="back" onclick="nav('cases')"><i class="ti ti-arrow-left" aria-hidden="true"></i> <span data-en="Back to cases" data-da="Tilbage til cases">Back to cases</span></span>
+    <span class="back" onclick="nav('home')"><i class="ti ti-arrow-left" aria-hidden="true"></i> <span data-en="Back to home" data-da="Tilbage til forsiden">Back to home</span></span>
     <div id="case-detail"></div>
   </div>
 
@@ -302,7 +306,7 @@ svg text{font-family:var(--font-sans)}
       </div>
       <div class="reference-card">
         <i class="ti ti-quote reference-quote-icon" aria-hidden="true"></i>
-        <p class="reference-quote" data-en="&quot;What sets her apart is her ability to cut through complexity and quickly identify what truly matters for the user and the product. She does not overcomplicate her work but rather brings clarity and structure to both problem spaces and design solutions.&quot;" data-da="&quot;Det, der adskiller hende, er hendes evne til at skære igennem kompleksitet og hurtigt identificere, hvad der virkelig betyder noget for brugeren og produktet. Hun overkomplificerer ikke sit arbejde, men skaber derimod klarhed og struktur i både problemrum og designløsninger.&quot;">"What sets her apart is her ability to cut through complexity and quickly identify what truly matters for the user and the product. She does not overcomplicate her work but rather brings clarity and structure to both problem spaces and design solutions."</p>
+        <p class="reference-quote" data-en="&quot;What sets her apart is her ability to cut through complexity and quickly identify what truly matters for the user and the product.&quot;" data-da="&quot;Det, der adskiller hende, er hendes evne til at skære igennem kompleksitet og hurtigt identificere, hvad der virkelig betyder noget for brugeren og produktet.&quot;">"What sets her apart is her ability to cut through complexity and quickly identify what truly matters for the user and the product."</p>
         <div class="reference-author">
           <div class="reference-author-info">
             <span class="reference-author-name">Lisbeth Nøhr Demant</span>
@@ -312,6 +316,40 @@ svg text{font-family:var(--font-sans)}
             <i class="ti ti-file-text" aria-hidden="true"></i>
             <span data-en="Read full letter" data-da="Læs hele brevet">Read full letter</span>
           </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FACTS ABOUT ME -->
+    <div class="facts-band">
+      <div class="facts-inner">
+        <p class="facts-label" data-en="A few facts about me" data-da="Et par facts om mig">A few facts about me</p>
+        <div class="facts-grid">
+
+          <div class="fact-card">
+            <div class="fact-img"><img src="floorball.jpg" alt="Floorball"></div>
+            <div class="fact-body">
+              <h3 class="fact-title" data-en="I'm a team player — literally" data-da="Jeg er en holdspiller — bogstaveligt talt">I'm a team player — literally</h3>
+              <p class="fact-text" data-en="I have played elite football and handball since I was a kid, and recently added floorball to the mix. I have always been most motivated when I am part of a team working towards something together. If I join yours, expect someone who shows up, gives 100%, and genuinely wants the team to win." data-da="Jeg har spillet fodbold og håndbold på eliteniveau, siden jeg var barn, og har for nylig kastet mig over floorball. Jeg har altid været mest motiveret, når jeg er en del af et hold, der arbejder mod noget sammen. Bliver jeg en del af jeres, kan I regne med en, der møder op, giver 100 %, og virkelig gerne vil have, at holdet vinder.">I have played elite football and handball since I was a kid, and recently added floorball to the mix. I have always been most motivated when I am part of a team working towards something together. If I join yours, expect someone who shows up, gives 100%, and genuinely wants the team to win.</p>
+            </div>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-img"><img src="ski.jpg" alt="Skiing"></div>
+            <div class="fact-body">
+              <h3 class="fact-title" data-en="I've been going downhill since age 3" data-da="Jeg har kørt nedad, siden jeg var 3">I've been going downhill since age 3</h3>
+              <p class="fact-text" data-en="And I have never looked back. Skiing is one of the few things where going faster actually makes everything clearer. Good lines, quick decisions, no second-guessing. I bring the same energy to a tight deadline." data-da="Og jeg har aldrig set mig tilbage. Ski er en af de få ting, hvor det bliver klarere af at køre hurtigere. Gode spor, hurtige beslutninger, ingen tvivl bagefter. Den samme energi tager jeg med, når en deadline er stram.">And I have never looked back. Skiing is one of the few things where going faster actually makes everything clearer. Good lines, quick decisions, no second-guessing. I bring the same energy to a tight deadline.</p>
+            </div>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-img"><img src="robot.jpg" alt="Technology and gadgets"></div>
+            <div class="fact-body">
+              <h3 class="fact-title" data-en="I optimise everything" data-da="Jeg optimerer alt">I optimise everything</h3>
+              <p class="fact-text" data-en="New technology genuinely excites me. Whether it is a smarter kitchen gadget, a robot vacuum that handles the boring stuff, or an app that saves me ten minutes a day — I am always curious about what is out there and how it works. Some people call it overthinking. I call it reducing friction so I can focus on what actually matters." data-da="Ny teknologi gør mig oprigtigt nysgerrig. Om det er en smartere køkkenmaskine, en robotstøvsuger, der tager det kedelige, eller en app, der sparer mig ti minutter om dagen — jeg vil altid gerne vide, hvad der findes, og hvordan det virker. Nogle kalder det overtænkning. Jeg kalder det at fjerne friktion, så jeg kan fokusere på det, der faktisk betyder noget.">New technology genuinely excites me. Whether it is a smarter kitchen gadget, a robot vacuum that handles the boring stuff, or an app that saves me ten minutes a day — I am always curious about what is out there and how it works. Some people call it overthinking. I call it reducing friction so I can focus on what actually matters.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -331,7 +369,7 @@ svg text{font-family:var(--font-sans)}
           <div class="rec-quote">"I wholeheartedly recommend Nicoline to anyone seeking a talented and reliable new colleague. As a student assistant in Demant's Team of Usability &amp; CoCreation, she has been a great asset to our team, highly contributing both professionally and socially.<span class="rec-more" id="r1"> She approaches every task with initiative and curiosity - quickly figuring out who to involve, how to structure the work, and how to deliver strong results. Nicoline is proactive, positive, and simply a joy to work with. Any team will be very lucky to have her!"</span></div>
           <button class="rec-toggle" data-more-en="Read more ↓" data-less-en="Read less ↑" data-more-da="Læs mere ↓" data-less-da="Læs mindre ↑" onclick="toggleRec('r1', this)">Read more ↓</button>
           <div class="rec-person">
-            <div class="rec-initials" style="background:#e6edf5;color:#2a4d7a">LN</div>
+            <div class="rec-initials" style="background:#b07b5c;color:#ffffff">LN</div>
             <div>
               <div class="rec-name">Lisbeth Nøhr Demant</div>
               <div class="rec-title" data-en="Design and Usability Engineer · Direct manager" data-da="Design and Usability Engineer · Direkte leder">Design and Usability Engineer · Direct manager</div>
@@ -345,7 +383,7 @@ svg text{font-family:var(--font-sans)}
           <div class="rec-quote">"It has been a real pleasure to have Nicoline as part of our team, and I would highly recommend her. Nicoline has a very positive mindset and is not afraid to take on new challenges. She works independently and is great at driving tasks forward.<span class="rec-more" id="r2"> During her time with us, she has contributed to a wide range of usability studies, supporting everything from recruitment and planning to conducting sessions and analyzing results. She has also independently planned, prepared, and executed several user tests and UX evaluations. The insights from this work have been highly valuable for our product development and in our communication with stakeholders. Nicoline has a strong understanding of design theory and practice, which she naturally applies in her work. She works efficiently, in a structured way, and communicates results clearly. Lastly, she is a great colleague - easy to work with and always contributing to a positive and fun team environment."</span></div>
           <button class="rec-toggle" data-more-en="Read more ↓" data-less-en="Read less ↑" data-more-da="Læs mere ↓" data-less-da="Læs mindre ↑" onclick="toggleRec('r2', this)">Read more ↓</button>
           <div class="rec-person">
-            <div class="rec-initials" style="background:#e8f0e8;color:#3a6633">SK</div>
+            <div class="rec-initials" style="background:#b07b5c;color:#ffffff">SK</div>
             <div>
               <div class="rec-name">Sara Kjær Langvad</div>
               <div class="rec-title" data-en="Design &amp; Innovation Engineer · Colleague" data-da="Design &amp; Innovation Engineer · Kollega">Design &amp; Innovation Engineer · Colleague</div>
@@ -359,7 +397,7 @@ svg text{font-family:var(--font-sans)}
           <div class="rec-quote">"I've had the pleasure of working with Nicoline during her time as a student assistant, and I can warmly recommend her. Nicoline brings a rare combination of positivity, energy, and a strong willingness to help others.<span class="rec-more" id="r3"> She approaches new tasks with a genuine curiosity and a smile, and she is not afraid to take on challenges - even when stepping into unfamiliar territory. Her proactive mindset and can-do attitude make her a great team player and a joy to work with. She consistently contributes with reliability and enthusiasm, and her supportive nature has been appreciated across the team. I'm confident she will bring great value to any future role she takes on. I wish her all the best in her continued career."</span></div>
           <button class="rec-toggle" data-more-en="Read more ↓" data-less-en="Read less ↑" data-more-da="Læs mere ↓" data-less-da="Læs mindre ↑" onclick="toggleRec('r3', this)">Read more ↓</button>
           <div class="rec-person">
-            <div class="rec-initials" style="background:#e6edf5;color:#2a4d7a">HH</div>
+            <div class="rec-initials" style="background:#b07b5c;color:#ffffff">HH</div>
             <div>
               <div class="rec-name">Helene Høgh Rasmussen</div>
               <div class="rec-title" data-en="Senior Usability Engineer &amp; Team Coach · Colleague" data-da="Senior Usability Engineer &amp; Team Coach · Kollega">Senior Usability Engineer &amp; Team Coach · Colleague</div>
@@ -373,7 +411,7 @@ svg text{font-family:var(--font-sans)}
           <div class="rec-quote">"It is my pleasure to recommend Nicoline, who has worked as a student assistant in my team for Usability Engineering, Lean UX and CoCreation for the past two years. She approaches her tasks with a strong sense of responsibility and always delivers solid work.<span class="rec-more" id="r4"> Nicoline is not afraid to take initiative, and she approaches new tasks and challenges with both curiosity and drive - two highly valued qualities. Furthermore, Nicoline is an open and welcoming person who contributes positively to the collaboration in the team. She is pleasant to work with, meets others with respect and a good attitude, and is able to build strong relationships across the organisation. Her positive approach and helpful nature mean that she is well-liked by both colleagues and managers. Nicoline has been a valuable part of the team throughout her employment, and I am convinced that she will be a great asset in any future position. I can therefore give her my warmest recommendations."</span></div>
           <button class="rec-toggle" data-more-en="Read more ↓" data-less-en="Read less ↑" data-more-da="Læs mere ↓" data-less-da="Læs mindre ↑" onclick="toggleRec('r4', this)">Read more ↓</button>
           <div class="rec-person">
-            <div class="rec-initials" style="background:#f5ece6;color:#8c5033">AR</div>
+            <div class="rec-initials" style="background:#b07b5c;color:#ffffff">AR</div>
             <div>
               <div class="rec-name">Andreas Robertson</div>
               <div class="rec-title" data-en="Manager R&amp;D, UX/UE · Senior colleague" data-da="Manager R&amp;D, UX/UE · Senior kollega">Manager R&amp;D, UX/UE · Senior colleague</div>
@@ -483,7 +521,7 @@ const cases = [
     img: `<img src="aipods-vs-oticon.png" alt="AirPods Pro 2 and Oticon Intent">`,
     detail: {
       en: {
-        eyebrow: "Demant · Internship", eyebrowStyle: "background:#e6edf5;color:#2a4d7a",
+        eyebrow: "Demant · Internship", eyebrowStyle: "background:#2a4d7a;color:#ffffff",
         h1: "Exploratory user study: AirPods Pro 2 vs. Oticon Intent",
         lead: "During my internship at Demant, I led an exploratory study comparing Apple's Hearing Aid feature in AirPods Pro 2 with Oticon Intent. The aim was to understand how first-time users experienced the two solutions and what Demant could learn from the comparison.",
         meta: [["Role", "UX Researcher"], ["Duration", "20-week internship"], ["Methods", "Field testing, interviews"], ["Year", "2025"]],
@@ -512,7 +550,7 @@ const cases = [
         confidential: "To respect confidentiality, product-specific results, supporting data and strategic recommendations have been omitted. This case focuses on my research approach, responsibilities and professional learning."
       },
       da: {
-        eyebrow: "Demant · Praktik", eyebrowStyle: "background:#e6edf5;color:#2a4d7a",
+        eyebrow: "Demant · Praktik", eyebrowStyle: "background:#2a4d7a;color:#ffffff",
         h1: "Explorativt brugerstudie: AirPods Pro 2 vs. Oticon Intent",
         lead: "Under min praktik hos Demant stod jeg for et eksplorativt studie, hvor Apples Hearing Aid-funktion i AirPods Pro 2 blev sammenlignet med Oticon Intent.",
         meta: [["Rolle", "UX Researcher"], ["Varighed", "20 ugers praktik"], ["Metoder", "Felttest, interviews"], ["År", "2025"]],
@@ -556,7 +594,7 @@ const cases = [
     img: `<img src="./tap-kontrol.png" alt="Tap control for hearing aids">`,
     detail: {
       en: {
-        eyebrow: "Demant · Bachelor project", eyebrowStyle: "background:#e6edf5;color:#2a4d7a",
+        eyebrow: "Demant · Bachelor project", eyebrowStyle: "background:#2a4d7a;color:#ffffff",
         h1: "Tap control: from complex feature to intuitive experience",
         lead: "How do you help users understand and use a new feature in their hearing aid? We explored this in collaboration with Demant as part of our bachelor project.",
         meta: [["Role", "UX & Research"], ["Type", "Bachelor project"], ["Collaboration", "Demant"], ["Year", "2026"]],
@@ -585,7 +623,7 @@ const cases = [
         confidential: ""
       },
       da: {
-        eyebrow: "Demant · Bachelorprojekt", eyebrowStyle: "background:#e6edf5;color:#2a4d7a",
+        eyebrow: "Demant · Bachelorprojekt", eyebrowStyle: "background:#2a4d7a;color:#ffffff",
         h1: "Tap-kontrol: fra kompleks funktion til intuitiv oplevelse",
         lead: "Hvordan hjælper man brugere med at forstå og anvende en ny funktion i deres høreapparat? Det undersøgte vi i samarbejde med Demant i vores bachelorprojekt.",
         meta: [["Rolle", "UX & Research"], ["Type", "Bachelorprojekt"], ["Samarbejde", "Demant"], ["År", "2026"]],
@@ -617,7 +655,7 @@ const cases = [
   },
   {
     id: "rejsekort",
-    tagClass: "tag-ux",
+    tagClass: "tag-dtu",
     tag: { en: "DTU · Interaction Design", da: "DTU · Interaktionsdesign" },
     title: { en: "Human-centred design of digital transit card solution", da: "Brugercentreret design af digital rejsekortsløsning" },
     desc: {
@@ -629,7 +667,7 @@ const cases = [
     img: `<img src="Rejsekort.png" alt="Digital Rejsekort app concept">`,
     detail: {
       en: {
-        eyebrow: "DTU · Interaction Design", eyebrowStyle: "background:#e8f0e8;color:#3a6633",
+        eyebrow: "DTU · Interaction Design", eyebrowStyle: "background:#9c2a20;color:#ffffff",
         h1: "Human-centred design of a digital transit card solution",
         lead: "The physical Rejsekort is often one of the last cards left in the wallet. In the Interaction Design course, we designed a digital solution from scratch through research and four rounds of usability testing.",
         meta: [["Role", "UX Designer"], ["Type", "Course project"], ["Methods", "Workshop, usability testing"], ["Team", "4 people"]],
@@ -657,7 +695,7 @@ const cases = [
         confidential: ""
       },
       da: {
-        eyebrow: "DTU · Interaktionsdesign", eyebrowStyle: "background:#e8f0e8;color:#3a6633",
+        eyebrow: "DTU · Interaktionsdesign", eyebrowStyle: "background:#9c2a20;color:#ffffff",
         h1: "Brugercentreret design af digital rejsekortsløsning",
         lead: "Det fysiske Rejsekort er ofte et af de sidste kort tilbage i pungen. I faget Interaction Design designede vi en digital løsning fra grunden gennem research og fire runder brugertest.",
         meta: [["Rolle", "UX Designer"], ["Type", "Kursusprojekt"], ["Metoder", "Workshop, brugertest"], ["Team", "4 personer"]],
@@ -688,7 +726,7 @@ const cases = [
   },
   {
     id: "napz",
-    tagClass: "tag-innovation",
+    tagClass: "tag-dtu",
     tag: { en: "DTU · Innovation", da: "DTU · Innovation" },
     title: { en: "From idea to Letter of Intent from BabySam", da: "Fra idé til Letter of Intent fra BabySam" },
     desc: {
@@ -700,7 +738,7 @@ const cases = [
     img: `<img src="./Napz.png" alt="NapZ – cuddly toy with soothing sounds">`,
     detail: {
       en: {
-        eyebrow: "DTU · Innovation", eyebrowStyle: "background:#f5ece6;color:#8c5033",
+        eyebrow: "DTU · Innovation", eyebrowStyle: "background:#9c2a20;color:#ffffff",
         h1: "NapZ: From idea to a Letter of Intent from BabySam",
         lead: "Can you build a strong emotional connection into a product? We developed a cuddly toy that plays the mother's heartbeat — and took it all the way from idea to validated concept.",
         meta: [["Role", "Innovation & UX"], ["Method", "Design Thinking, Lean"], ["Result", "Won pitch + LOI"], ["Year", "2024"]],
@@ -728,7 +766,7 @@ const cases = [
         confidential: ""
       },
       da: {
-        eyebrow: "DTU · Innovation", eyebrowStyle: "background:#f5ece6;color:#8c5033",
+        eyebrow: "DTU · Innovation", eyebrowStyle: "background:#9c2a20;color:#ffffff",
         h1: "NapZ: Fra idé til et Letter of Intent fra BabySam",
         lead: "Kan man bygge en stærk følelsesmæssig forbindelse ind i et produkt? Vi udviklede en bamse, der afspiller moderens hjertelyd — og tog den hele vejen fra idé til valideret koncept.",
         meta: [["Rolle", "Innovation & UX"], ["Metode", "Design Thinking, Lean"], ["Resultat", "Vandt pitch + LOI"], ["År", "2024"]],
@@ -759,7 +797,7 @@ const cases = [
   },
   {
     id: "oceansplate",
-    tagClass: "tag-innovation",
+    tagClass: "tag-dtu",
     tag: { en: "DTU · Grøn Dyst", da: "DTU · Grøn Dyst" },
     title: { en: "Sustainable product concept: from seaweed to disposable tableware", da: "Bæredygtigt produktkoncept: fra tang til engangsservice" },
     desc: {
@@ -771,7 +809,7 @@ const cases = [
     img: `<img src="./oceansplate.png" alt="Sustainable product concept Oceansplate">`,
     detail: {
       en: {
-        eyebrow: "DTU · Grøn Dyst", eyebrowStyle: "background:#e8f0e8;color:#3a6633",
+        eyebrow: "DTU · Grøn Dyst", eyebrowStyle: "background:#9c2a20;color:#ffffff",
         h1: "Sustainable product concept: seaweed as an alternative to disposable tableware",
         lead: "Drawing on the UN Sustainable Development Goals, we developed a sustainable alternative to traditional disposable tableware made from cardboard and plastic, using seaweed as a raw material.",
         meta: [["Role", "Innovation & Sustainability"], ["Context", "DTU · Green Entrepreneurship"], ["Result", "Presented at Grøn Dyst"], ["Year", "2024"]],
@@ -799,7 +837,7 @@ const cases = [
         confidential: ""
       },
       da: {
-        eyebrow: "DTU · Grøn Dyst", eyebrowStyle: "background:#e8f0e8;color:#3a6633",
+        eyebrow: "DTU · Grøn Dyst", eyebrowStyle: "background:#9c2a20;color:#ffffff",
         h1: "Bæredygtigt produktkoncept: tang som alternativ til engangsservice",
         lead: "Med udgangspunkt i FN's verdensmål udviklede vi et bæredygtigt alternativ til traditionel engangsservice af pap og plast med tang som råmateriale.",
         meta: [["Rolle", "Innovation & Bæredygtighed"], ["Kontekst", "DTU · Grøn Entreprenørskab"], ["Resultat", "Præsenteret ved Grøn Dyst"], ["År", "2024"]],
@@ -848,7 +886,6 @@ function caseCard(c) {
 function renderCaseCards() {
   const html = cases.map(caseCard).join("");
   document.getElementById("home-cases").innerHTML = html;
-  document.getElementById("all-cases").innerHTML = html;
 }
 
 // ─── RENDER CASE DETAIL ────────────────────────────────────────────────────────
@@ -883,7 +920,7 @@ function openCase(id, skipScroll) {
   const casePage = document.querySelector('[data-page="case"]');
   casePage.dataset.openCase = id;
   showPage("case");
-  document.querySelectorAll(".nav-links button").forEach(b => b.classList.toggle("active", b.dataset.nav === "cases"));
+  document.querySelectorAll(".nav-links button").forEach(b => b.classList.toggle("active", b.dataset.nav === "home"));
   if (!skipScroll) window.scrollTo(0, 0);
 }
 
