@@ -59,6 +59,8 @@ a{color:inherit;text-decoration:none}
 
 /* AI WORKFLOW */
 .ai-band{padding:1.45rem 2rem;background:var(--bg-tertiary)}
+.page[data-page="home"] .ai-band{display:none}
+.ai-page-shell .ai-band{display:block;min-height:calc(100vh - 64px);padding:3.5rem 2rem}
 .ai-inner{max-width:1080px;margin:0 auto}
 .ai-heading{display:block;margin-bottom:0.8rem}
 .ai-title{font-size:22px;font-weight:500;line-height:1.25;margin-top:0.4rem}
@@ -191,6 +193,9 @@ a{color:inherit;text-decoration:none}
 .reference-author-title{font-size:12px;color:var(--text-secondary)}
 .reference-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:8px 14px;border-radius:var(--radius-md);border:0.5px solid var(--border-secondary);color:var(--text-primary);cursor:pointer;white-space:nowrap}
 .reference-link:hover{border-color:var(--accent);color:var(--accent)}
+.home-reference{max-width:1080px;margin:2rem auto 0;padding:0 2rem}
+.home-reference .reference-card{margin-top:0;padding:1.35rem 1.6rem}
+.home-reference .reference-quote{font-size:15px;margin-bottom:1rem}
 
 /* FACTS ABOUT ME */
 .facts-band{background:var(--bg-secondary);padding:3rem 2rem}
@@ -338,6 +343,7 @@ svg text{font-family:var(--font-sans)}
       <div class="nav-links">
         <button data-nav="home" class="active" onclick="nav('home')" data-en="Home" data-da="Hjem">Home</button>
         <button data-nav="about" onclick="nav('about')" data-en="About" data-da="Om mig">About</button>
+        <button data-nav="ai" onclick="nav('ai')" data-en="AI in my work" data-da="AI i mit arbejde">AI in my work</button>
         <button data-nav="recommendations" onclick="nav('recommendations')" data-en="Recommendations" data-da="Anbefalinger">Recommendations</button>
         <button data-nav="contact" onclick="nav('contact')" data-en="Contact" data-da="Kontakt">Contact</button>
       </div>
@@ -402,12 +408,19 @@ svg text{font-family:var(--font-sans)}
       </div>
     </section>
 
+    <div class="home-reference" id="home-reference-slot"></div>
+
     <div class="section">
       <div class="section-header">
         <span class="section-label" data-en="Selected cases" data-da="Udvalgte cases">Selected cases</span>
       </div>
       <div class="cases-grid" id="home-cases"></div>
     </div>
+  </div>
+
+  <!-- AI IN MY WORK -->
+  <div class="page ai-page-shell" data-page="ai">
+    <div id="ai-page-slot"></div>
   </div>
 
   <!-- CASE DETAIL -->
@@ -463,7 +476,7 @@ svg text{font-family:var(--font-sans)}
           <div class="fact-card">
             <div class="fact-img pos-floorball"><img src="floorball.jpg" alt="Floorball"></div>
             <div class="fact-body">
-              <h3 class="fact-title" data-en="I'm a team player — literally" data-da="Jeg er en holdspiller — bogstaveligt talt">I'm a team player — literally</h3>
+              <h3 class="fact-title" data-en="I'm a team player" data-da="Jeg er en holdspiller">I'm a team player</h3>
               <p class="fact-text" data-en="I have played elite football and handball since I was a kid, and recently added floorball to the mix. I have always been most motivated when I am part of a team working towards something together. If I join yours, expect someone who shows up, gives 100%, and genuinely wants the team to win." data-da="Jeg har spillet fodbold og håndbold på eliteniveau, siden jeg var barn, og har for nylig kastet mig over floorball. Jeg har altid været mest motiveret, når jeg er en del af et hold, der arbejder mod noget sammen. Bliver jeg en del af jeres, kan I regne med en, der møder op, giver 100 %, og virkelig gerne vil have, at holdet vinder.">I have played elite football and handball since I was a kid, and recently added floorball to the mix. I have always been most motivated when I am part of a team working towards something together. If I join yours, expect someone who shows up, gives 100%, and genuinely wants the team to win.</p>
             </div>
           </div>
@@ -1363,6 +1376,13 @@ renderCaseCards();
 </script>
 <script>
 (() => {
+  const aiBand = document.querySelector(".ai-band");
+  const aiPageSlot = document.getElementById("ai-page-slot");
+  if (aiBand && aiPageSlot) aiPageSlot.appendChild(aiBand);
+  const referenceCard = document.querySelector(".reference-card");
+  const homeReferenceSlot = document.getElementById("home-reference-slot");
+  if (referenceCard && homeReferenceSlot) homeReferenceSlot.appendChild(referenceCard);
+
   const content = [
     {
       title: ["From research material to stakeholder-ready findings", "Fra researchmateriale til fund, der er klar til interessenter"],
