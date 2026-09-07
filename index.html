@@ -57,6 +57,59 @@ a{color:inherit;text-decoration:none}
 
 .divider{height:0.5px;background:var(--border-tertiary);margin:0 2rem;max-width:1080px;margin-left:auto;margin-right:auto}
 
+/* AI WORKFLOW */
+.ai-band{padding:1.45rem 2rem;background:var(--bg-tertiary)}
+.ai-inner{max-width:1080px;margin:0 auto}
+.ai-heading{display:block;margin-bottom:0.8rem}
+.ai-title{font-size:22px;font-weight:500;line-height:1.25;margin-top:0.4rem}
+.ai-intro{font-size:13px;color:var(--text-secondary);line-height:1.7;max-width:720px;margin-top:0.65rem}
+.ai-note{font-size:12px;color:var(--text-secondary);margin-top:1.1rem;line-height:1.5}
+.ai-tools-row{display:flex;align-items:center;gap:0.55rem;flex-wrap:wrap;margin-bottom:0.85rem}
+.ai-tool-logo{display:flex;align-items:center;gap:0.4rem;padding:0.38rem 0.58rem;background:var(--bg-primary);border:0.5px solid var(--border-tertiary);border-radius:999px;font-size:11px;color:var(--text-secondary);line-height:1}
+.ai-tool-logo svg{width:16px;height:16px;display:block;flex:none}
+.ai-proof{background:#292521;color:#fff;border-radius:var(--radius-lg);padding:1.35rem 1.6rem;margin-bottom:1.1rem}
+.ai-proof-kicker{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:0.3rem;font-weight:600}
+.ai-proof-title{font-size:16px;font-weight:500;color:#fff;line-height:1.35;margin-bottom:1rem;padding-bottom:1rem;border-bottom:0.5px solid rgba(255,255,255,0.16)}
+.ai-proof-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:1.35rem}
+.ai-proof-step{position:relative}
+.ai-proof-step:not(:last-child)::after{content:"→";position:absolute;top:0;right:-1.15rem;color:var(--accent);font-size:13px;font-weight:600}
+.ai-proof-label{font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;font-weight:600}
+.ai-proof-text{font-size:12px;color:#cfc3b8;line-height:1.55}
+.ai-value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.85rem;margin-bottom:1.1rem}
+.ai-value-card{border:0.5px solid var(--border-tertiary);border-radius:var(--radius-lg);background:var(--bg-primary);padding:1.15rem;display:flex;flex-direction:column;min-width:0}
+.ai-value-num{font-size:11px;font-weight:600;color:var(--accent);width:24px;height:24px;border-radius:50%;border:0.5px solid var(--border-secondary);display:flex;align-items:center;justify-content:center;margin-bottom:0.65rem}
+.ai-value-title{font-size:14px;font-weight:600;margin-bottom:0.5rem}
+.ai-value-text{font-size:12px;color:var(--text-secondary);line-height:1.6;flex:1}
+.ai-tool-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:0.85rem;padding-top:0.75rem;border-top:0.5px solid var(--border-tertiary)}
+.ai-tool-tag{font-size:10px;padding:2px 7px;border-radius:999px;background:#f5ece6;color:#8c5033}
+.ai-mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.85rem;margin-bottom:1.1rem}
+.ai-mini-card{border:0.5px solid var(--border-tertiary);border-radius:var(--radius-lg);background:var(--bg-primary);padding:1.3rem;display:flex;flex-direction:column;min-width:0}
+.ai-mini-head{display:flex;align-items:flex-start;gap:0.8rem;padding-bottom:0.9rem;margin-bottom:0.9rem;border-bottom:0.5px solid var(--border-tertiary)}
+.ai-mini-num{font-size:11px;font-weight:600;color:var(--accent);width:28px;height:28px;border-radius:50%;border:0.5px solid var(--border-secondary);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ai-mini-title{font-size:15px;font-weight:600;line-height:1.4}
+.ai-mini-fields{display:grid;grid-template-columns:repeat(2,1fr);gap:0.85rem 1rem;flex:1}
+.ai-mini-label{font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:0.3rem}
+.ai-mini-text{font-size:12px;color:var(--text-secondary);line-height:1.55}
+.ai-cases-grid{display:grid;grid-template-columns:1fr;gap:0.4rem;margin-bottom:0.55rem}
+.ai-compact-card{background:#292521;color:#fff;border-radius:var(--radius-lg);padding:1rem 1.1rem;display:grid;grid-template-columns:105px 1fr;gap:0.35rem 0.8rem;align-items:center;min-width:0}
+.ai-compact-num{grid-column:1;grid-row:1;font-size:10px;letter-spacing:0.08em;color:#d7ad94;font-weight:600;margin:0;white-space:nowrap}
+.ai-compact-title{grid-column:2;grid-row:1;font-size:14px;font-weight:600;line-height:1.3;color:#fff;margin:0;padding:0;border:0}
+.ai-compact-fields{grid-column:1 / -1;grid-row:2;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;min-width:0;margin-top:0.45rem;padding-top:0.7rem;border-top:1px solid rgba(255,255,255,0.16)}
+.ai-compact-field{display:block;border-left:1px solid rgba(255,255,255,0.16);padding-left:0.75rem}
+.ai-compact-label{font-size:9px;letter-spacing:0.05em;text-transform:uppercase;color:#d7ad94;font-weight:600;padding-top:2px;margin-bottom:0.2rem}
+.ai-compact-text{font-size:11.5px;color:#cfc3b8;line-height:1.5}
+.ai-compact-card .ai-tool-tags{grid-column:1 / -1;grid-row:3;display:flex;gap:0.45rem;margin:0.75rem 0 0;padding:0.7rem 0 0;border-top:1px solid rgba(255,255,255,0.16);justify-content:flex-start}
+.ai-card-tool{width:29px;height:29px;border-radius:50%;background:#f5ece6;display:flex;align-items:center;justify-content:center}
+.ai-card-tool svg{width:17px;height:17px;display:block}
+.ai-practice{background:#f5ece6;border:0.5px solid rgba(176,123,92,0.24);border-radius:var(--radius-lg);padding:1.25rem 1.35rem}
+.ai-practice-head{display:flex;align-items:center;gap:9px;margin-bottom:0.8rem}
+.ai-practice-head i{font-size:20px;color:var(--accent)}
+.ai-practice-title{font-size:15px;font-weight:600}
+.ai-practice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem}
+.ai-practice-item{background:rgba(255,255,255,0.65);border-radius:var(--radius-md);padding:0.8rem 0.9rem}
+.ai-practice-label{font-size:10px;letter-spacing:0.07em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:0.3rem}
+.ai-practice-text{font-size:12px;color:var(--text-secondary);line-height:1.55}
+
 .section{padding:2.5rem 2rem;max-width:1080px;margin:0 auto}
 .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.5rem}
 .section-label{font-size:12px;letter-spacing:0.08em;color:var(--text-secondary);text-transform:uppercase}
@@ -219,6 +272,23 @@ svg text{font-family:var(--font-sans)}
   .cases-grid{grid-template-columns:1fr}
   .case-img{padding:0}
   .about-strip{grid-template-columns:1fr}
+  .ai-heading{display:block}
+  .ai-tools-row{gap:0.4rem}
+  .ai-tool-logo{padding:0.35rem 0.5rem}
+  .ai-practice-grid{grid-template-columns:1fr}
+  .ai-proof-flow{grid-template-columns:1fr;gap:0.9rem}
+  .ai-proof-step{padding:0.6rem 0 0;border-top:1px solid rgba(255,255,255,0.16)}
+  .ai-proof-step:first-child{padding-top:0;border-top:0}
+  .ai-proof-step:not(:last-child)::after{display:none}
+  .ai-value-grid{grid-template-columns:1fr}
+  .ai-mini-grid{grid-template-columns:1fr}
+  .ai-mini-fields{grid-template-columns:1fr}
+  .ai-cases-grid{grid-template-columns:1fr}
+  .ai-compact-card{grid-template-columns:1fr;padding:0.9rem;gap:0.35rem}
+  .ai-compact-num,.ai-compact-title,.ai-compact-fields,.ai-compact-card .ai-tool-tags{grid-column:1;grid-row:auto}
+  .ai-compact-fields{grid-template-columns:1fr;gap:0.6rem}
+  .ai-compact-card .ai-tool-tags{grid-column:2;justify-content:flex-start}
+  .ai-compact-field{border-left:0;border-top:1px solid rgba(255,255,255,0.16);padding:0.65rem 0 0}
   .process-grid{grid-template-columns:1fr}
   .nav{padding:0.85rem 1.25rem}
   .nav-inner{flex-wrap:wrap;row-gap:0.65rem}
@@ -254,6 +324,14 @@ svg text{font-family:var(--font-sans)}
 </style>
 </head>
 <body>
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <symbol id="tool-claude" viewBox="0 0 24 24"><path fill="#D97757" d="M10.8 2h2.4l.5 6.1 3.4-5 2 1.2-2.7 5.5 5.7-2.3.8 2.2-5.4 3.1 6.1.5-.2 2.4-6.2-.2 4.8 3.8-1.5 1.9-5.3-3.2 1.7 5.9-2.3.6-2.5-5.7-2.5 5.7-2.3-.6 1.7-5.9-5.3 3.2-1.5-1.9 4.8-3.8-6.2.2-.2-2.4 6.1-.5-5.4-3.1.8-2.2 5.7 2.3-2.7-5.5 2-1.2 3.4 5z"/></symbol>
+  <symbol id="tool-chatgpt" viewBox="0 0 24 24"><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAwCAMAAAC2edPQAAAAD1BMVEX///8iIiITExMEBAQcHBwHHyzEAAAAAXRSTlMAQObYZgAAAXtJREFUSMeNVksWxCAIK5H7n3k+KiRIX+umMzWEAAq9rroM47vg16vlI9YbCwxej/C/EktV9gxPSPjCjdkXgBttXSwuim2Tr0erpohZQmYsDT3YFVNa9TApnKV4dU4vwPlGF6CxIq6PiRQJyAluvxeb3YjUiTT9z8f8B6KkCq79UBZ4ypEj1W38Fqb4kBIWvjyNtEs8Mh07uwvvO6TA2xKu1Rsp2xQ/6SQ3VB9O095C0EZmcY/Pg4IiyilNRz53JUEGXOfR4j3DmN6M6uEHHpza+YMDQIOvjHlP/rfixAfjMiwxcRNR/Pohl42P885twZcLBZLb40tXsn28Bm7xaA4Yqn4Pfyg9IZQIPp8IUpODJvioAwf4HRTsByrbxM9VL4rEmxuQDiJ5CrxTC7W2/ebAOMZN0/84wUdHtzp6MlfX7pBW2VzM9YAc44WOkGmttTOrQSz2fjO9jCzK1GuSN7fCJOjtxdjOaB0v4CUWPMJz9j5/EWT0vzibD4EPRJ4JkvST6EIAAAAASUVORK5CYII=" x="0.25" y="0" width="23.5" height="24" preserveAspectRatio="xMidYMid meet"/></symbol>
+  <symbol id="tool-copilot" viewBox="0 0 24 24"><image href="data:image/png;base64,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" x="0" y="0.5" width="24" height="23" preserveAspectRatio="xMidYMid meet"/></symbol>
+  <symbol id="tool-figma" viewBox="0 0 24 24"><path fill="#F24E1E" d="M6 2h6v6H6a3 3 0 0 1 0-6Z"/><path fill="#A259FF" d="M12 2h3a3 3 0 0 1 0 6h-3V2Z"/><path fill="#FF7262" d="M6 8h6v6H6a3 3 0 0 1 0-6Z"/><circle cx="15" cy="11" r="3" fill="#1ABCFE"/><path fill="#0ACF83" d="M6 14h6v3a3 3 0 1 1-6 0v-3Z"/></symbol>
+  <symbol id="tool-canva" viewBox="0 0 24 24"><defs><radialGradient id="canva-symbol-gradient" cx="18%" cy="8%" r="108%"><stop offset="0" stop-color="#00C4CC"/><stop offset=".34" stop-color="#12B8D5"/><stop offset=".62" stop-color="#2E78E8"/><stop offset=".82" stop-color="#4B50ED"/><stop offset="1" stop-color="#7D18F5"/></radialGradient></defs><circle cx="12" cy="12" r="10" fill="url(#canva-symbol-gradient)"/><path fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" d="M16.7 8c-2-1.9-5.8-1-7.3 1.8-1.6 2.9.2 6.3 3.4 6.1 1.5-.1 2.8-.9 3.7-2.2"/></symbol>
+  <symbol id="tool-miro" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="3" fill="#FFD02F"/><path fill="#292521" d="m7 17 3.2-10H13L9.8 17H7Zm4.2 0 3.2-10h2.8L14 17h-2.8Zm4.2 0 2.2-7h2.8l-2.2 7h-2.8Z"/></symbol>
+</svg>
   <nav class="nav">
     <div class="nav-inner">
       <div class="nav-logo" onclick="nav('home')">Nicoline Lodahl Isachsen <span style="color:var(--text-tertiary);font-weight:400">· Portfolio</span></div>
@@ -277,16 +355,15 @@ svg text{font-family:var(--font-sans)}
   <div class="page show" data-page="home">
     <div class="hero">
       <div>
-        <p class="hero-eyebrow" data-en="UX &amp; Research Portfolio · BEng in Process &amp; Innovation · Aarhus" data-da="UX &amp; Research Portfolio · Diplomingeniør i Proces &amp; Innovation · Aarhus">UX &amp; Research Portfolio · BEng in Process &amp; Innovation · Aarhus</p>
-        <h1 class="hero-name" data-en="Engineer with<br>an eye for <span class='accent'>people</span>" data-da="Ingeniør med<br>øje for <span class='accent'>mennesker</span>">Engineer with<br>an eye for <span class="accent">people</span></h1>
-        <p class="hero-desc" data-en="See how I uncover user needs, facilitate collaboration, develop prototypes, and turn insights into action." data-da="Se hvordan jeg afdækker brugerbehov, faciliterer samarbejde, udvikler prototyper og omsætter indsigter til handling.">See how I uncover user needs, facilitate collaboration, develop prototypes, and turn insights into action.</p>
+        <h1 class="hero-name" data-en="Human-centred designer<br>with an <span class='accent'>engineering mindset</span><br>and an AI-supported workflow" data-da="Brugercentreret designer<br>med <span class='accent'>ingeniørblik</span><br>og et AI-understøttet workflow">Human-centred designer<br>with an <span class="accent">engineering mindset</span><br>and an AI-supported workflow</h1>
+        <p class="hero-desc" data-en="See how I uncover user needs, bring people together, develop prototypes and turn insights into action." data-da="Se, hvordan jeg afdækker brugerbehov, samler mennesker, udvikler prototyper og omsætter indsigter til handling.">See how I uncover user needs, bring people together, develop prototypes and turn insights into action.</p>
         <div class="hero-tags">
           <span class="tag" data-en="UX Research" data-da="UX-research">UX Research</span>
           <span class="tag" data-en="Data Processing &amp; Visualisation" data-da="Databehandling &amp; visualisering">Data Processing &amp; Visualisation</span>
           <span class="tag" data-en="Consumer &amp; Market Insights" data-da="Forbruger- &amp; markedsindsigter">Consumer &amp; Market Insights</span>
-          <span class="tag" data-en="Cross-functional Collaboration" data-da="Tværfagligt samarbejde">Cross-functional Collaboration</span>
+          <span class="tag" data-en="Prototyping" data-da="Prototyping">Prototyping</span>
           <span class="tag" data-en="Stakeholder Management" data-da="Interessenthåndtering">Stakeholder Management</span>
-          <span class="tag">Figma</span>
+          <span class="tag" data-en="AI-supported workflow" data-da="AI-understøttet workflow">AI-supported workflow</span>
         </div>
         <div class="hero-btns">
           <button class="btn-primary" onclick="nav('cases')" data-en="See my cases" data-da="Se mine cases">See my cases</button>
@@ -299,6 +376,31 @@ svg text{font-family:var(--font-sans)}
     </div>
 
     <div class="divider"></div>
+
+    <section class="ai-band" aria-labelledby="ai-workflow-title">
+      <div class="ai-inner">
+        <div class="ai-heading">
+          <div>
+            <h2 class="ai-title" id="ai-workflow-title" data-en="AI in my work" data-da="AI i mit arbejde">AI in my work</h2>
+            <p class="ai-intro" data-en="I use AI to work faster with complex research and design material. It helps me create structure, explore possible patterns, visualise ideas and communicate findings. I validate the output against the source material and remain responsible for the final analysis and decisions." data-da="Jeg bruger AI til at arbejde hurtigere med komplekst research- og designmateriale. Det hjælper mig med at skabe struktur, udforske mulige mønstre, visualisere idéer og formidle fund. Jeg validerer output op imod kildematerialet og er selv ansvarlig for den endelige analyse og beslutningerne.">I use AI to work faster with complex research and design material. It helps me create structure, explore possible patterns, visualise ideas and communicate findings. I validate the output against the source material and remain responsible for the final analysis and decisions.</p>
+          </div>
+        </div>
+        <div class="ai-tools-row" aria-label="AI and design tools">
+          <span class="ai-tool-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#D97757" d="M10.8 2h2.4l.5 6.1 3.4-5 2 1.2-2.7 5.5 5.7-2.3.8 2.2-5.4 3.1 6.1.5-.2 2.4-6.2-.2 4.8 3.8-1.5 1.9-5.3-3.2 1.7 5.9-2.3.6-2.5-5.7-2.5 5.7-2.3-.6 1.7-5.9-5.3 3.2-1.5-1.9 4.8-3.8-6.2.2-.2-2.4 6.1-.5-5.4-3.1.8-2.2 5.7 2.3-2.7-5.5 2-1.2 3.4 5z"/></svg>Claude</span>
+          <span class="ai-tool-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#tool-chatgpt"></use></svg>ChatGPT</span>
+          <span class="ai-tool-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#tool-copilot"></use></svg>Copilot</span>
+          <span class="ai-tool-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#F24E1E" d="M6 2h6v6H6a3 3 0 0 1 0-6Z"/><path fill="#A259FF" d="M12 2h3a3 3 0 0 1 0 6h-3V2Z"/><path fill="#FF7262" d="M6 8h6v6H6a3 3 0 0 1 0-6Z"/><circle cx="15" cy="11" r="3" fill="#1ABCFE"/><path fill="#0ACF83" d="M6 14h6v3a3 3 0 1 1-6 0v-3Z"/></svg>Figma</span>
+          <span class="ai-tool-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#tool-canva"></use></svg>Canva</span>
+          <span class="ai-tool-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="3" fill="#FFD02F"/><path fill="#292521" d="m7 17 3.2-10H13L9.8 17H7Zm4.2 0 3.2-10h2.8L14 17h-2.8Zm4.2 0 2.2-7h2.8l-2.2 7h-2.8Z"/></svg>Miro</span>
+        </div>
+        <div class="ai-cases-grid">
+          <article class="ai-compact-card"><p class="ai-compact-num">01 · DEMANT</p><h3 class="ai-compact-title" data-en="Research synthesis" data-da="Researchsyntese">Research synthesis</h3><div class="ai-compact-fields"><div class="ai-compact-field"><p class="ai-compact-label" data-en="Challenge" data-da="Udfordring">Challenge</p><p class="ai-compact-text" data-en="Extensive interview, field and usability material." data-da="Omfattende interview-, felt- og usability-materiale.">Extensive interview, field and usability material.</p></div><div class="ai-compact-field"><p class="ai-compact-label" data-en="AI support" data-da="AI-støtte">AI support</p><p class="ai-compact-text" data-en="Structured feedback and highlighted possible themes." data-da="Strukturerede feedback og pegede på mulige temaer.">Structured feedback and highlighted possible themes.</p></div><div class="ai-compact-field"><p class="ai-compact-label" data-en="My role" data-da="Min rolle">My role</p><p class="ai-compact-text" data-en="Validated themes against the source material." data-da="Validerede temaerne op imod kildematerialet.">Validated themes against the source material.</p></div><div class="ai-compact-field"><p class="ai-compact-label" data-en="Output" data-da="Resultat">Output</p><p class="ai-compact-text" data-en="Findings, recommendations and stakeholder presentations." data-da="Fund, anbefalinger og præsentationer for interessenter.">Findings, recommendations and stakeholder presentations.</p></div></div><div class="ai-tool-tags"><span class="ai-tool-tag">ChatGPT</span><span class="ai-tool-tag">Copilot</span><span class="ai-tool-tag">Claude</span></div></article>
+          <article class="ai-compact-card"><p class="ai-compact-num">02 · DEMANT</p><h3 class="ai-compact-title" data-en="From ideas to testable concepts" data-da="Fra idéer til testbare koncepter">From ideas to testable concepts</h3><div class="ai-compact-fields"><div class="ai-compact-field"><p class="ai-compact-label" data-en="Challenge" data-da="Udfordring">Challenge</p><p class="ai-compact-text" data-en="Workshop ideas needed a clear visual form." data-da="Workshopidéer skulle have en tydelig visuel form.">Workshop ideas needed a clear visual form.</p></div><div class="ai-compact-field"><p class="ai-compact-label" data-en="AI support" data-da="AI-støtte">AI support</p><p class="ai-compact-text" data-en="Turned selected ideas into early storyboards." data-da="Omsatte udvalgte idéer til tidlige storyboards.">Turned selected ideas into early storyboards.</p></div><div class="ai-compact-field"><p class="ai-compact-label" data-en="My role" data-da="Min rolle">My role</p><p class="ai-compact-text" data-en="Refined the visuals and developed the direction in Figma." data-da="Forfinede visualiseringerne og videreudviklede retningen i Figma.">Refined the visuals and developed the direction in Figma.</p></div><div class="ai-compact-field"><p class="ai-compact-label" data-en="Output" data-da="Resultat">Output</p><p class="ai-compact-text" data-en="Storyboards and prototypes for the tap-control project." data-da="Storyboards og prototyper til tap-control-projektet.">Storyboards and prototypes for the tap-control project.</p></div></div><div class="ai-tool-tags"><span class="ai-tool-tag">Claude</span><span class="ai-tool-tag">Figma</span><span class="ai-tool-tag">Miro</span></div></article>
+          <article class="ai-compact-card"><p class="ai-compact-num">03 · PORTFOLIO</p><h3 class="ai-compact-title" data-en="From Canva to coded portfolio" data-da="Fra Canva til kodet portefølje">From Canva to coded portfolio</h3><div class="ai-compact-fields"><div class="ai-compact-field"><p class="ai-compact-label" data-en="Challenge" data-da="Udfordring">Challenge</p><p class="ai-compact-text" data-en="Turn a presentation into an accessible bilingual website." data-da="Omsætte en præsentation til en tilgængelig tosproget hjemmeside.">Turn a presentation into an accessible bilingual website.</p></div><div class="ai-compact-field"><p class="ai-compact-label" data-en="AI support" data-da="AI-støtte">AI support</p><p class="ai-compact-text" data-en="Supported HTML, CSS, JavaScript and language review." data-da="Understøttede HTML, CSS, JavaScript og sproglig gennemgang.">Supported HTML, CSS, JavaScript and language review.</p></div><div class="ai-compact-field"><p class="ai-compact-label" data-en="My role" data-da="Min rolle">My role</p><p class="ai-compact-text" data-en="Defined the structure and made the final content and design decisions." data-da="Fastlagde strukturen og traf de endelige indholds- og designbeslutninger.">Defined the structure and made the final content and design decisions.</p></div><div class="ai-compact-field"><p class="ai-compact-label" data-en="Output" data-da="Resultat">Output</p><p class="ai-compact-text" data-en="The functional EN/DA portfolio you are viewing." data-da="Den funktionelle dansk/engelske portefølje, du ser her.">The functional EN/DA portfolio you are viewing.</p></div></div><div class="ai-tool-tags"><span class="ai-tool-tag">Claude</span><span class="ai-tool-tag">ChatGPT</span><span class="ai-tool-tag">Canva</span></div></article>
+        </div>
+        <p class="ai-note" data-en="AI supports my process — not a replacement for user contact or professional judgement." data-da="AI understøtter min proces — ikke en erstatning for brugerkontakt eller faglig vurdering.">AI supports my process — not a replacement for user contact or professional judgement.</p>
+      </div>
+    </section>
 
     <div class="section">
       <div class="section-header">
@@ -613,6 +715,14 @@ const cases = [
             parasAfter: ["Hearing tests and the professional fitting of Oticon Intent were carried out by an audiologist."]
           },
           {
+            type: "ai", label: "AI in practice", title: "Support for sense-making, not a shortcut to conclusions",
+            items: [
+              ["Input", "A week's worth of field notes and interview material"],
+              ["AI support", "Compiled the material, created an overview and surfaced possible patterns"],
+              ["My judgement", "Checked every pattern against the source material and research context before using it"]
+            ]
+          },
+          {
             label: "Findings", title: "Discretion is not only about how visible a device is",
             paras: [
               "The clearest insight I can share is that discretion is not a purely visual property. How exposed a participant felt was shaped by the social situation they were in, by what the product is associated with, and by how they expected other people to interpret what they were wearing.",
@@ -689,6 +799,14 @@ const cases = [
               "Præsentation af fund og anbefalinger for mere end 50 interessenter over to sessioner"
             ],
             parasAfter: ["Høretest og den professionelle tilpasning af Oticon Intent blev udført af en audiolog."]
+          },
+          {
+            type: "ai", label: "AI i praksis", title: "Støtte til analyse, ikke en genvej til konklusioner",
+            items: [
+              ["Input", "En uges feltnoter og interviewmateriale"],
+              ["AI-støtte", "Samlede materialet, skabte overblik og pegede på mulige mønstre"],
+              ["Min vurdering", "Tjekkede alle mønstre op imod kildematerialet og researchkonteksten, før de blev brugt"]
+            ]
           },
           {
             label: "Fund", title: "Diskretion handler ikke kun om, hvor synligt et apparat er",
@@ -768,6 +886,14 @@ const cases = [
             ],
             images: [
               { src: "workshop-users.png", alt: "Workshop with hearing aid users", caption: "Workshop with hearing aid users. Participants have been anonymised." }
+            ]
+          },
+          {
+            type: "ai", label: "AI in practice", title: "Turning workshop ideas into something people could react to",
+            items: [
+              ["Input", "Ideas and descriptions generated during co-creation workshops"],
+              ["AI support", "Translated selected ideas into early visual storyboards"],
+              ["My judgement", "Selected, refined and used the visuals as communication material, not as user evidence"]
             ]
           },
           {
@@ -853,6 +979,14 @@ const cases = [
             ],
             images: [
               { src: "workshop-users.png", alt: "Workshop med høreapparatbrugere", caption: "Workshop med høreapparatbrugere. Deltagerne er anonymiseret." }
+            ]
+          },
+          {
+            type: "ai", label: "AI i praksis", title: "Fra workshopidéer til noget, deltagerne kunne forholde sig til",
+            items: [
+              ["Input", "Idéer og beskrivelser fra co-creation-workshops"],
+              ["AI-støtte", "Omsatte udvalgte idéer til tidlige visuelle storyboards"],
+              ["Min vurdering", "Udvalgte, tilpassede og brugte visualiseringerne som kommunikationsmateriale, ikke som brugerevidens"]
             ]
           },
           {
@@ -1156,6 +1290,9 @@ function renderSection(s) {
   if (s.type === "list") {
     body = `<ul class="responsibility-list">${s.items.map(x => `<li><i class="ti ti-check" aria-hidden="true"></i> ${x}</li>`).join("")}</ul>`;
   }
+  if (s.type === "ai") {
+    return `<div class="csection"><div class="ai-practice"><div class="ai-practice-head"><i class="ti ti-sparkles" aria-hidden="true"></i><div><p class="sec-label">${s.label}</p><h2 class="ai-practice-title">${s.title}</h2></div></div><div class="ai-practice-grid">${s.items.map(i => `<div class="ai-practice-item"><p class="ai-practice-label">${i[0]}</p><p class="ai-practice-text">${i[1]}</p></div>`).join("")}</div></div></div>`;
+  }
 
   const figures = (s.images || []).map(im => `<figure class="sec-figure${im.narrow ? " sec-figure-narrow" : ""}"><img src="${im.src}" alt="${im.alt || ""}">${im.caption ? `<figcaption class="sec-caption">${im.caption}</figcaption>` : ""}</figure>`).join("");
 
@@ -1223,6 +1360,48 @@ function nav(name) {
 
 // ─── INIT ──────────────────────────────────────────────────────────────────────
 renderCaseCards();
+</script>
+<script>
+(() => {
+  const content = [
+    {
+      title: ["From research material to stakeholder-ready findings", "Fra researchmateriale til fund, der er klar til interessenter"],
+      fields: [
+        ["A week of field notes and interviews from a study comparing AirPods Pro 2 and Oticon Intent.", "En uges feltnoter og interviews fra et studie af AirPods Pro 2 og Oticon Intent."],
+        ["AI helped organise the material, group usability feedback and flag possible patterns across participants.", "AI hjalp med at organisere materialet, gruppere usability-feedback og pege på mulige mønstre på tværs af deltagerne."],
+        ["I checked every suggested theme against the source material and decided which insights were supported by the research.", "Jeg kontrollerede hvert foreslået tema op imod kildematerialet og vurderede, hvilke indsigter researchen understøttede."],
+        ["Validated insights became recommendations and presentations delivered to more than 50 Demant stakeholders.", "Validerede indsigter blev omsat til anbefalinger og præsentationer for mere end 50 interessenter hos Demant."]
+      ]
+    },
+    {
+      title: ["From co-creation ideas to testable concepts", "Fra co-creation-idéer til testbare koncepter"],
+      fields: [
+        ["Ideas from two co-creation workshops needed to become concrete enough to compare and develop.", "Idéer fra to co-creation-workshops skulle gøres konkrete nok til at kunne sammenlignes og videreudvikles."],
+        ["Claude helped turn selected workshop ideas and descriptions into early visual concepts and storyboards.", "Claude hjalp med at omsætte udvalgte workshopidéer og beskrivelser til tidlige visuelle koncepter og storyboards."],
+        ["I selected the relevant directions, refined the visuals and developed the strongest concept further in Figma.", "Jeg udvalgte de relevante retninger, forfinede visualiseringerne og videreudviklede det stærkeste koncept i Figma."],
+        ["The work informed a tap-control training prototype that was usability-tested with nine participants and then iterated.", "Arbejdet indgik i en tap-control-træningsprototype, som blev brugertestet med ni deltagere og derefter videreudviklet."]
+      ]
+    },
+    {
+      title: ["From Canva to coded portfolio", "Fra Canva til kodet portefølje"],
+      fields: [
+        ["My projects previously lived in a Canva presentation and needed a clearer bilingual format.", "Mine projekter lå tidligere i en Canva-præsentation og havde brug for et tydeligere tosproget format."],
+        ["Claude supported the HTML, CSS and JavaScript development, including the EN/DA toggle. ChatGPT supported content structure and language review.", "Claude understøttede udviklingen i HTML, CSS og JavaScript, herunder dansk/engelsk-skiftet. ChatGPT bidrog med indholdsstruktur og sproglig gennemgang."],
+        ["I defined the site structure, selected the cases, reviewed the code and made the final content and design decisions.", "Jeg fastlagde hjemmesidens struktur, udvalgte cases, gennemgik koden og traf de endelige beslutninger om indhold og design."],
+        ["The result is this responsive bilingual portfolio, built from a presentation into a functional website.", "Resultatet er denne responsive tosprogede portefølje, udviklet fra en præsentation til en funktionel hjemmeside."]
+      ]
+    }
+  ];
+  document.querySelectorAll(".ai-compact-card").forEach((card, index) => {
+    const item = content[index];
+    const title = card.querySelector(".ai-compact-title");
+    title.dataset.en = item.title[0]; title.dataset.da = item.title[1]; title.textContent = item.title[0];
+    card.querySelectorAll(".ai-compact-text").forEach((text, fieldIndex) => {
+      text.dataset.en = item.fields[fieldIndex][0]; text.dataset.da = item.fields[fieldIndex][1]; text.textContent = item.fields[fieldIndex][0];
+    });
+    card.querySelector(".ai-tool-tags")?.remove();
+  });
+})();
 </script>
 <script data-goatcounter="https://nicolineisachsen.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
