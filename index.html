@@ -43,7 +43,7 @@ a{color:inherit;text-decoration:none}
 .page{display:none}
 .page.show{display:block}
 
-.hero{display:grid;grid-template-columns:minmax(0,1fr) 192px;gap:4rem;padding:4rem 2rem 3rem;align-items:center;max-width:1080px;margin:0 auto}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 192px;gap:4rem;padding:4rem 2rem 3rem;align-items:start;max-width:1080px;margin:0 auto}
 .hero-eyebrow{font-size:12px;letter-spacing:0.08em;color:var(--text-secondary);text-transform:uppercase;margin-bottom:1rem}
 .hero-name{font-size:38px;font-weight:500;line-height:1.15;margin-bottom:1rem}
 .hero-desc{font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:1.5rem}
@@ -52,7 +52,7 @@ a{color:inherit;text-decoration:none}
 .hero-btns{display:flex;gap:12px}
 .btn-primary{font-size:13px;padding:9px 18px;border-radius:var(--radius-md);border:none;background:var(--accent);color:#fff;cursor:pointer;font-family:inherit}
 .btn-secondary{font-size:13px;padding:9px 18px;border-radius:var(--radius-md);border:0.5px solid var(--border-secondary);background:transparent;color:var(--text-primary);cursor:pointer;font-family:inherit}
-.hero-img{width:192px;justify-self:end;margin:0;transform:translateY(-28px);aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--bg-secondary);border:1px solid var(--border-tertiary);box-shadow:0 12px 30px rgba(32,29,26,0.08);display:flex;align-items:center;justify-content:center;color:var(--text-secondary);font-size:13px}
+.hero-img{width:192px;justify-self:end;align-self:start;margin:0;transform:translateY(-20px);aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--bg-secondary);border:1px solid var(--border-tertiary);box-shadow:0 12px 30px rgba(32,29,26,0.08);display:flex;align-items:center;justify-content:center;color:var(--text-secondary);font-size:13px}
 .hero-img img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
 
 .divider{height:0.5px;background:var(--border-tertiary);margin:0 2rem;max-width:1080px;margin-left:auto;margin-right:auto}
@@ -1394,8 +1394,10 @@ renderCaseCards();
   ];
   document.querySelectorAll(".ai-compact-card").forEach((card, index) => {
     const item = content[index];
+    const number = String(index + 1).padStart(2, "0");
     const title = card.querySelector(".ai-compact-title");
-    title.dataset.en = item.title[0]; title.dataset.da = item.title[1]; title.textContent = item.title[0];
+    title.dataset.en = `${number} · ${item.title[0]}.`; title.dataset.da = `${number} · ${item.title[1]}.`; title.textContent = title.dataset.en;
+    card.querySelector(".ai-compact-num")?.remove();
     card.querySelectorAll(".ai-compact-text").forEach((text, fieldIndex) => {
       text.dataset.en = item.fields[fieldIndex][0]; text.dataset.da = item.fields[fieldIndex][1]; text.textContent = item.fields[fieldIndex][0];
     });
