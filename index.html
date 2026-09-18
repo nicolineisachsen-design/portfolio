@@ -6,6 +6,9 @@
 <title>Nicoline Lodahl Isachsen – UX & Research Portfolio</title>
 <meta name="description" content="UX & Research Portfolio — Nicoline Lodahl Isachsen, BEng in Process & Innovation, specialising in UX research and human-centred product development.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.0.0/dist/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400&display=swap">
 <style>
 :root{
   --bg-primary:#ffffff;
@@ -197,49 +200,64 @@ a{color:inherit;text-decoration:none}
 .home-reference .reference-card{margin-top:0;padding:1.35rem 1.6rem}
 .home-reference .reference-quote{font-size:15px;margin-bottom:1rem}
 
-/* 5 REASONS TO HIRE ME */
+/* 5 REASONS TO HIRE ME — bygget 1:1 efter maalene i PDF'en.
+   --u = 1 punkt i PDF'en. Alt herunder er PDF-maal gange --u,
+   saa hele sektionen skalerer proportionalt. Vil du have den mindre,
+   saett foerste vaerdi i min() ned (fx 1.5px). */
 .reasons-band{
+  --u:min(1.814px, calc((100vw - 80px) / 595.28));
   position:relative;
-  padding:3.5rem 2rem 3rem;
-  background-color:#f3ece1;
+  padding:calc(30*var(--u)) 2rem calc(45*var(--u));
+  background-color:#f6efe4;
   background-image:repeating-linear-gradient(115deg,
-      rgba(208,190,163,0.30) 0 9px,
-      rgba(0,0,0,0) 9px 26px);
+      #efe3d1 0 calc(17*var(--u)),
+      #f6efe4 calc(17*var(--u)) calc(36*var(--u)));
+  font-family:"Poppins",var(--font-sans);
   overflow:hidden;
 }
-.reasons-inner{max-width:1080px;margin:0 auto}
+.reasons-inner{width:100%;max-width:calc(595.28*var(--u));margin:0 auto}
 
-.reasons-head{display:flex;align-items:flex-start;gap:1.1rem;margin-bottom:2.5rem}
-.reasons-num{font-size:82px;line-height:0.78;font-weight:800;color:#1d3b5c;letter-spacing:-0.04em}
-.reasons-title{font-size:30px;line-height:1.08;font-weight:800;color:#1d3b5c;text-transform:uppercase;letter-spacing:-0.005em;margin-top:0.35rem}
-.reasons-sub{font-size:15px;font-weight:600;color:#c2513c;margin-top:0.45rem}
+/* Overskrift: "5" i 150pt, titel i 38pt, underlinje i 15pt */
+.reasons-head{display:flex;align-items:flex-start;gap:calc(12.5*var(--u));padding-left:calc(40*var(--u));margin-bottom:calc(35*var(--u))}
+.reasons-num{font-size:calc(150*var(--u));line-height:0.74;font-weight:700;color:#1f3864;letter-spacing:-0.02em}
+.reasons-title{font-size:calc(38*var(--u));line-height:1.05;font-weight:700;color:#1f3864;text-transform:uppercase;margin-top:calc(6*var(--u))}
+.reasons-sub{font-size:calc(15*var(--u));font-weight:500;color:#c8553d;margin-top:calc(8*var(--u))}
 
+/* Bjaelker: 525.28 x 104 pt, 8 pt luft imellem, skiftevis flush venstre/hoejre */
 .reason{
+  position:relative;
   display:flex;
   align-items:center;
-  gap:1.6rem;
-  padding:1.35rem 2rem;
-  margin-bottom:1.6rem;
+  width:calc(525.28*var(--u));
+  min-height:calc(104*var(--u));
+  margin-bottom:calc(8*var(--u));
+  padding:calc(12*var(--u)) 0;
   color:#ffffff;
   opacity:0;
   transition:opacity .75s cubic-bezier(.22,.61,.36,1),
              transform .75s cubic-bezier(.22,.61,.36,1);
   will-change:opacity,transform;
 }
-/* .left  = billedet ligger til hoejre, bjaelken glider ind fra venstre
-   .right = billedet ligger til venstre, bjaelken glider ind fra hoejre */
-.reason.left{flex-direction:row-reverse;margin-right:3.5rem;transform:translateX(-72px)}
-.reason.right{margin-left:3.5rem;transform:translateX(72px)}
+/* .left  = billedet i hoejre ende, bjaelken glider ind fra venstre
+   .right = billedet i venstre ende, bjaelken glider ind fra hoejre */
+.reason.left{margin-right:auto;transform:translateX(-72px)}
+.reason.right{margin-left:auto;transform:translateX(72px)}
 .reason.visible{opacity:1;transform:translateX(0)}
 
+/* Cirklen: 110 pt, centreret lodret, 45 pt ud over bjaelkens ende */
 .reason-img{
-  width:152px;height:152px;flex:none;
-  margin:-1.9rem 0;
+  position:absolute;
+  top:50%;
+  width:calc(110*var(--u));
+  height:calc(110*var(--u));
+  transform:translateY(-50%);
   border-radius:50%;
   overflow:hidden;
-  border:5px solid #f3ece1;
-  background:#f3ece1;
+  border:calc(4*var(--u)) solid #f6efe4;
+  background:#f6efe4;
 }
+.reason.left .reason-img{right:calc(-45*var(--u))}
+.reason.right .reason-img{left:calc(-45*var(--u))}
 .reason-img img{width:100%;height:100%;object-fit:cover;display:block}
 /* Finjuster udsnittet paa det enkelte billede: lavere procent viser mere af toppen */
 .reason-img.pos-livsnyder img{object-position:center 40%}
@@ -248,43 +266,54 @@ a{color:inherit;text-decoration:none}
 .reason-img.pos-biavl img{object-position:center 45%}
 .reason-img.pos-kaffe img{object-position:center 35%}
 
-.reason-body{min-width:0}
-.reason-title{font-size:19px;font-weight:700;text-transform:uppercase;letter-spacing:0.01em;margin-bottom:0.45rem;line-height:1.25}
-.reason-text{font-size:13.5px;line-height:1.65;color:rgba(255,255,255,0.88);max-width:62ch}
+/* Tekst: 40 pt fra bjaelkens frie kant, 80 pt i billedsiden */
+.reason-body{flex:1;min-width:0}
+.reason.left .reason-body{padding:0 calc(80*var(--u)) 0 calc(40*var(--u))}
+.reason.right .reason-body{padding:0 calc(40*var(--u)) 0 calc(80*var(--u))}
+.reason-title{font-size:calc(17*var(--u));font-weight:700;text-transform:uppercase;line-height:1.2;margin-bottom:calc(7*var(--u))}
+.reason-text{font-size:calc(10.2*var(--u));line-height:1.32;color:rgba(255,255,255,0.95)}
 
-/* Farver fra PDF'en */
-.reason.r1{background:#1d4a72}
-.reason.r2{background:#c2513c}
-.reason.r3{background:#8b589b}
-.reason.r4{background:#2e7360}
-.reason.r5{background:#bb8a24}
+/* Farver aflaest direkte i PDF'en */
+.reason.r1{background:#1f4e79}
+.reason.r2{background:#c8553d}
+.reason.r3{background:#8e5a9b}
+.reason.r4{background:#2e7d6b}
+.reason.r5{background:#b5832a}
 
-.reasons-foot{font-size:12.5px;font-style:italic;color:#c2513c;text-align:right;margin-top:1.4rem}
+.reasons-foot{font-size:calc(10*var(--u));font-style:italic;color:#c8553d;text-align:right;margin-top:calc(22*var(--u));padding-right:calc(40*var(--u))}
 
 @media(prefers-reduced-motion:reduce){
   .reason{transition:none}
   .reason.left,.reason.right{transform:none}
 }
 
+/* Mobil: bjaelkerne stabler, billedet oeverst */
 @media(max-width:720px){
   .reasons-band{padding:2.5rem 1.25rem}
-  .reasons-head{gap:0.85rem;margin-bottom:1.75rem}
-  .reasons-num{font-size:58px}
-  .reasons-title{font-size:22px}
-  .reasons-sub{font-size:13px}
-  .reason.left,.reason.right{
+  .reasons-head{padding-left:0;gap:0.7rem;margin-bottom:1.6rem}
+  .reasons-num{font-size:58px;line-height:0.8}
+  .reasons-title{font-size:22px;margin-top:2px}
+  .reasons-sub{font-size:13px;margin-top:4px}
+  .reason,.reason.left,.reason.right{
+    width:100%;
+    min-height:0;
+    margin:0 0 1.1rem;
+    padding:1.5rem 1.35rem;
     flex-direction:column;
     align-items:flex-start;
     gap:1rem;
-    margin:0 0 1.1rem;
-    padding:1.5rem 1.35rem;
   }
   .reason.left{transform:translateX(-34px)}
   .reason.right{transform:translateX(34px)}
   .reason.visible{transform:translateX(0)}
-  .reason-img{width:112px;height:112px;margin:0}
-  .reason-title{font-size:17px}
-  .reasons-foot{text-align:left}
+  .reason-img,.reason.left .reason-img,.reason.right .reason-img{
+    position:static;transform:none;left:auto;right:auto;
+    width:112px;height:112px;border-width:4px;
+  }
+  .reason.left .reason-body,.reason.right .reason-body{padding:0}
+  .reason-title{font-size:17px;margin-bottom:0.45rem}
+  .reason-text{font-size:13.5px;line-height:1.6}
+  .reasons-foot{text-align:left;padding-right:0;font-size:12.5px;margin-top:1rem}
 }
 
 /* CASE SECTION MODULES */
