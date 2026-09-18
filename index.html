@@ -197,22 +197,95 @@ a{color:inherit;text-decoration:none}
 .home-reference .reference-card{margin-top:0;padding:1.35rem 1.6rem}
 .home-reference .reference-quote{font-size:15px;margin-bottom:1rem}
 
-/* FACTS ABOUT ME */
-.facts-band{background:var(--bg-secondary);padding:3rem 2rem}
-.facts-inner{max-width:1080px;margin:0 auto}
-.facts-label{font-size:12px;letter-spacing:0.08em;color:var(--text-secondary);text-transform:uppercase;margin-bottom:1.5rem}
-.facts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1.25rem}
-.fact-card{background:var(--bg-primary);border:0.5px solid var(--border-tertiary);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column;min-width:0}
-/* Billedformat: skift 1/1 til 3/4 for højere billeder, eller 4/3 for bredere */
-.fact-img{width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--bg-tertiary)}
-.fact-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
-/* Styr udsnittet per billede: lavere procent viser mere af toppen */
-.fact-img.pos-floorball img{object-position:center 40%}
-.fact-img.pos-ski img{object-position:center 75%}
-.fact-img.pos-robot img{object-position:center 50%}
-.fact-body{padding:1.1rem 1.2rem 1.3rem}
-.fact-title{font-size:13px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;line-height:1.45;margin-bottom:0.6rem}
-.fact-text{font-size:13px;color:var(--text-secondary);line-height:1.7}
+/* 5 REASONS TO HIRE ME */
+.reasons-band{
+  position:relative;
+  padding:3.5rem 2rem 3rem;
+  background-color:#f3ece1;
+  background-image:repeating-linear-gradient(115deg,
+      rgba(208,190,163,0.30) 0 9px,
+      rgba(0,0,0,0) 9px 26px);
+  overflow:hidden;
+}
+.reasons-inner{max-width:1080px;margin:0 auto}
+
+.reasons-head{display:flex;align-items:flex-start;gap:1.1rem;margin-bottom:2.5rem}
+.reasons-num{font-size:82px;line-height:0.78;font-weight:800;color:#1d3b5c;letter-spacing:-0.04em}
+.reasons-title{font-size:30px;line-height:1.08;font-weight:800;color:#1d3b5c;text-transform:uppercase;letter-spacing:-0.005em;margin-top:0.35rem}
+.reasons-sub{font-size:15px;font-weight:600;color:#c2513c;margin-top:0.45rem}
+
+.reason{
+  display:flex;
+  align-items:center;
+  gap:1.6rem;
+  padding:1.35rem 2rem;
+  margin-bottom:1.6rem;
+  color:#ffffff;
+  opacity:0;
+  transition:opacity .75s cubic-bezier(.22,.61,.36,1),
+             transform .75s cubic-bezier(.22,.61,.36,1);
+  will-change:opacity,transform;
+}
+/* .left  = billedet ligger til hoejre, bjaelken glider ind fra venstre
+   .right = billedet ligger til venstre, bjaelken glider ind fra hoejre */
+.reason.left{flex-direction:row-reverse;margin-right:3.5rem;transform:translateX(-72px)}
+.reason.right{margin-left:3.5rem;transform:translateX(72px)}
+.reason.visible{opacity:1;transform:translateX(0)}
+
+.reason-img{
+  width:152px;height:152px;flex:none;
+  margin:-1.9rem 0;
+  border-radius:50%;
+  overflow:hidden;
+  border:5px solid #f3ece1;
+  background:#f3ece1;
+}
+.reason-img img{width:100%;height:100%;object-fit:cover;display:block}
+/* Finjuster udsnittet paa det enkelte billede: lavere procent viser mere af toppen */
+.reason-img.pos-livsnyder img{object-position:center 40%}
+.reason-img.pos-floorball img{object-position:center 40%}
+.reason-img.pos-halloween img{object-position:center 45%}
+.reason-img.pos-biavl img{object-position:center 45%}
+.reason-img.pos-kaffe img{object-position:center 35%}
+
+.reason-body{min-width:0}
+.reason-title{font-size:19px;font-weight:700;text-transform:uppercase;letter-spacing:0.01em;margin-bottom:0.45rem;line-height:1.25}
+.reason-text{font-size:13.5px;line-height:1.65;color:rgba(255,255,255,0.88);max-width:62ch}
+
+/* Farver fra PDF'en */
+.reason.r1{background:#1d4a72}
+.reason.r2{background:#c2513c}
+.reason.r3{background:#8b589b}
+.reason.r4{background:#2e7360}
+.reason.r5{background:#bb8a24}
+
+.reasons-foot{font-size:12.5px;font-style:italic;color:#c2513c;text-align:right;margin-top:1.4rem}
+
+@media(prefers-reduced-motion:reduce){
+  .reason{transition:none}
+  .reason.left,.reason.right{transform:none}
+}
+
+@media(max-width:720px){
+  .reasons-band{padding:2.5rem 1.25rem}
+  .reasons-head{gap:0.85rem;margin-bottom:1.75rem}
+  .reasons-num{font-size:58px}
+  .reasons-title{font-size:22px}
+  .reasons-sub{font-size:13px}
+  .reason.left,.reason.right{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:1rem;
+    margin:0 0 1.1rem;
+    padding:1.5rem 1.35rem;
+  }
+  .reason.left{transform:translateX(-34px)}
+  .reason.right{transform:translateX(34px)}
+  .reason.visible{transform:translateX(0)}
+  .reason-img{width:112px;height:112px;margin:0}
+  .reason-title{font-size:17px}
+  .reasons-foot{text-align:left}
+}
 
 /* CASE SECTION MODULES */
 .research-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:0.7rem;margin-top:0.5rem}
@@ -302,8 +375,6 @@ svg text{font-family:var(--font-sans)}
   .nav-links{order:3;width:100%;justify-content:center;gap:1.1rem}
   .lang-toggle button{padding:5px 7px}
   .section,.about-page,.contact-page,.recommendations-page{padding-left:1.5rem;padding-right:1.5rem}
-  .facts-band{padding:2.5rem 1.5rem}
-  .facts-grid{grid-template-columns:1fr}
   .case-header,.back{padding-left:1.5rem;padding-right:1.5rem}
   .hero-banner{margin-left:1.5rem;margin-right:1.5rem}
   .hero-banner iframe{height:220px}
@@ -467,37 +538,60 @@ svg text{font-family:var(--font-sans)}
       </div>
     </div>
 
-    <!-- FACTS ABOUT ME -->
-    <div class="facts-band">
-      <div class="facts-inner">
-        <p class="facts-label" data-en="A few facts about me" data-da="Et par facts om mig">A few facts about me</p>
-        <div class="facts-grid">
+    <!-- 5 REASONS TO HIRE ME -->
+    <div class="reasons-band">
+      <div class="reasons-inner">
 
-          <div class="fact-card">
-            <div class="fact-img pos-floorball"><img src="floorball.jpg" alt="Floorball"></div>
-            <div class="fact-body">
-              <h3 class="fact-title" data-en="I'm a team player" data-da="Jeg er en holdspiller">I'm a team player</h3>
-              <p class="fact-text" data-en="I have played elite football and handball since I was a kid, and recently added floorball to the mix. I have always been most motivated when I am part of a team working towards something together. If I join yours, expect someone who shows up, gives 100%, and genuinely wants the team to win." data-da="Jeg har spillet fodbold og håndbold på eliteniveau, siden jeg var barn, og har for nylig kastet mig over floorball. Jeg har altid været mest motiveret, når jeg er en del af et hold, der arbejder mod noget sammen. Bliver jeg en del af jeres, kan I regne med en, der møder op, giver 100 %, og virkelig gerne vil have, at holdet vinder.">I have played elite football and handball since I was a kid, and recently added floorball to the mix. I have always been most motivated when I am part of a team working towards something together. If I join yours, expect someone who shows up, gives 100%, and genuinely wants the team to win.</p>
-            </div>
+        <div class="reasons-head">
+          <span class="reasons-num">5</span>
+          <div>
+            <h2 class="reasons-title" data-en="Reasons to<br>hire me" data-da="Grunde til at<br>ansætte mig">Reasons to<br>hire me</h2>
+            <p class="reasons-sub" data-en="(that you won't find on my CV)" data-da="(som ikke står i mit CV)">(that you won't find on my CV)</p>
           </div>
-
-          <div class="fact-card">
-            <div class="fact-img pos-ski"><img src="ski.jpg" alt="Skiing"></div>
-            <div class="fact-body">
-              <h3 class="fact-title" data-en="I've been going downhill since age 3" data-da="Jeg har kørt nedad, siden jeg var 3">I've been going downhill since age 3</h3>
-              <p class="fact-text" data-en="And I have never looked back. Skiing is one of the few things where going faster actually makes everything clearer. Good lines, quick decisions, no second-guessing. I bring the same energy to a tight deadline." data-da="Og jeg har aldrig set mig tilbage. Ski er en af de få ting, hvor det bliver klarere af at køre hurtigere. Gode spor, hurtige beslutninger, ingen tvivl bagefter. Den samme energi tager jeg med, når en deadline er stram.">And I have never looked back. Skiing is one of the few things where going faster actually makes everything clearer. Good lines, quick decisions, no second-guessing. I bring the same energy to a tight deadline.</p>
-            </div>
-          </div>
-
-          <div class="fact-card">
-            <div class="fact-img pos-robot"><img src="robot.jpg" alt="Technology and gadgets"></div>
-            <div class="fact-body">
-              <h3 class="fact-title" data-en="I optimise everything" data-da="Jeg optimerer alt">I optimise everything</h3>
-              <p class="fact-text" data-en="New technology genuinely excites me. Whether it is a smarter kitchen gadget, a robot vacuum that handles the boring stuff, or an app that saves me ten minutes a day — I am always curious about what is out there and how it works. Some people call it overthinking. I call it reducing friction so I can focus on what actually matters." data-da="Ny teknologi gør mig oprigtigt nysgerrig. Om det er en smartere køkkenmaskine, en robotstøvsuger, der tager det kedelige, eller en app, der sparer mig ti minutter om dagen — jeg vil altid gerne vide, hvad der findes, og hvordan det virker. Nogle kalder det overtænkning. Jeg kalder det at fjerne friktion, så jeg kan fokusere på det, der faktisk betyder noget.">New technology genuinely excites me. Whether it is a smarter kitchen gadget, a robot vacuum that handles the boring stuff, or an app that saves me ten minutes a day — I am always curious about what is out there and how it works. Some people call it overthinking. I call it reducing friction so I can focus on what actually matters.</p>
-            </div>
-          </div>
-
         </div>
+
+        <article class="reason left r1">
+          <div class="reason-img pos-livsnyder"><img src="livsnyder.jpg" alt=""></div>
+          <div class="reason-body">
+            <h3 class="reason-title" data-en="I know how to enjoy life" data-da="Jeg er en livsnyder">I know how to enjoy life</h3>
+            <p class="reason-text" data-en="Concerts, travel and new experiences are at the top of my list, and I rarely say no to a ticket. So if you need ideas for the team day, or just want to know what's on in town this weekend, you know who to ask." data-da="Koncerter, rejser og nye oplevelser står øverst på listen, og jeg siger sjældent nej til en billet. Så hvis I mangler idéer til teamdagen, eller bare vil vide, hvad der sker i byen i weekenden, ved I, hvem I skal spørge.">Concerts, travel and new experiences are at the top of my list, and I rarely say no to a ticket. So if you need ideas for the team day, or just want to know what's on in town this weekend, you know who to ask.</p>
+          </div>
+        </article>
+
+        <article class="reason right r2">
+          <div class="reason-img pos-floorball"><img src="floorball.jpg" alt=""></div>
+          <div class="reason-body">
+            <h3 class="reason-title" data-en="I play well with others" data-da="Jeg spiller godt med andre">I play well with others</h3>
+            <p class="reason-text" data-en="I've always played team sports, and these days it's floorball. The sports have changed, but the lesson hasn't: You never win alone, and you have to be able to take a pass, even when it's a little off target." data-da="Jeg har altid dyrket holdsport, og i dag er det floorball. Sportsgrenene har skiftet, men pointen er den samme: Man vinder ikke alene, og man skal kunne tage imod en aflevering, også når den er lidt skæv.">I've always played team sports, and these days it's floorball. The sports have changed, but the lesson hasn't: You never win alone, and you have to be able to take a pass, even when it's a little off target.</p>
+          </div>
+        </article>
+
+        <article class="reason left r3">
+          <div class="reason-img pos-halloween"><img src="halloween.jpg" alt=""></div>
+          <div class="reason-body">
+            <h3 class="reason-title" data-en="I go all in on an idea" data-da="Jeg går all-in på en idé">I go all in on an idea</h3>
+            <p class="reason-text" data-en="For Halloween, I was a bunch of purple grapes. It took a lot of balloons. Once I'm on board with an idea, I don't do it halfway. You can look forward to my costume at the next company party." data-da="Til halloween var jeg en klase lilla vindruer. Det krævede rigtig mange balloner. Når jeg først er med på en idé, bliver den ikke gennemført halvt. I kan roligt glæde jer til mit kostume til næste firmafest.">For Halloween, I was a bunch of purple grapes. It took a lot of balloons. Once I'm on board with an idea, I don't do it halfway. You can look forward to my costume at the next company party.</p>
+          </div>
+        </article>
+
+        <article class="reason right r4">
+          <div class="reason-img pos-biavl"><img src="biavl.jpg" alt=""></div>
+          <div class="reason-body">
+            <h3 class="reason-title" data-en="I say yes to new things" data-da="Jeg siger ja til nye ting">I say yes to new things</h3>
+            <p class="reason-text" data-en="At folk high school, I tried beekeeping. Just because. I'm always curious to try new things and approach them with an open mind, even when they buzz. The same goes for new ideas, methods and tools at work." data-da="På højskolen prøvede jeg at være biavler. Bare fordi. Jeg er altid nysgerrig på at prøve nye ting og møder dem med et åbent sind, også når de summer. Det samme gælder nye idéer, metoder og værktøjer på arbejdet.">At folk high school, I tried beekeeping. Just because. I'm always curious to try new things and approach them with an open mind, even when they buzz. The same goes for new ideas, methods and tools at work.</p>
+          </div>
+        </article>
+
+        <article class="reason left r5">
+          <div class="reason-img pos-kaffe"><img src="kaffe.jpg" alt=""></div>
+          <div class="reason-body">
+            <h3 class="reason-title" data-en="I find the coffee machine first" data-da="Jeg finder kaffemaskinen først">I find the coffee machine first</h3>
+            <p class="reason-text" data-en="Some call it a caffeine addiction. I call it stakeholder mapping: Where the coffee is, the colleagues are, and that's where the good conversations happen." data-da="Nogen kalder det koffeinafhængighed. Jeg kalder det stakeholder mapping: Hvor kaffen er, er kollegerne, og der bliver de gode samtaler taget.">Some call it a caffeine addiction. I call it stakeholder mapping: Where the coffee is, the colleagues are, and that's where the good conversations happen.</p>
+          </div>
+        </article>
+
+        <p class="reasons-foot" data-en="Everything work-related is on my CV." data-da="Alt det jobrelaterede står i CV'et.">Everything work-related is on my CV.</p>
+
       </div>
     </div>
   </div>
@@ -1423,6 +1517,30 @@ renderCaseCards();
     });
     card.querySelector(".ai-tool-tags")?.remove();
   });
+})();
+</script>
+<script>
+// ─── 5 REASONS: SCROLL-ANIMATION ───────────────────────────────────────────────
+(() => {
+  const bars = document.querySelectorAll(".reason");
+  if (!bars.length) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    bars.forEach(bar => bar.classList.add("visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2, rootMargin: "0px 0px -8% 0px" });
+
+  bars.forEach(bar => observer.observe(bar));
 })();
 </script>
 <script data-goatcounter="https://nicolineisachsen.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
