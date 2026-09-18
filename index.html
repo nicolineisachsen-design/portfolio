@@ -358,6 +358,26 @@ a{color:inherit;text-decoration:none}
 .letter-title{font-size:14px;font-weight:500;color:var(--text-secondary)}
 .letter-sub{font-size:12px}
 
+
+/* TEMA-FILTER PAA ANBEFALINGER */
+.themes-label{font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:0.7rem}
+.themes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:0.85rem}
+.chip{font-family:inherit;font-size:13px;cursor:pointer;padding:7px 14px;border-radius:999px;border:0.5px solid var(--border-secondary);background:transparent;color:var(--text-primary);display:inline-flex;align-items:center;gap:7px;transition:background .18s ease,color .18s ease,border-color .18s ease}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip .n{font-size:11px;color:var(--text-tertiary)}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.chip.on .n{color:rgba(255,255,255,0.75)}
+.themes-status{font-size:12.5px;color:var(--text-secondary);min-height:1.4em;margin-bottom:2rem}
+.rec-card{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+.rec-card.in{opacity:1;transform:translateY(0)}
+.rec-card.dim{opacity:0.3}
+.rec-card.hit .rec-quote{border-left-color:var(--accent)}
+.rec-quote mark{background:transparent;color:inherit;border-radius:3px;transition:background .25s ease,color .25s ease}
+.rec-quote mark.on{background:#f5ece6;color:#8c5033;padding:1px 4px;margin:0 -2px}
+@media(prefers-reduced-motion:reduce){
+  .rec-card{transition:none;opacity:1;transform:none}
+}
+
 .contact-page{padding:3rem 2rem;max-width:560px;margin:0 auto}
 .contact-page h1{font-size:30px;font-weight:500;margin-bottom:1rem}
 .contact-page p{font-size:16px;color:var(--text-secondary);line-height:1.7;margin-bottom:2rem}
@@ -632,11 +652,15 @@ svg text{font-family:var(--font-sans)}
       <h1 data-en="Recommendations" data-da="Anbefalinger">Recommendations</h1>
       <p class="recommendations-intro" data-en="Recommendations from my team at Demant, where I worked as a student assistant in Usability &amp; CoCreation for two years — including a 20-week full-time internship." data-da="Anbefalinger fra mit team hos Demant, hvor jeg arbejdede som studentermedhjælper i Usability &amp; CoCreation i to år — herunder et 20 ugers fuldtidspraktikforløb.">Recommendations from my team at Demant, where I worked as a student assistant in Usability &amp; CoCreation for two years — including a 20-week full-time internship.</p>
 
+      <p class="themes-label" data-en="What comes up again and again" data-da="Det, der går igen">What comes up again and again</p>
+      <div class="themes" id="themes"></div>
+      <p class="themes-status" id="themes-status"></p>
+
       <div class="rec-grid">
 
         <!-- Lisbeth -->
         <div class="rec-card">
-          <div class="rec-quote">"I wholeheartedly recommend Nicoline to anyone seeking a talented and reliable new colleague. As a student assistant in Demant's Team of Usability &amp; CoCreation, she has been a great asset to our team, highly contributing both professionally and socially.<span class="rec-more" id="r1"> She approaches every task with initiative and curiosity - quickly figuring out who to involve, how to structure the work, and how to deliver strong results. Nicoline is proactive, positive, and simply a joy to work with. Any team will be very lucky to have her!"</span></div>
+          <div class="rec-quote">"I wholeheartedly recommend Nicoline to anyone seeking a talented and reliable new colleague. As a student assistant in Demant's Team of Usability &amp; CoCreation, she has been a great asset to our team, highly contributing both professionally and socially.<span class="rec-more" id="r1"> She approaches every task with <mark data-t="initiative">initiative</mark> and <mark data-t="curiosity">curiosity</mark> - quickly figuring out <mark data-t="collaboration">who to involve</mark>, <mark data-t="structure">how to structure the work</mark>, and how to deliver strong results. Nicoline is <mark data-t="initiative">proactive</mark>, positive, and simply a joy to work with. Any team will be very lucky to have her!"</span></div>
           <button class="rec-toggle" data-more-en="Read more ↓" data-less-en="Read less ↑" data-more-da="Læs mere ↓" data-less-da="Læs mindre ↑" onclick="toggleRec('r1', this)">Read more ↓</button>
           <div class="rec-person">
             <div class="rec-initials" style="background:#b07b5c;color:#ffffff">LN</div>
@@ -650,7 +674,7 @@ svg text{font-family:var(--font-sans)}
 
         <!-- Sara -->
         <div class="rec-card">
-          <div class="rec-quote">"It has been a real pleasure to have Nicoline as part of our team, and I would highly recommend her. Nicoline has a very positive mindset and is not afraid to take on new challenges. She works independently and is great at driving tasks forward.<span class="rec-more" id="r2"> During her time with us, she has contributed to a wide range of usability studies, supporting everything from recruitment and planning to conducting sessions and analyzing results. She has also independently planned, prepared, and executed several user tests and UX evaluations. The insights from this work have been highly valuable for our product development and in our communication with stakeholders. Nicoline has a strong understanding of design theory and practice, which she naturally applies in her work. She works efficiently, in a structured way, and communicates results clearly. Lastly, she is a great colleague - easy to work with and always contributing to a positive and fun team environment."</span></div>
+          <div class="rec-quote">"It has been a real pleasure to have Nicoline as part of our team, and I would highly recommend her. Nicoline has a very positive mindset and is not afraid to take on new challenges. <mark data-t="initiative">She works independently and is great at driving tasks forward.</mark><span class="rec-more" id="r2"> During her time with us, she has contributed to a wide range of usability studies, supporting everything from recruitment and planning to conducting sessions and analyzing results. She has also independently planned, prepared, and executed several user tests and UX evaluations. The insights from this work have been highly valuable for our product development and <mark data-t="structure">in our communication with stakeholders</mark>. Nicoline has a strong understanding of design theory and practice, which she naturally applies in her work. <mark data-t="structure">She works efficiently, in a structured way, and communicates results clearly.</mark> Lastly, <mark data-t="collaboration">she is a great colleague - easy to work with</mark> and always contributing to a positive and fun team environment."</span></div>
           <button class="rec-toggle" data-more-en="Read more ↓" data-less-en="Read less ↑" data-more-da="Læs mere ↓" data-less-da="Læs mindre ↑" onclick="toggleRec('r2', this)">Read more ↓</button>
           <div class="rec-person">
             <div class="rec-initials" style="background:#b07b5c;color:#ffffff">SK</div>
@@ -664,7 +688,7 @@ svg text{font-family:var(--font-sans)}
 
         <!-- Helene -->
         <div class="rec-card">
-          <div class="rec-quote">"I've had the pleasure of working with Nicoline during her time as a student assistant, and I can warmly recommend her. Nicoline brings a rare combination of positivity, energy, and a strong willingness to help others.<span class="rec-more" id="r3"> She approaches new tasks with a genuine curiosity and a smile, and she is not afraid to take on challenges - even when stepping into unfamiliar territory. Her proactive mindset and can-do attitude make her a great team player and a joy to work with. She consistently contributes with reliability and enthusiasm, and her supportive nature has been appreciated across the team. I'm confident she will bring great value to any future role she takes on. I wish her all the best in her continued career."</span></div>
+          <div class="rec-quote">"I've had the pleasure of working with Nicoline during her time as a student assistant, and I can warmly recommend her. Nicoline brings a rare combination of positivity, energy, and <mark data-t="collaboration">a strong willingness to help others</mark>.<span class="rec-more" id="r3"> She approaches new tasks with <mark data-t="curiosity">a genuine curiosity</mark> and a smile, and she is not afraid to take on challenges - even when stepping into unfamiliar territory. <mark data-t="initiative">Her proactive mindset and can-do attitude</mark> make her <mark data-t="collaboration">a great team player</mark> and a joy to work with. She consistently contributes with reliability and enthusiasm, and her supportive nature has been appreciated across the team. I'm confident she will bring great value to any future role she takes on. I wish her all the best in her continued career."</span></div>
           <button class="rec-toggle" data-more-en="Read more ↓" data-less-en="Read less ↑" data-more-da="Læs mere ↓" data-less-da="Læs mindre ↑" onclick="toggleRec('r3', this)">Read more ↓</button>
           <div class="rec-person">
             <div class="rec-initials" style="background:#b07b5c;color:#ffffff">HH</div>
@@ -678,7 +702,7 @@ svg text{font-family:var(--font-sans)}
 
         <!-- Andreas -->
         <div class="rec-card">
-          <div class="rec-quote">"It is my pleasure to recommend Nicoline, who has worked as a student assistant in my team for Usability Engineering, Lean UX and CoCreation for the past two years. She approaches her tasks with a strong sense of responsibility and always delivers solid work.<span class="rec-more" id="r4"> Nicoline is not afraid to take initiative, and she approaches new tasks and challenges with both curiosity and drive - two highly valued qualities. Furthermore, Nicoline is an open and welcoming person who contributes positively to the collaboration in the team. She is pleasant to work with, meets others with respect and a good attitude, and is able to build strong relationships across the organisation. Her positive approach and helpful nature mean that she is well-liked by both colleagues and managers. Nicoline has been a valuable part of the team throughout her employment, and I am convinced that she will be a great asset in any future position. I can therefore give her my warmest recommendations."</span></div>
+          <div class="rec-quote">"It is my pleasure to recommend Nicoline, who has worked as a student assistant in my team for Usability Engineering, Lean UX and CoCreation for the past two years. She approaches her tasks with a strong sense of responsibility and always delivers solid work.<span class="rec-more" id="r4"> Nicoline is <mark data-t="initiative">not afraid to take initiative</mark>, and she approaches new tasks and challenges with both <mark data-t="curiosity">curiosity and drive</mark> - two highly valued qualities. Furthermore, Nicoline is an open and welcoming person who contributes positively to the collaboration in the team. She is pleasant to work with, meets others with respect and a good attitude, and is able to <mark data-t="collaboration">build strong relationships across the organisation</mark>. Her positive approach and helpful nature mean that she is well-liked by both colleagues and managers. Nicoline has been a valuable part of the team throughout her employment, and I am convinced that she will be a great asset in any future position. I can therefore give her my warmest recommendations."</span></div>
           <button class="rec-toggle" data-more-en="Read more ↓" data-less-en="Read less ↑" data-more-da="Læs mere ↓" data-less-da="Læs mindre ↑" onclick="toggleRec('r4', this)">Read more ↓</button>
           <div class="rec-person">
             <div class="rec-initials" style="background:#b07b5c;color:#ffffff">AR</div>
@@ -1570,6 +1594,94 @@ renderCaseCards();
   }, { threshold: 0.2, rootMargin: "0px 0px -8% 0px" });
 
   bars.forEach(bar => observer.observe(bar));
+})();
+</script>
+<script>
+// ─── TEMA-FILTER PAA ANBEFALINGER ──────────────────────────────────────────────
+(() => {
+  const THEMES = [
+    { key:"initiative",    en:"Initiative",               da:"Initiativ" },
+    { key:"curiosity",     en:"Curiosity",                da:"Nysgerrighed" },
+    { key:"structure",     en:"Structure & communication", da:"Struktur & formidling" },
+    { key:"collaboration", en:"Collaboration",            da:"Samarbejde" }
+  ];
+  const TXT = {
+    idle: { en:"Select a theme to see who mentions it — and where.",
+            da:"Klik et tema for at se, hvem der nævner det — og hvor." },
+    hit:  { en:(l,n)=>`${l}: mentioned by ${n} of 4 — highlighted in the text below.`,
+            da:(l,n)=>`${l}: nævnt af ${n} ud af 4 — fremhævet i teksten nedenfor.` }
+  };
+  const lang = () => (typeof currentLang !== "undefined" ? currentLang : "en");
+
+  const themesEl = document.getElementById("themes");
+  const statusEl = document.getElementById("themes-status");
+  const cards = [...document.querySelectorAll(".rec-card")];
+  if (!themesEl || !cards.length) return;
+
+  // hvilke temaer findes i hvert kort
+  const map = {};
+  THEMES.forEach(t => map[t.key] = cards.filter(c =>
+    [...c.querySelectorAll("mark")].some(m => m.dataset.t === t.key)));
+
+  themesEl.innerHTML = THEMES.map(t =>
+    `<button class="chip" data-k="${t.key}"><span data-en="${t.en}" data-da="${t.da}">${t.en}</span><span class="n">${map[t.key].length}</span></button>`
+  ).join("");
+
+  let active = null;
+
+  function setStatus(){
+    if (active === null) {
+      statusEl.dataset.en = TXT.idle.en;
+      statusEl.dataset.da = TXT.idle.da;
+    } else {
+      const t = THEMES.find(x => x.key === active), n = map[active].length;
+      statusEl.dataset.en = TXT.hit.en(t.en, n);
+      statusEl.dataset.da = TXT.hit.da(t.da, n);
+    }
+    statusEl.textContent = statusEl.dataset[lang() === "da" ? "da" : "en"];
+  }
+
+  function expand(card){
+    const span = card.querySelector(".rec-more");
+    const btn = card.querySelector(".rec-toggle");
+    if (span && btn && !span.classList.contains("open")) btn.click();
+  }
+
+  function apply(key){
+    active = (active === key) ? null : key;
+    themesEl.querySelectorAll(".chip").forEach(c => c.classList.toggle("on", c.dataset.k === active));
+    document.querySelectorAll(".rec-quote mark").forEach(m =>
+      m.classList.toggle("on", active !== null && m.dataset.t === active));
+    cards.forEach(card => {
+      const hit = active === null || map[active].includes(card);
+      card.classList.toggle("dim", !hit);
+      card.classList.toggle("hit", active !== null && hit);
+      if (active !== null && hit) expand(card);
+    });
+    setStatus();
+  }
+
+  themesEl.addEventListener("click", e => {
+    const c = e.target.closest(".chip");
+    if (c) apply(c.dataset.k);
+  });
+  setStatus();
+
+  // diskret indtoning ved scroll, forskudt
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !("IntersectionObserver" in window)) {
+    cards.forEach(c => c.classList.add("in"));
+  } else {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add("in"), cards.indexOf(entry.target) * 110);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    cards.forEach(c => io.observe(c));
+  }
 })();
 </script>
 <script data-goatcounter="https://nicolineisachsen.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
