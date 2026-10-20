@@ -219,6 +219,22 @@ a{color:inherit;text-decoration:none}
 .home-reference .reference-card{margin-top:0;padding:1.35rem 1.6rem}
 .home-reference .reference-quote{font-size:15px;margin-bottom:1rem}
 
+.outside-band{padding:3.25rem 2rem 4rem;background:#eef3fa}
+.outside-inner{max-width:1080px;margin:0 auto}
+.outside-head{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1.25rem;margin-bottom:1.35rem}
+.outside-line{height:1px;background:var(--border-tertiary)}
+.outside-head h2{font-size:34px;font-weight:600;line-height:1.2;text-align:center;color:var(--navy);margin:0}
+.outside-intro{max-width:760px;margin:0 auto 2.15rem;text-align:center;font-size:15px;color:var(--text-secondary);line-height:1.8}
+.outside-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.35rem}
+.outside-card{background:var(--bg-primary);border:0.5px solid var(--border-tertiary);border-radius:var(--radius-lg);overflow:hidden}
+.outside-card img{width:100%;height:340px;object-fit:cover;display:block}
+.outside-card.outside-exp img{object-position:center 35%}
+.outside-card.outside-floorball img{object-position:center 24%}
+.outside-card.outside-coffee img{object-position:center 45%}
+.outside-body{padding:1rem 1.1rem 1.2rem}
+.outside-title{font-size:15px;font-weight:600;color:var(--text-primary);margin-bottom:0.35rem}
+.outside-text{font-size:13px;color:var(--text-secondary);line-height:1.65}
+
 /* 5 REASONS TO HIRE ME — bygget 1:1 efter maalene i PDF'en.
    --u = 1 punkt i PDF'en. Alt herunder er PDF-maal gange --u,
    saa hele sektionen skalerer proportionalt. Vil du have den mindre,
@@ -333,6 +349,13 @@ a{color:inherit;text-decoration:none}
   .reason-title{font-size:17px;margin-bottom:0.45rem}
   .reason-text{font-size:13.5px;line-height:1.6}
   .reasons-foot{text-align:left;padding-right:0;font-size:12.5px;margin-top:1rem}
+  .outside-band{padding:2.5rem 1.5rem 3rem}
+  .outside-head{grid-template-columns:1fr;gap:0.8rem;margin-bottom:1rem}
+  .outside-line{display:none}
+  .outside-head h2{font-size:26px}
+  .outside-intro{margin-bottom:1.5rem;font-size:14px}
+  .outside-grid{grid-template-columns:1fr}
+  .outside-card img{height:280px}
 }
 
 /* CASE SECTION MODULES */
@@ -702,34 +725,9 @@ svg text{font-family:var(--font-sans)}
   <div class="page" data-page="about">
     <div class="about-page">
       <h1 data-en="About me" data-da="Om mig">About me</h1>
-      <p class="about-lead" data-en="I'm drawn to technical products and the people who have to use them. I like getting into how something works, talking to the people using it, and analysing my way to what should change." data-da="Jeg er draget af tekniske produkter og de mennesker, der skal bruge dem. Jeg kan lide at sætte mig ind i, hvordan noget virker, tale med dem, der bruger det, og analysere mig frem til, hvad der bør ændres.">I'm drawn to technical products and the people who have to use them. I like getting into how something works, talking to the people using it, and analysing my way to what should change.</p>
-      <p data-en="Two years in Demant's Usability &amp; Co-creation team taught me the craft: recruiting participants, running interviews, workshops and usability tests, and presenting the results to the people who make the decisions. My DTU projects added other settings, from a hospital's patient instructions to a transit-card app." data-da="To år i Demants Usability &amp; Co-creation-team lærte mig håndværket: at rekruttere deltagere, køre interviews, workshops og usability-tests og præsentere resultaterne for dem, der skal træffe beslutningerne. Mine projekter på DTU tilføjede andre miljøer, fra et hospitals patientvejledning til en rejsekort-app.">Two years in Demant's Usability &amp; Co-creation team taught me the craft: recruiting participants, running interviews, workshops and usability tests, and presenting the results to the people who make the decisions. My DTU projects added other settings, from a hospital's patient instructions to a transit-card app.</p>
-      <p data-en="Product innovation has been part of both. At Demant, my bachelor project took a feature most users had never tried and developed a tested in-app training concept for it. Through DTU, my team acted as innovation consultants for Nordsjællands Hospital, and we took two product concepts from idea to a tested MVP and a pitch. One of them, NapZ, won the pitch competition and received a Letter of Intent from BabySam. It taught me to weigh an idea on what users need, what is technically possible and what makes sense for the business." data-da="Produktinnovation har været en del af begge dele. Hos Demant tog mit bachelorprojekt en funktion, de fleste brugere aldrig havde prøvet, og udviklede et testet træningskoncept til den i appen. Gennem DTU var min gruppe innovationskonsulenter for Nordsjællands Hospital, og vi tog to produktkoncepter fra idé til testet MVP og pitch. Det ene, NapZ, vandt pitchkonkurrencen og fik et Letter of Intent fra BabySam. Det lærte mig at vurdere en idé ud fra, hvad brugerne har brug for, hvad der er teknisk muligt, og hvad der giver mening for forretningen.">Product innovation has been part of both. At Demant, my bachelor project took a feature most users had never tried and developed a tested in-app training concept for it. Through DTU, my team acted as innovation consultants for Nordsjællands Hospital, and we took two product concepts from idea to a tested MVP and a pitch. One of them, NapZ, won the pitch competition and received a Letter of Intent from BabySam. It taught me to weigh an idea on what users need, what is technically possible and what makes sense for the business.</p>
-      <p data-en="I work best with people from other disciplines, such as engineers, audiologists and designers, and I like driving a project forward instead of only handing over a report." data-da="Jeg arbejder bedst sammen med folk fra andre fagområder, fx ingeniører, audiologer og designere, og jeg kan lide at drive et projekt fremad i stedet for kun at aflevere en rapport.">I work best with people from other disciplines, such as engineers, audiologists and designers, and I like driving a project forward instead of only handing over a report.</p>
 
-      <h2 class="about-h2" data-en="Education" data-da="Uddannelse">Education</h2>
-      <div class="edu">
-        <p class="edu-degree" data-en="BEng in Process and Innovation" data-da="Diplomingeniør i Proces og Innovation">BEng in Process and Innovation</p>
-        <p class="edu-meta" data-en="DTU · Ballerup · Aug 2022 – 2026 · Grade average 8.6/12" data-da="DTU · Ballerup · aug. 2022 – 2026 · Karaktergennemsnit 8,6/12">DTU · Ballerup · Aug 2022 – 2026 · Grade average 8.6/12</p>
-        <p class="edu-desc" data-en="Interdisciplinary engineering degree combining product development, user-centred design, innovation and business. It gave me tools to lead workshops and innovation processes, and to work across business, technology and people. Includes a 20-week internship and the bachelor project, both with Demant." data-da="Tværfaglig ingeniøruddannelse, der kombinerer produktudvikling, brugercentreret design, innovation og forretning. Den gav mig værktøjer til at lede workshops og innovationsprocesser og til at arbejde på tværs af forretning, teknologi og mennesker. Indeholder 20 ugers praktik og bachelorprojekt, begge hos Demant.">Interdisciplinary engineering degree combining product development, user-centred design, innovation and business. It gave me tools to lead workshops and innovation processes, and to work across business, technology and people. Includes a 20-week internship and the bachelor project, both with Demant.</p>
-        <div class="edu-chips edu-focus">
-          <span class="tag" data-en="Users and design" data-da="Bruger og design">Users and design</span>
-          <span class="tag" data-en="Innovation" data-da="Innovation">Innovation</span>
-          <span class="tag" data-en="Product development" data-da="Produktudvikling">Product development</span>
-          <span class="tag" data-en="Data and analysis" data-da="Data og analyse">Data and analysis</span>
-          <span class="tag" data-en="Business and leadership" data-da="Forretning og ledelse">Business and leadership</span>
-        </div>
-        <details class="edu-courses">
-          <summary data-en="See courses" data-da="Se kurser">See courses</summary>
-          <dl class="edu-themes">
-          <div><dt data-en="Users and design" data-da="Bruger og design">Users and design</dt><dd data-en="Design, Users and Ethics · Interaction Design · Industrial Design · Prototyping" data-da="Design, brugere og etik · Interaktionsdesign · Industriel design · Prototyping">Design, Users and Ethics · Interaction Design · Industrial Design · Prototyping</dd></div>
-          <div><dt data-en="Innovation and entrepreneurship" data-da="Innovation og entreprenørskab">Innovation and entrepreneurship</dt><dd data-en="Creativity and Innovation · Green Entrepreneurship · Innovation Pilot · Innovation in an Organisational Context · From Idea to Checkout" data-da="Kreativitet og innovation · Grønt Entreprenørskab · Innovation Pilot · Innovation i en organisatorisk kontekst · Fra idé til checkout">Creativity and Innovation · Green Entrepreneurship · Innovation Pilot · Innovation in an Organisational Context · From Idea to Checkout</dd></div>
-          <div><dt data-en="Product development and technology" data-da="Produktudvikling og teknologi">Product development and technology</dt><dd data-en="Product Development · Mechanical CAD · Materials Science · Physical Computing · Digitalisation and Industry 4.0" data-da="Produktudvikling · Mekanisk CAD · Materialelære · Physical Computing · Digitalisering og Industri 4.0">Product Development · Mechanical CAD · Materials Science · Physical Computing · Digitalisation and Industry 4.0</dd></div>
-          <div><dt data-en="Data and analysis" data-da="Data og analyse">Data and analysis</dt><dd data-en="Statistical Analysis and Data Visualisation (R, regression, hypothesis testing) · Information Technology in Production (advanced Excel, VBA)" data-da="Statistisk analyse og datavisualisering (R, regression, hypotesetest) · Informationsteknologi i Produktion (avanceret Excel, VBA)">Statistical Analysis and Data Visualisation (R, regression, hypothesis testing) · Information Technology in Production (advanced Excel, VBA)</dd></div>
-          <div><dt data-en="Business and leadership" data-da="Forretning og ledelse">Business and leadership</dt><dd data-en="Business Economics · Technology and Marketing · Project Management · Project Leadership" data-da="Erhvervsøkonomi · Teknologi og Markedsføring · Projektledelse · Projektlederskab">Business Economics · Technology and Marketing · Project Management · Project Leadership</dd></div>
-        </dl>
-        </details>
-      </div>
+      <p class="about-lead" data-en="I’m a UX and innovation engineer with a BEng from DTU. For the past two years I’ve worked in Demant’s Usability &amp; Co-creation team, planning studies with real users and turning what we learned into clear recommendations for the teams behind the products." data-da="Jeg er UX- og innovationsingeniør med en diplomingeniøruddannelse fra DTU. De sidste to år har jeg arbejdet i Demants Usability &amp; Co-creation-team, hvor jeg har planlagt studier med rigtige brugere og omsat det, vi lærte, til klare anbefalinger for de teams, der arbejder med produkterne.">I’m a UX and innovation engineer with a BEng from DTU. For the past two years I’ve worked in Demant’s Usability &amp; Co-creation team, planning studies with real users and turning what we learned into clear recommendations for the teams behind the products.</p>
+      <p data-en="Most of my work has been on hearing aids and related products. I’m drawn to technical products because I like understanding how they work in practice and where things get difficult for the people using them. I enjoy working closely with engineers, specialists and designers, and I’m at my best when I can help move a project forward rather than only hand over a report at the end." data-da="Det meste af mit arbejde har handlet om høreapparater og beslægtede produkter. Jeg er draget af tekniske produkter, fordi jeg godt kan lide at forstå, hvordan de fungerer i praksis, og hvor det bliver svært for dem, der skal bruge dem. Jeg arbejder godt sammen med ingeniører, specialister og designere, og jeg trives bedst, når jeg kan være med til at få et projekt til at rykke sig fremad frem for kun at aflevere en rapport til sidst.">Most of my work has been on hearing aids and related products. I’m drawn to technical products because I like understanding how they work in practice and where things get difficult for the people using them. I enjoy working closely with engineers, specialists and designers, and I’m at my best when I can help move a project forward rather than only hand over a report at the end.</p>
 
       <h2 class="about-h2" data-en="Experience" data-da="Erfaring">Experience</h2>
       <div class="path">
@@ -750,10 +748,10 @@ svg text{font-family:var(--font-sans)}
                 <li data-en="Recruited test participants and kept a participant database." data-da="Rekrutterede testdeltagere og vedligeholdt en deltagerdatabase.">Recruited test participants and kept a participant database.</li>
                 <li data-en="Contributed to co-creation workshops, interviews and surveys." data-da="Bidrog til co-creation-workshops, interviews og surveys.">Contributed to co-creation workshops, interviews and surveys.</li>
                 <li data-en="Processed and visualised user data in Excel." data-da="Bearbejdede og visualiserede brugerdata i Excel.">Processed and visualised user data in Excel.</li>
-                <li data-en="Analysed competitors' product solutions." data-da="Analyserede konkurrenters produktløsninger.">Analysed competitors' product solutions.</li>
+                <li data-en="Analysed competitors’ product solutions." data-da="Analyserede konkurrenters produktløsninger.">Analysed competitors’ product solutions.</li>
                 <li data-en="Moderated studies and managed technical test setups." data-da="Modererede studier og stod for tekniske testopsætninger.">Moderated studies and managed technical test setups.</li>
                 <li data-en="Prepared presentations and usability documentation." data-da="Udarbejdede præsentationer og usability-dokumentation.">Prepared presentations and usability documentation.</li>
-                <li data-en="Did my bachelor project with Demant and Oticon on tap control." data-da="Lavede mit bachelorprojekt med Demant og Oticon om tap control.">Did my bachelor project with Demant and Oticon on tap control. <button class="exp-case" onclick="openCase('bachelor')" data-en="See the case" data-da="Se casen">See the case</button></li>
+                <li data-en="Did my bachelor project with Demant and Oticon on tap control. <button class='exp-case' onclick=&quot;openCase('bachelor')&quot;>See the case</button>" data-da="Lavede mit bachelorprojekt med Demant og Oticon om tap-kontrol. <button class='exp-case' onclick=&quot;openCase('bachelor')&quot;>Se casen</button>">Did my bachelor project with Demant and Oticon on tap control. <button class="exp-case" onclick="openCase('bachelor')">See the case</button></li>
               </ul>
             </details>
           </div>
@@ -768,11 +766,24 @@ svg text{font-family:var(--font-sans)}
         </div>
       </div>
 
-      <details class="methods-more">
-        <summary data-en="Methods, and where I used them" data-da="Metoder, og hvor jeg har brugt dem">Methods, and where I used them</summary>
-        <div class="evidence" id="evidence"></div>
-        <p class="ev-note" data-en="Each link opens the case where I used the method." data-da="Hvert link åbner den case, hvor jeg brugte metoden.">Each link opens the case where I used the method.</p>
-      </details>
+      <h2 class="about-h2" data-en="Education" data-da="Uddannelse">Education</h2>
+      <div class="edu">
+        <p class="edu-degree" data-en="BEng in Process and Innovation" data-da="Diplomingeniør i Proces og Innovation">BEng in Process and Innovation</p>
+        <p class="edu-meta" data-en="DTU · Ballerup · Aug 2022 – 2026 · Grade average 8.6/12" data-da="DTU · Ballerup · aug. 2022 – 2026 · Karaktergennemsnit 8,6/12">DTU · Ballerup · Aug 2022 – 2026 · Grade average 8.6/12</p>
+        <p class="edu-desc" data-en="Interdisciplinary engineering degree in product development, user-centred design, innovation and business. It includes a 20-week internship and the bachelor project, both with Demant." data-da="Tværfaglig ingeniøruddannelse inden for produktudvikling, brugercentreret design, innovation og forretning. Den indeholder 20 ugers praktik og bachelorprojekt, begge hos Demant.">Interdisciplinary engineering degree in product development, user-centred design, innovation and business. It includes a 20-week internship and the bachelor project, both with Demant.</p>
+        <details class="edu-courses">
+          <summary data-en="See courses" data-da="Se kurser">See courses</summary>
+          <dl class="edu-themes">
+          <div><dt data-en="Users and design" data-da="Bruger og design">Users and design</dt><dd data-en="Design, Users and Ethics · Interaction Design · Industrial Design · Prototyping" data-da="Design, brugere og etik · Interaktionsdesign · Industriel design · Prototyping">Design, Users and Ethics · Interaction Design · Industrial Design · Prototyping</dd></div>
+          <div><dt data-en="Innovation and entrepreneurship" data-da="Innovation og entreprenørskab">Innovation and entrepreneurship</dt><dd data-en="Creativity and Innovation · Green Entrepreneurship · Innovation Pilot · Innovation in an Organisational Context · From Idea to Checkout" data-da="Kreativitet og innovation · Grønt Entreprenørskab · Innovation Pilot · Innovation i en organisatorisk kontekst · Fra idé til checkout">Creativity and Innovation · Green Entrepreneurship · Innovation Pilot · Innovation in an Organisational Context · From Idea to Checkout</dd></div>
+          <div><dt data-en="Product development and technology" data-da="Produktudvikling og teknologi">Product development and technology</dt><dd data-en="Product Development · Mechanical CAD · Materials Science · Physical Computing · Digitalisation and Industry 4.0" data-da="Produktudvikling · Mekanisk CAD · Materialelære · Physical Computing · Digitalisering og Industri 4.0">Product Development · Mechanical CAD · Materials Science · Physical Computing · Digitalisation and Industry 4.0</dd></div>
+          <div><dt data-en="Data and analysis" data-da="Data og analyse">Data and analysis</dt><dd data-en="Statistical Analysis and Data Visualisation (R, regression, hypothesis testing) · Information Technology in Production (advanced Excel, VBA)" data-da="Statistisk analyse og datavisualisering (R, regression, hypotesetest) · Informationsteknologi i Produktion (avanceret Excel, VBA)">Statistical Analysis and Data Visualisation (R, regression, hypothesis testing) · Information Technology in Production (advanced Excel, VBA)</dd></div>
+          <div><dt data-en="Business and leadership" data-da="Forretning og ledelse">Business and leadership</dt><dd data-en="Business Economics · Technology and Marketing · Project Management · Project Leadership" data-da="Erhvervsøkonomi · Teknologi og Markedsføring · Projektledelse · Projektlederskab">Business Economics · Technology and Marketing · Project Management · Project Leadership</dd></div>
+        </dl>
+        </details>
+      </div>
+
+      <!-- Må blive stående i About: scriptet nederst flytter kortet herfra til forsiden -->
       <div class="reference-card">
         <i class="ti ti-quote reference-quote-icon" aria-hidden="true"></i>
         <p class="reference-quote" data-en="&quot;What sets her apart is her ability to cut through complexity and quickly identify what truly matters for the user and the product.&quot;" data-da="&quot;Det, der adskiller hende, er hendes evne til at skære igennem kompleksitet og hurtigt identificere, hvad der virkelig betyder noget for brugeren og produktet.&quot;">"What sets her apart is her ability to cut through complexity and quickly identify what truly matters for the user and the product."</p>
@@ -789,62 +800,42 @@ svg text{font-family:var(--font-sans)}
       </div>
     </div>
 
-    <!-- 5 REASONS TO HIRE ME -->
-    <div class="reasons-band">
-      <div class="reasons-inner">
-
-        <div class="reasons-head">
-          <span class="reasons-num">5</span>
-          <div>
-            <h2 class="reasons-title" data-en="Reasons to<br>hire me" data-da="Grunde til at<br>ansætte mig">Reasons to<br>hire me</h2>
-            <p class="reasons-sub" data-en="(that you won't find on my CV)" data-da="(som ikke står i mit CV)">(that you won't find on my CV)</p>
-          </div>
+    <section class="outside-band">
+      <div class="outside-inner">
+        <div class="outside-head">
+          <span class="outside-line" aria-hidden="true"></span>
+          <h2 data-en="What I do when I’m not working" data-da="Det laver jeg, når jeg ikke arbejder">What I do when I’m not working</h2>
+          <span class="outside-line" aria-hidden="true"></span>
         </div>
+        <p class="outside-intro" data-en="When I’m not working, I’m usually doing something social, active or out and about. Floorball still fills a lot, I love concerts and new experiences, and I’m never far from a good cup of coffee." data-da="Når jeg ikke arbejder, laver jeg som regel noget socialt, aktivt eller er på farten. Floorball fylder stadig meget, jeg elsker koncerter og nye oplevelser, og jeg er sjældent langt fra en god kop kaffe.">When I’m not working, I’m usually doing something social, active or out and about. Floorball still fills a lot, I love concerts and new experiences, and I’m never far from a good cup of coffee.</p>
 
-        <article class="reason left r1">
-          <div class="reason-img pos-livsnyder"><img src="livsnyder.jpg" alt=""></div>
-          <div class="reason-body">
-            <h3 class="reason-title" data-en="I know how to enjoy life" data-da="Jeg er en livsnyder">I know how to enjoy life</h3>
-            <p class="reason-text" data-en="Concerts, travel and new experiences are at the top of my list, and I rarely say no to a ticket. So if you need ideas for the team day, or just want to know what's on in town this weekend, you know who to ask." data-da="Koncerter, rejser og nye oplevelser står øverst på listen, og jeg siger sjældent nej til en billet. Så hvis I mangler idéer til teamdagen, eller bare vil vide, hvad der sker i byen i weekenden, ved I, hvem I skal spørge.">Concerts, travel and new experiences are at the top of my list, and I rarely say no to a ticket. So if you need ideas for the team day, or just want to know what's on in town this weekend, you know who to ask.</p>
-          </div>
-        </article>
+        <div class="outside-grid">
+          <article class="outside-card outside-exp">
+            <img src="outside-concert.jpg" alt="Nicoline at a concert">
+            <div class="outside-body">
+              <h3 class="outside-title" data-en="Concerts and little adventures" data-da="Koncerter og små eventyr">Concerts and little adventures</h3>
+              <p class="outside-text" data-en="I love saying yes to concerts, trips and the kind of plans that make everyday life feel a bit bigger." data-da="Jeg elsker at sige ja til koncerter, rejser og den slags planer, der gør hverdagen lidt større.">I love saying yes to concerts, trips and the kind of plans that make everyday life feel a bit bigger.</p>
+            </div>
+          </article>
 
-        <article class="reason right r2">
-          <div class="reason-img pos-floorball"><img src="floorball.jpg" alt=""></div>
-          <div class="reason-body">
-            <h3 class="reason-title" data-en="I play well with others" data-da="Jeg spiller godt med andre">I play well with others</h3>
-            <p class="reason-text" data-en="I've always played team sports, and these days it's floorball. The sports have changed, but the lesson hasn't: You never win alone, and you have to be able to take a pass, even when it's a little off target." data-da="Jeg har altid dyrket holdsport, og i dag er det floorball. Sportsgrenene har skiftet, men pointen er den samme: Man vinder ikke alene, og man skal kunne tage imod en aflevering, også når den er lidt skæv.">I've always played team sports, and these days it's floorball. The sports have changed, but the lesson hasn't: You never win alone, and you have to be able to take a pass, even when it's a little off target.</p>
-          </div>
-        </article>
+          <article class="outside-card outside-floorball">
+            <img src="outside-floorball.jpg" alt="Nicoline with her floorball team">
+            <div class="outside-body">
+              <h3 class="outside-title" data-en="Floorball" data-da="Floorball">Floorball</h3>
+              <p class="outside-text" data-en="I’ve played team sports for years, and floorball is still one of the places where I feel most at home. I love the energy, the team spirit and working towards something together." data-da="Jeg har dyrket holdsport i mange år, og floorball er stadig et af de steder, hvor jeg føler mig mest hjemme. Jeg elsker energien, fællesskabet og det at arbejde mod noget sammen.">I’ve played team sports for years, and floorball is still one of the places where I feel most at home. I love the energy, the team spirit and working towards something together.</p>
+            </div>
+          </article>
 
-        <article class="reason left r3">
-          <div class="reason-img pos-halloween"><img src="halloween.jpg" alt=""></div>
-          <div class="reason-body">
-            <h3 class="reason-title" data-en="I go all in on an idea" data-da="Jeg går all-in på en idé">I go all in on an idea</h3>
-            <p class="reason-text" data-en="For Halloween, I was a bunch of purple grapes. It took a lot of balloons. Once I'm on board with an idea, I don't do it halfway. You can look forward to my costume at the next company party." data-da="Til halloween var jeg en klase lilla vindruer. Det krævede rigtig mange balloner. Når jeg først er med på en idé, bliver den ikke gennemført halvt. I kan roligt glæde jer til mit kostume til næste firmafest.">For Halloween, I was a bunch of purple grapes. It took a lot of balloons. Once I'm on board with an idea, I don't do it halfway. You can look forward to my costume at the next company party.</p>
-          </div>
-        </article>
-
-        <article class="reason right r4">
-          <div class="reason-img pos-biavl"><img src="biavl.jpg" alt=""></div>
-          <div class="reason-body">
-            <h3 class="reason-title" data-en="I say yes to new things" data-da="Jeg siger ja til nye ting">I say yes to new things</h3>
-            <p class="reason-text" data-en="At folk high school, I tried beekeeping. Just because. I'm always curious to try new things and approach them with an open mind, even when they buzz. The same goes for new ideas, methods and tools at work." data-da="På højskolen prøvede jeg at være biavler. Bare fordi. Jeg er altid nysgerrig på at prøve nye ting og møder dem med et åbent sind, også når de summer. Det samme gælder nye idéer, metoder og værktøjer på arbejdet.">At folk high school, I tried beekeeping. Just because. I'm always curious to try new things and approach them with an open mind, even when they buzz. The same goes for new ideas, methods and tools at work.</p>
-          </div>
-        </article>
-
-        <article class="reason left r5">
-          <div class="reason-img pos-kaffe"><img src="kaffe.jpg" alt=""></div>
-          <div class="reason-body">
-            <h3 class="reason-title" data-en="I find the coffee machine first" data-da="Jeg finder kaffemaskinen først">I find the coffee machine first</h3>
-            <p class="reason-text" data-en="Some call it a caffeine addiction. I call it stakeholder mapping: Where the coffee is, the colleagues are, and that's where the good conversations happen." data-da="Nogen kalder det koffeinafhængighed. Jeg kalder det stakeholder mapping: Hvor kaffen er, er kollegerne, og der bliver de gode samtaler taget.">Some call it a caffeine addiction. I call it stakeholder mapping: Where the coffee is, the colleagues are, and that's where the good conversations happen.</p>
-          </div>
-        </article>
-
-        <p class="reasons-foot" data-en="Everything work-related is on my CV." data-da="Alt det jobrelaterede står i CV'et.">Everything work-related is on my CV.</p>
-
+          <article class="outside-card outside-coffee">
+            <img src="outside-coffee.jpg" alt="Nicoline enjoying coffee">
+            <div class="outside-body">
+              <h3 class="outside-title" data-en="Coffee" data-da="Kaffe">Coffee</h3>
+              <p class="outside-text" data-en="Coffee is genuinely one of my favourite things. I love café time, slow weekend mornings and the small pause that comes with a really good cup." data-da="Kaffe er helt ærligt en af mine yndlingsting. Jeg elsker cafétid, langsomme weekendmorgener og den lille pause, der følger med en virkelig god kop.">Coffee is genuinely one of my favourite things. I love café time, slow weekend mornings and the small pause that comes with a really good cup.</p>
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
+    </section>
   </div>
 
   <!-- RECOMMENDATIONS -->
